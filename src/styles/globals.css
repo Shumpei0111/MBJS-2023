@@ -2,26 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  margin: 0 auto;
+  background-color: #121212;
+  font-family: ambroise-firmin-std, YuMincho, 'Yu Mincho', serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  scrollbar-gutter: stable;
+  text-rendering: optimizelegibility;
+}
+
+.noise-overlay {
+  position: fixed;
+  z-index: 99;
+  top: -100%;
+  left: -50%;
+  width: 300%;
+  height: 300%;
+  animation: grain 8s steps(10) infinite;
+  background-image: url('/images/nosie_cover.png');
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+@keyframes grain {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  10% {
+    transform: translate(-5%, -10%);
+  }
+
+  20% {
+    transform: translate(-8%, 5%);
+  }
+
+  30% {
+    transform: translate(7%, -15%);
+  }
+
+  40% {
+    transform: translate(-5%, 15%);
+  }
+
+  50% {
+    transform: translate(-8%, 10%);
+  }
+
+  60% {
+    transform: translate(8%, 0%);
+  }
+
+  70% {
+    transform: translate(0%, 8%);
+  }
+
+  80% {
+    transform: translate(3%, 20%);
+  }
+
+  90% {
+    transform: translate(-8%, 8%);
+  }
 }
