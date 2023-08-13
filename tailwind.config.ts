@@ -45,8 +45,9 @@ const config: Config = {
       },
       container: {
         screens: {
-          // 1280pxまでしか広がらないように
-          '2xl': '1280px',
+          // 1200pxまでしか広がらないように
+          '2xl': '1200px',
+          xl: '980px',
         },
       },
     },

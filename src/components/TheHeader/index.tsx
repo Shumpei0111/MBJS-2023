@@ -18,10 +18,10 @@ export const TheHeader: React.FC<Props> = ({
         !isShowInner ? 'blur-md' : 'blur-none',
       ])}
     >
-      <div className="container mx-auto mt-16 flex flex-row items-center">
+      <div className="container mx-auto mt-10 flex flex-row items-start">
         <Link href="/">
           <hgroup className="flex flex-row items-end">
-            <h1 className={classNames(['text-184 leading-[0.75]'])}>MB.js</h1>
+            <h1 className={classNames(['text-100 leading-[0.75]'])}>MB.js</h1>
             <span className=" leading-4">Shumpei's Portfolio site</span>
           </hgroup>
         </Link>

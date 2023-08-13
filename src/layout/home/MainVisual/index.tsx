@@ -25,7 +25,7 @@ export const MainVisual: React.FC<Props> = ({
     <section
       data-section="MainVisual"
       className="relative"
-      style={{ height: innerRef.current?.clientHeight }}
+      style={{ height: innerRef.current?.clientHeight ?? 0 + 1000 }}
     >
       <Count isShowInner={isShowInner} handleShowInner={handleShowInner} />
       <div className="relative container mx-auto">
@@ -37,8 +37,11 @@ export const MainVisual: React.FC<Props> = ({
               : 'opacity-0 -top-[600px] blur-md',
           ])}
         >
-          <div className="absolute left-[10%]" ref={innerRef}>
-            <div className="w-500">
+          <div
+            className="absolute translate-y-[-20%] left-[10%]"
+            ref={innerRef}
+          >
+            <div className="w-400">
               <img
                 src={'/images/arm_and_sign.png'}
                 alt=""
@@ -49,18 +52,18 @@ export const MainVisual: React.FC<Props> = ({
         </div>
         <div
           className={classNames([
-            'absolute right-0 top-[45.6vh] duration-[2800ms]',
+            'absolute right-0 top-[30vh] duration-[2800ms]',
             isShowInner
               ? 'opacity-100 top-0 blur-none'
               : 'opacity-0 -top-[600px] blur-md',
           ])}
         >
           <hgroup>
-            <h2 className="uppercase text-40">
+            <h2 className="uppercase text-30">
               Web front-end developer
               <br />& Doujin creator
             </h2>
-            <p className="text-20 before:content-['{'] before:pr-1 after:content-['}'] after:pl-1">
+            <p className="text-20 before:content-['{'] before:pr-1 after:content-['}'] after:pl-1 mt-10 ">
               Illustration : Graphic Design : Manga
             </p>
           </hgroup>
