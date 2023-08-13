@@ -1,6 +1,10 @@
-import { MainVisual } from '@/layout/home/MainVisual';
+import {
+  MainVisual,
+  MarqueeRecentProject,
+  WebsiteSection,
+} from '@/layout/home';
 import { DefaultLayout } from '@/layout/default';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import classNames from 'classnames';
 
 export default function Home() {
@@ -17,35 +21,9 @@ export default function Home() {
           isShowInner={isShowInner}
           handleShowInner={handleShowInner}
         />
-        <div className={classNames([!isShowInner && "hidden"])}>
-          <p>aaaaa</p>
-          <p>aaaaa</p>
-          <p>aaaaa</p>
-          <p>aaaaa</p>
-          <p>aaaaa</p>
-          <p>aaaaa</p>
-          <p>aaaaa</p>
-          <p>aaaaa</p>
-          <p>aaaaa</p>
-          <p>aaaaa</p>
-          <p>aaaaa</p>
-          <p>aaaaa</p>
-          <p>aaaaa</p>
-          <p>aaaaa</p>
-          <p>aaaaa</p>
-          <p>aaaaa</p>
-          <p>aaaaa</p>
-          <p>aaaaa</p>
-          <p>aaaaa</p>
-          <p>aaaaa</p>
-          <p>aaaaa</p>
-          <p>aaaaa</p>
-          <p>aaaaa</p>
-          <p>aaaaa</p>
-          <p>aaaaa</p>
-          <p>aaaaa</p>
-          <p>aaaaa</p>
-          <p>aaaaa</p>
+        <div className={classNames([!isShowInner && 'hidden'])}>
+          <MarqueeRecentProject />
+          <WebsiteSection />
         </div>
       </div>
     </DefaultLayout>

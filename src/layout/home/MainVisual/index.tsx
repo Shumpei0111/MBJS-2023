@@ -41,7 +41,7 @@ export const MainVisual: React.FC<Props> = ({
             className="absolute translate-y-[-20%] left-[10%]"
             ref={innerRef}
           >
-            <div className="w-400">
+            <div className="w-400 flow-arm">
               <img
                 src={'/images/arm_and_sign.png'}
                 alt=""

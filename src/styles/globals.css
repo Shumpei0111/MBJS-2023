@@ -71,6 +71,41 @@ body {
   pointer-events: none;
 }
 
+.marquee-child {
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+[data-scroll='child-first'] {
+  animation-name: first;
+}
+[data-scroll='child-second'] {
+  animation-name: second;
+}
+
+.flow-arm {
+  animation: flow-arm 2s linear infinite;
+}
+
+@keyframes first {
+  from {
+    left: 0%;
+  }
+  to {
+    left: -134%;
+  }
+}
+
+@keyframes second {
+  from {
+    left: 134%;
+  }
+  to {
+    left: 0%;
+  }
+}
+
 @keyframes grain {
   0%,
   100% {
@@ -111,5 +146,20 @@ body {
 
   90% {
     transform: translate(-8%, 8%);
+  }
+}
+
+@keyframes flow-arm {
+  0% {
+    transform: translateY(-6px);
+  }
+  20% {
+    transform: translateY(40px);
+  }
+  80% {
+    transform: translateY(52px);
+  }
+  100% {
+    transform: translateY(-6px);
   }
 }

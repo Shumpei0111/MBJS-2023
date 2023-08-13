@@ -20,6 +20,9 @@ const config: Config = {
           [...Array(200)].map((_, i) => i + 1).map((num) => [num, `${num}px`]),
         ),
       },
+      fontFamily: {
+        sans: ['YuMincho', 'Yu Mincho', 'serif'],
+      },
       borderWidth: {
         // 1 ~ 10px
         // usage: border-1, border-2, border-3, ...
