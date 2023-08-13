@@ -1,4 +1,4 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from 'tailwindcss';
 
 const config: Config = {
   content: [
@@ -10,9 +10,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#dc7a7d",
-        black: "#121212",
-        white: "#ffefef"
+        primary: '#dc7a7d',
+        black: '#121212',
+        white: '#ffefef',
       },
       fontSize: {
         // usage: text-1, text-2, text-3, ...
@@ -52,5 +52,5 @@ const config: Config = {
     },
   },
   plugins: [],
-}
-export default config
+};
+export default config;

@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prettier": "prettier --config .prettierrc './**/*.{js,jsx,ts,tsx,json,md}'"
+    "prettier": "prettier --config .prettierrc './**/*.{js,jsx,ts,tsx,json,md}'",
+    "format": "npm run prettier -- --write"
   },
   "dependencies": {
     "@types/node": "20.4.9",

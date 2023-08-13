@@ -7,7 +7,12 @@ interface CounterProps {
   duration?: number;
 }
 
-export const useCounter = ({ start, end, onEnd, duration = 2000 }: CounterProps) => {
+export const useCounter = ({
+  start,
+  end,
+  onEnd,
+  duration = 2000,
+}: CounterProps) => {
   const [current, setCurrent] = useState(start);
   let startTimestamp: number | null = null;
 
