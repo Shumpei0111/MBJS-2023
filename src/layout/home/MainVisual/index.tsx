@@ -1,5 +1,5 @@
 import { Count } from '@/layout/home/Count';
-import { ComponentProps } from 'react';
+import { ComponentProps, useEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 
 type Props = ComponentProps<typeof Count>;
@@ -8,19 +8,36 @@ export const MainVisual: React.FC<Props> = ({
   isShowInner,
   handleShowInner,
 }) => {
+  const [isInitLoad, setIsInitLoad] = useState<boolean>(false);
+
+  useEffect(() => {
+    // 初回訪問時かどうかを判定
+    const visited = sessionStorage.getItem('visited');
+
+    if (!visited) {
+      setIsInitLoad(true);
+    }
+  }, []);
+
+  const innerRef = useRef<HTMLDivElement>(null);
+
   return (
-    <section data-section="MainVisual" className="relative">
+    <section
+      data-section="MainVisual"
+      className="relative"
+      style={{ height: innerRef.current?.clientHeight }}
+    >
       <Count isShowInner={isShowInner} handleShowInner={handleShowInner} />
       <div className="relative container mx-auto">
         <div
           className={classNames([
-            'container mx-auto absolute duration-[2800ms] left-1/4 -translate-x-1/4',
+            'container mx-auto absolute left-1/4 -translate-x-1/4  duration-[2800ms]',
             isShowInner
               ? 'opacity-100 top-0 blur-none'
               : 'opacity-0 -top-[600px] blur-md',
           ])}
         >
-          <div className="absolute left-[10%]">
+          <div className="absolute left-[10%]" ref={innerRef}>
             <div className="w-500">
               <img
                 src={'/images/arm_and_sign.png'}

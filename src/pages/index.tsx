@@ -1,6 +1,7 @@
 import { MainVisual } from '@/layout/home/MainVisual';
 import { DefaultLayout } from '@/layout/default';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import classNames from 'classnames';
 
 export default function Home() {
   const [isShowInner, setIsShowInner] = useState<boolean>(false);
@@ -11,7 +12,42 @@ export default function Home() {
 
   return (
     <DefaultLayout isShowInner={isShowInner}>
-      <MainVisual isShowInner={isShowInner} handleShowInner={handleShowInner} />
+      <div className="flex flex-col container mx-auto">
+        <MainVisual
+          isShowInner={isShowInner}
+          handleShowInner={handleShowInner}
+        />
+        <div className={classNames([!isShowInner && "hidden"])}>
+          <p>aaaaa</p>
+          <p>aaaaa</p>
+          <p>aaaaa</p>
+          <p>aaaaa</p>
+          <p>aaaaa</p>
+          <p>aaaaa</p>
+          <p>aaaaa</p>
+          <p>aaaaa</p>
+          <p>aaaaa</p>
+          <p>aaaaa</p>
+          <p>aaaaa</p>
+          <p>aaaaa</p>
+          <p>aaaaa</p>
+          <p>aaaaa</p>
+          <p>aaaaa</p>
+          <p>aaaaa</p>
+          <p>aaaaa</p>
+          <p>aaaaa</p>
+          <p>aaaaa</p>
+          <p>aaaaa</p>
+          <p>aaaaa</p>
+          <p>aaaaa</p>
+          <p>aaaaa</p>
+          <p>aaaaa</p>
+          <p>aaaaa</p>
+          <p>aaaaa</p>
+          <p>aaaaa</p>
+          <p>aaaaa</p>
+        </div>
+      </div>
     </DefaultLayout>
   );
 }
