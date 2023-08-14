@@ -88,6 +88,28 @@ body {
   animation: flow-arm 2s linear infinite;
 }
 
+.hidden-cover {
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+.hidden-cover.is-hidden {
+  animation-name: height;
+}
+
+@keyframes height {
+  from {
+    height: 500px;
+    width: 100%;
+    opacity: 1;
+  }
+  to {
+    height: 0;
+    opacity: 0;
+  }
+}
+
 @keyframes first {
   from {
     left: 0%;

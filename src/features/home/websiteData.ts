@@ -3,7 +3,11 @@ import { type CommonCard } from '@/components/ProductCard';
 export const websiteData: CommonCard[] = [
   {
     image: {
-      url: '',
+      url: '/images/project/kamiinabotan.png',
+      alt: '百合に酔うのスクリーンショット',
+    },
+    coverImage: {
+      url: '/images/project/cover-kamiinabotan.png',
       alt: '百合に酔うのスクリーンショット',
     },
     title: '百合に酔う',
@@ -28,7 +32,11 @@ export const websiteData: CommonCard[] = [
   },
   {
     image: {
-      url: '',
+      url: '/images/project/haiko.png',
+      alt: '廃校探索のスクリーンショット',
+    },
+    coverImage: {
+      url: '/images/project/cover-haiko.png',
       alt: '廃校探索のスクリーンショット',
     },
     title: '廃校探索',
@@ -53,7 +61,11 @@ export const websiteData: CommonCard[] = [
   },
   {
     image: {
-      url: '',
+      url: '/images/project/resort.png',
+      alt: 'PRESENT RESORT POINTのスクリーンショット',
+    },
+    coverImage: {
+      url: '/images/project/cover-resort.png',
       alt: 'PRESENT RESORT POINTのスクリーンショット',
     },
     title: 'PRESENT RESORT POINT',
