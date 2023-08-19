@@ -6,7 +6,7 @@ export const WebsiteSection: React.FC = () => {
   return (
     <div className="relative">
       <CategoryBackGround titleFirst={'Website'} titleSecond={'Artwork'} />
-      <div className="grid grid-cols-2 grid-rows-2">
+      <div className="flex flex-row flex-wrap justify-between gap-y-10">
         {websiteData.map((site) => (
           <ProductCard
             key={site.title}
