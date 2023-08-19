@@ -21,7 +21,7 @@ export const Count: React.FC<Props> = ({ isShowInner, handleShowInner }) => {
 
     if (!visited) {
       setIsFirstVisit(true);
-      sessionStorage.setItem('visited', 'true');
+      // sessionStorage.setItem('visited', 'true');
     }
   }, []);
 
@@ -39,22 +39,34 @@ export const Count: React.FC<Props> = ({ isShowInner, handleShowInner }) => {
   return (
     <div
       data-component="count"
-      className={classNames([isShowInner ? 'opacity-0 h-0' : 'opacity-100'])}
+      className={classNames([
+        isShowInner ? 'opacity-0' : 'opacity-100',
+        'w-screen mx-[calc(50%_-_50vw)] overflow-hidden duration-1000 fixed left-0 top-0',
+      ])}
     >
-      <div className="h-screen bg-primary relative">
+      <div
+        className={classNames([
+          'h-screen bg-primary relative',
+          !isShowInner && 'h-0',
+        ])}
+      >
         <div className="bg-black h-1/2" style={{ width: `${current}vw` }} />
         <div
-          className="duration-[2000ms] bg-black"
-          style={{ height: isShowInner ? '100vh' : '0' }}
-        />
-        <span
           className={classNames([
-            'pointer-events-none text-black absolute text-[200px] bottom-0 duration-[400ms]',
-            isShowInner && 'translate-y-[100dvh]',
+            'duration-1000 bg-black',
+            isShowInner ? 'h-screen' : 'h-0',
           ])}
-        >
-          {current}
-        </span>
+        />
+        <div className="container mx-auto">
+          <span
+            className={classNames([
+              'pointer-events-none text-black absolute text-[200px] bottom-0 duration-1000',
+              isShowInner && 'translate-y-[100dvh]',
+            ])}
+          >
+            {current}
+          </span>
+        </div>
       </div>
     </div>
   );
