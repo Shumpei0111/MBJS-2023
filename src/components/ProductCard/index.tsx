@@ -1,9 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import classNames from 'classnames';
-import { useState, useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { wait } from '@/util/wait';
+import { useProductCard } from '@/hooks/useProductCard';
 
 export type CommonCard = {
   image: {
@@ -31,68 +29,8 @@ export const ProductCard: React.FC<CommonCard> = ({
   stack,
   repository,
 }) => {
-  const targetRef = useRef<HTMLDivElement>(null);
-  const peerTargetRef = useRef<HTMLDivElement>(null);
-  const [isIntersecting, setIntersecting] = useState(false);
-  const [isStackShow, setIsStackShow] = useState<boolean>(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIntersecting(true);
-        }
-      },
-      {
-        rootMargin: '0px',
-        threshold: 0.5,
-      },
-    );
-
-    if (targetRef.current) {
-      observer.observe(targetRef.current);
-    }
-
-    return () => {
-      if (targetRef.current) {
-        observer.unobserve(targetRef.current);
-      }
-    };
-  }, []);
-
-  useEffect(() => {
-    if (window.innerWidth > 768 && targetRef.current && peerTargetRef.current) {
-      gsap.to(peerTargetRef.current, { translateY: -300 });
-
-      const hoverEnter = async () => {
-        gsap.to(peerTargetRef.current, {
-          translateY: 0,
-          opacity: 1,
-        });
-
-        await wait(400);
-        setIsStackShow((p) => !p);
-      };
-
-      const hoverLeave = async () => {
-        gsap.to(peerTargetRef.current, {
-          translateY: -300,
-          opacity: 0,
-        });
-
-        await wait(400);
-        setIsStackShow((p) => !p);
-      };
-
-      targetRef.current.addEventListener('mouseenter', hoverEnter);
-      targetRef.current.addEventListener('mouseleave', hoverLeave);
-
-      return () => {
-        targetRef?.current?.removeEventListener('mouseenter', hoverEnter);
-        targetRef?.current?.removeEventListener('mouseleave', hoverLeave);
-      };
-    }
-  }, []);
+  const { targetRef, peerTargetRef, isIntersecting, isStackShow } =
+    useProductCard();
 
   return (
     <div data-component="product-card" className="w-500" ref={targetRef}>
