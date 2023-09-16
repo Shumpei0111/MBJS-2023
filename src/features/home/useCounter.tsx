@@ -29,7 +29,6 @@ export const useCounter = ({
 
     if (elapsed < duration) {
       const newValue = easeOutCubic(elapsed, start, end - start, duration);
-      // setCurrent(newValue);
       setCurrent(Math.floor(newValue));
       requestAnimationFrame(animateCounter);
     } else {

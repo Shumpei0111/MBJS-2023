@@ -1,6 +1,6 @@
-import { type CommonCard } from '@/components/ProductCard';
+import { type DoujinCardProps } from '@/components/DoujinCard';
 
-export const doujinData: CommonCard[] = [
+export const doujinData: DoujinCardProps[] = [
   {
     eventName: 'パンツァーガールズ8',
     image: {

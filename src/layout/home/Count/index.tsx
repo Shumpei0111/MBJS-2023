@@ -21,7 +21,7 @@ export const Count: React.FC<Props> = ({ isShowInner, handleShowInner }) => {
 
     if (!visited) {
       setIsFirstVisit(true);
-      // sessionStorage.setItem('visited', 'true');
+      sessionStorage.setItem('visited', 'true');
     }
   }, []);
 

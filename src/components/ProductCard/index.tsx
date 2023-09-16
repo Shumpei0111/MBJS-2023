@@ -17,7 +17,6 @@ export type CommonCard = {
   description: string;
   stack: Record<string, string | string[]>[];
   repository?: string;
-  eventName?: string;
 };
 
 export const ProductCard: React.FC<CommonCard> = ({
