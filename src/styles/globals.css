@@ -107,3 +107,8 @@ body {
 .hidden-cover.is-hidden {
   animation-name: height;
 }
+
+.here {
+  transform-origin: center bottom;
+  animation: yurayura 2s linear infinite;
+}

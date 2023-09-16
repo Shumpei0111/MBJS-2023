@@ -2,6 +2,8 @@ import {
   MainVisual,
   MarqueeRecentProject,
   WebsiteSection,
+  MarqueeContactUs,
+  MailAddress,
 } from '@/layout/home';
 import { DefaultLayout } from '@/layout/default';
 import { useState } from 'react';
@@ -30,6 +32,8 @@ export default function Home() {
           <WebsiteSection />
           <DoujinSection />
           <OtherSection />
+          <MarqueeContactUs />
+          <MailAddress />
         </div>
       </div>
     </DefaultLayout>
