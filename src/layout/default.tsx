@@ -20,7 +20,9 @@ export const DefaultLayout: React.FC<Props> = ({
         ])}
         isShowInner={isShowInner}
       />
-      {children}
+      <main className="min-h-screen pt-[140px] container mx-auto">
+        {children}
+      </main>
       <TheFooter />
     </div>
   );
