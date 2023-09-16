@@ -4,6 +4,8 @@ import {
   WebsiteSection,
   MarqueeContactUs,
   MailAddress,
+  MarqueeEnjoy,
+  RotateMarqueeEnjoy,
 } from '@/layout/home';
 import { DefaultLayout } from '@/layout/default';
 import { useState } from 'react';
@@ -34,6 +36,12 @@ export default function Home() {
           <OtherSection />
           <MarqueeContactUs />
           <MailAddress />
+          <div className="relative">
+            <MarqueeEnjoy />
+            <div className="absolute top-0 right-0 w-full">
+              <RotateMarqueeEnjoy />
+            </div>
+          </div>
         </div>
       </div>
     </DefaultLayout>

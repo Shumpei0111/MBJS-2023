@@ -46,6 +46,24 @@
   }
 }
 
+@keyframes loopLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes loopLeft2 {
+  0% {
+    transform: translateX(-200%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
 @keyframes grain {
   0%,
   100% {

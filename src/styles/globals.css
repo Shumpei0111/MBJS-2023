@@ -94,6 +94,16 @@ body {
   animation: loop2 30s linear infinite;
 }
 
+.marquee-left:nth-child(odd) {
+  flex: 0 0 auto;
+  animation: loopLeft 30s -15s linear infinite;
+}
+
+.marquee-left:nth-child(even) {
+  flex: 0 0 auto;
+  animation: loopLeft2 30s linear infinite;
+}
+
 .flow-arm {
   animation: flow-arm 2s linear infinite;
 }
