@@ -84,6 +84,16 @@ body {
   animation-name: second;
 }
 
+.marquee-right:nth-child(odd) {
+  flex: 0 0 auto;
+  animation: loop 30s -15s linear infinite;
+}
+
+.marquee-right:nth-child(even) {
+  flex: 0 0 auto;
+  animation: loop2 30s linear infinite;
+}
+
 .flow-arm {
   animation: flow-arm 2s linear infinite;
 }
