@@ -20,7 +20,7 @@ export const DefaultLayout: React.FC<Props> = ({
         ])}
         isShowInner={isShowInner}
       />
-      <main className="min-h-screen pt-[140px] container mx-auto">
+      <main className="min-h-[calc(100dvh_-140px_-600px)] pt-[140px] container mx-auto">
         {children}
       </main>
       <TheFooter />
