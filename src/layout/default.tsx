@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import { TheHeader } from '@/components/TheHeader';
+import { TheFooter } from '@/components/TheFooter';
 
 type Props = {
   children: React.ReactNode;
@@ -20,6 +21,7 @@ export const DefaultLayout: React.FC<Props> = ({
         isShowInner={isShowInner}
       />
       {children}
+      <TheFooter />
     </div>
   );
 };

@@ -25,10 +25,14 @@ export const TheHeader: React.FC<Props> = ({
             <span className=" leading-4">Shumpei's Portfolio site</span>
           </hgroup>
         </Link>
-        <ul className="flex flex-row ml-auto gap-10">
-          <li className="hover:underline hover:duration-75">BLOG</li>
-          <li className="hover:underline hover:duration-75">
+        <ul role="navigation" className="flex flex-row ml-auto gap-10">
+          <li className="hover:duration-75 relative">
+            BLOG
+            <span className="h-1 bg-primary block w-full absolute bottom-1" />
+          </li>
+          <li className="hover:duration-75 relative">
             <Link href="/about">ABOUT</Link>
+            <span className="h-1 bg-primary block w-full absolute bottom-1" />
           </li>
         </ul>
       </div>
