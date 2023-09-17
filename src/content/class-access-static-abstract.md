@@ -1,5 +1,6 @@
 ---
-title: PHP学習 - classにおけるアクセス権、staticキーワード、抽象クラス 
+id: 16
+title: PHP学習 - classにおけるアクセス権、staticキーワード、抽象クラス
 date: 2019-07-23 01:24:17
 tags: [PHP, プログラミング学習]
 ---
@@ -31,7 +32,7 @@ class Usr {
   public function __construct($n) {
     $this->name = $n;
   }
-  
+
   public function sayHi() {
     echo "hi, i am $this->name!";
   }
@@ -63,15 +64,15 @@ class User {
     $this->name = $n;
     self::$count++;
   }
-  
+
   public function sayHi() {
     echo "hi, i am $this->name!";
   }
 
   // staticにするとインスタンス化しなくても使える
-  public static function getMessage() { 
+  public static function getMessage() {
     echo "`hello from user class`";
-  }  
+  }
 }
 
 User::getMessage();
@@ -97,36 +98,38 @@ class U extends BaseUser {
 ```
 
 ### アクセス権
+
 private、protectedの動きは、まぁそうだよね。というところ。
 
 ちょっとまだどんな時に使おうかピンときてないところですが、
 多分昔Railsでやったはず。
 
-
 ### staticキーワード
+
 インスタンスを作る必要がないのがポイントですね。
 
 また、コンストラクタの場合、自分自身は`self`で呼び出すのがひとつ。
 コンストラクタとプロパティは同じくらいのボリュームに膨れそうでなイメージを持ちました。
 
 ### 抽象クラス
+
 継承されることを前提にして作るクラスということで、
 はじめからパーツに分けておくことで、メンテンス性が高まりますね。
 
 また、カプセル化ということでしょうか、
 使う側は中身を知らなくてもよいのでベタにオブジェクト指向だなって思いました。
 
-
 ## まとめ
+
 こうして継承やアクセスをどこまで許すか、クラス設計のはしっこを学習しました。
 
 ひとつのクラスで持つ情報の粒度がかなりポイントになりそうだなという気がしています。
 
 また、適切な名付けができないと、後々かなりきつくなるんだろうなというところ…。
 
-
 ### 進行度
 
 > [PHP入門](https://dotinstall.com/lessons/basic_php_v2)
-  - 完了レッスン数23 / 30 回
-  - 76%
+
+- 完了レッスン数23 / 30 回
+- 76%

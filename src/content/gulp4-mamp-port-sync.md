@@ -1,4 +1,5 @@
 ---
+id: 20
 title: MAMPで作った環境下のHTMLをホットリロードさせる
 date: 2019-10-14 13:40:22
 tags: [gulp, HTML, javascript, nodejs, PHP]
@@ -15,7 +16,6 @@ PHPmyAdminもついているので、これだけで簡単に始められちゃ�
 
 [MAMP](https://www.mamp.info/en/mamp/)
 
-
 ## 状況
 
 MAMPでPHPの実行環境を用意して、HTMLテンプレートとしてPHPを混ぜて書いています。
@@ -28,16 +28,16 @@ MAMPでPHPの実行環境を用意して、HTMLテンプレートとしてPHPを
 今まで知っているGulpのホットリロードの方法は以下の通り。
 
 ```js
-var browserSync = require("browser-sync").create();
+var browserSync = require('browser-sync').create();
 
 // Browser Sync
-gulp.task("server", function(done) {
+gulp.task('server', function (done) {
   browserSync.init({
     port: 8000,
     server: {
-      baseDir: "./dist/",
-      index: "./html/index.html"
-    }
+      baseDir: './dist/',
+      index: './html/index.html',
+    },
   });
   done();
 });
@@ -46,7 +46,6 @@ gulp.task("server", function(done) {
 あとはwatchで更新を監視し、defaultで"server"タスクを設定…みたいなことをしていました。
 
 > [参照：Gulp4のシンプルセッティング](/2019/07/10/gulp-4-setting/)
-
 
 ### 謎だったところ
 
@@ -69,16 +68,15 @@ MAMP自身のApacheは別の80番ポートで開いています。
 実際、Gulp側のポートをMAMPで設定しているポートと同じ番号を書いたものの、
 すでにMAMPが使っているのでアクセスできず。
 
-
 ## MAMPでのケースはこう書く
 
 ポートの設定は行いません。
 
 ```js
 // Browser Sync
-gulp.task("server", function(done) {
+gulp.task('server', function (done) {
   browserSync.init({
-    proxy: "http://localhost:80/myproject/www/",
+    proxy: 'http://localhost:80/myproject/www/',
     reloadOnRestart: true,
   });
   done();
@@ -91,19 +89,15 @@ gulp.task("server", function(done) {
 
 ```js
 // watch
-gulp.task("watch", function(done) {
-  gulp
-    .watch("./www/**/*")
-    .on("change", function() {
-      browserSync.reload();
-    });
+gulp.task('watch', function (done) {
+  gulp.watch('./www/**/*').on('change', function () {
+    browserSync.reload();
+  });
   done();
 });
 
-
 // default
-gulp.task("default", gulp.parallel("server", "watch"));
-
+gulp.task('default', gulp.parallel('server', 'watch'));
 ```
 
 これだけでMAMPで作った環境下のHTMLファイルは更新されたら自動でブラウザをリロードできるようになりました。

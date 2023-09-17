@@ -1,4 +1,5 @@
 ---
+id: 15
 title: PHP学習 - ローカル変数とクラス（インスタンス生成と継承）
 date: 2019-07-21 22:51:35
 tags: [PHP, プログラミング学習]
@@ -8,12 +9,10 @@ tags: [PHP, プログラミング学習]
 
 こんばんは、shumpei[(@seventhseven)](https://twitter.com/seventhseven)です。
 
-
 だんだんとドットインストールさんの動画を見ただけでは仕様がわからず、
 調べたり質問させていただきながら学習しています。
 
 それではいってみましょう。
-
 
 ## コード ローカル変数と関数
 
@@ -25,7 +24,7 @@ $lang = "ruby";
 
 function sayHi($name) {
   $lang = "php";
-  echo "Hi  $name from $lang"; 
+  echo "Hi  $name from $lang";
 }
 
 sayHi("Tom");
@@ -69,7 +68,6 @@ printfメソッドの仕様を理解していませんでした。
 
 つまり、`$s1`をまず展開して、その中に`$s2`や`$x`を入れるような仕様なのですね。
 なので、第2引数以降を入れる受け皿を用意してあげないといけないイメージを持ちました。
-
 
 ## コード class
 
@@ -122,7 +120,7 @@ class Usr {
   public function __construct($n) {
     $this->name = $n;
   }
-  
+
   // method名の前に"final"をつけると小クラスでoverrideできなくなる
   public function sayHi2() {
     echo "hi, i am $this->name!";
@@ -170,8 +168,8 @@ newした時に渡される引数が入って、
 
 プロパティで使う変数名とメソッド名で使う関数名は同じでも中身によって結果が変わるということなんですね。
 
-
 ## 並行して学ぶことで理解が進む
+
 少し前に、初めてVue.jsをまとも書きました。
 
 そこでmethodやcomputedなど、様々なプロパティや動作を書いていたのですが、
@@ -186,5 +184,6 @@ newした時に渡される引数が入って、
 ### 進行度
 
 > [PHP入門](https://dotinstall.com/lessons/basic_php_v2)
-  - 完了レッスン数20 / 30 回
-  - 66%
+
+- 完了レッスン数20 / 30 回
+- 66%

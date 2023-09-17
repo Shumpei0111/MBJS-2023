@@ -1,4 +1,5 @@
 ---
+id: 12
 title: PHPの学習をはじめました
 date: 2019-07-19 00:00:21
 tags: [PHP, プログラミング学習]
@@ -17,7 +18,6 @@ PHPはまだ全然書いたことがなく、WordPressの独自テーマを作�
 初めは本当に簡単なところからだと思いますが、
 
 一体どれくらい書けるようになるのか、Laravelなどを使う日が来るのか楽しみです。
-
 
 ## なぜPHP？
 
@@ -41,7 +41,6 @@ Dockerの中はgitがインストールされておらず、gitの環境には�
 
 （あとでやります。）
 
-
 取り急ぎ、ドットインストールさんの[PHP入門](https://dotinstall.com/lessons/basic_php_v2)から始めました。
 
 とりあえず今日は#01 ~ #06まで進めました。
@@ -50,7 +49,6 @@ Dockerの中はgitがインストールされておらず、gitの環境には�
 
 > [PHP入門](https://dotinstall.com/lessons/basic_php_v2)
 
-
 ## とりあえず書いたコード
 
 Docker環境で用意した`/var/www/html/index.php`にどんどん書いていって増やして、
@@ -58,7 +56,7 @@ Docker環境で用意した`/var/www/html/index.php`にどんどん書いてい�
 `localhost:80/index.php`にアクセスして実行を確認していくスタイルにしています。
 
 ```php
-<?php 
+<?php
 // #04
 // 変数の書き方
 $msg = "hennsu";
