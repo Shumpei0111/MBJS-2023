@@ -24,7 +24,7 @@ export const TheHeader: React.FC<Props> = ({
         <Link href="/">
           <hgroup className="flex flex-row items-end">
             <h1 className={classNames(['text-100 leading-[0.75]'])}>MB.js</h1>
-            <span className=" leading-4">Shumpei's Portfolio site</span>
+            <span className=" leading-4">Shumpei&apos;s Portfolio site</span>
           </hgroup>
         </Link>
         {isShowNavigation && (

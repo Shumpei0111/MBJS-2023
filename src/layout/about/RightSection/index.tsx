@@ -4,12 +4,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTwitter, faGithub } from '@fortawesome/free-brands-svg-icons';
 import classNames from 'classnames';
 import { useEffect, useState } from 'react';
+import hoverEffect from 'hover-effect';
+import { TransitionItem } from '@/features/animation/transitionItem';
 
 export const RightSection: React.FC = () => {
   const router = useRouter();
   const [isNameShow, setIsNameShow] = useState(false);
   const [isJobShow, setIsJobShow] = useState(false);
   const [isSnsShow, setIsSnsShow] = useState(false);
+  const [isHoverEffectInit, setIsHoverEffectInit] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
@@ -21,6 +24,18 @@ export const RightSection: React.FC = () => {
     setTimeout(() => {
       setIsSnsShow(true);
     }, 600);
+
+    if (!isHoverEffectInit) {
+      setIsHoverEffectInit(true);
+      new hoverEffect({
+        parent: document.querySelector('#prof'),
+        intensity: 0.2,
+        image1: '/images/me.png',
+        image2: '/images/me-color.png',
+        displacementImage: '/images/nosie_cover.png',
+        imagesRatio: 505 / 929,
+      });
+    }
   }, []);
 
   return (
@@ -38,15 +53,10 @@ export const RightSection: React.FC = () => {
         </button>
       </div>
       <div data-profile="info" className="pt-20">
-        <div className="max-w-full h-328 relative fade-in">
-          <Image
-            src={'/images/me.png'}
-            alt="Shumpeiの写真"
-            priority
-            fill
-            objectFit="contain"
-          />
-        </div>
+        <div
+          id="prof"
+          className="fade-in h-384 relative [&_canvas:nth-child(2)]:absolute [&_canvas:nth-child(2)]:top-0"
+        ></div>
         <div
           className={classNames([`pt-10 opacity-0`, isNameShow && 'fade-in'])}
         >
