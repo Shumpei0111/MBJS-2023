@@ -1,4 +1,5 @@
 ---
+id: 26
 title: 【JavaScript】URLパラメータをfilterとmapを使って構築する
 date: 2021-03-06 7:16:00
 tags: [javascript]
@@ -16,35 +17,43 @@ tags: [javascript]
 
 とても気に入っている方法です。
 
-
 # URLパラメータをJSのfilterとmapを使って作る
 
 具体的にはこんな感じです。
 
 ```js
-const targetUrl = '../index.html?' + [
+const targetUrl =
+  '../index.html?' +
+  [
     ['paramA', code],
     ['paramB', Config.settingA && settingAKey],
-    ["paramC", Config.settingB && settingBKey && isStatus('hoge')],
-    ['paramD', Config.settingC && settingCKey && fugaStatus]
-].filter( function( p ) {
-    return !!p[ 1 ];
-} ).map( function( p ) {
-    return p.map( function( v ) {
-        return encodeURIComponent( v.trim() );
-    } ).join( '=' );
-} ).join( '&' );
+    ['paramC', Config.settingB && settingBKey && isStatus('hoge')],
+    ['paramD', Config.settingC && settingCKey && fugaStatus],
+  ]
+    .filter(function (p) {
+      return !!p[1];
+    })
+    .map(function (p) {
+      return p
+        .map(function (v) {
+          return encodeURIComponent(v.trim());
+        })
+        .join('=');
+    })
+    .join('&');
 ```
 
 ## ざっくり解説
 
 ```js
-const targetUrl = '../index.html?' + [
+const targetUrl =
+  '../index.html?' +
+  [
     ['paramA', code],
     ['paramB', Config.settingA && settingAKey],
-    ["paramC", Config.settingB && settingBKey && isStatus('hoge')],
-    ['paramD', Config.settingC && settingCKey && fugaStatus]
-]
+    ['paramC', Config.settingB && settingBKey && isStatus('hoge')],
+    ['paramD', Config.settingC && settingCKey && fugaStatus],
+  ];
 ```
 
 まず、取りうるパラメータを配列内配列で用意します。
@@ -80,9 +89,9 @@ const targetUrl = '../index.html?' + [
 内側のmapは、上記で取り出された配列をキーと値をそれぞれ分解して処理を行います。
 
 ```js
-p.map( function( v ) {
-        return encodeURIComponent( v.trim() );
-    } ).join( '=' );
+p.map(function (v) {
+  return encodeURIComponent(v.trim());
+}).join('=');
 ```
 
 引数vはvalueという意味です。
@@ -96,4 +105,5 @@ v.trim()で余計な空白を取り除きます。
 ```js
 } ).join( '&' );
 ```
+
 そして最後に内側のループで作ったパラメータのペアが複数あるので、`&`で繋いで完成です。

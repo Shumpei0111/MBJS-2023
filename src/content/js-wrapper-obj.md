@@ -1,4 +1,5 @@
 ---
+id: 30
 title: 【JavaScript】プリミティブ型はほぼオブジェクトという話
 date: 2021-03-11 9:37:00
 tags: [javascript]
@@ -12,25 +13,24 @@ tags: [javascript]
 
 文字列型だけど一瞬プロパティが作られて、実行直後に破棄される動きです。
 
-
 # JSのラッパーオブジェクトの不思議
 
 ## プリミティブ型の仕様
 
 ### 不思議に思ったこと
 
-  ```js
-  const falsy = "false";
+```js
+const falsy = "false";
 
-  if(falsy) {
-    console.log(falsy.aa = "aa");
-    console.log(falsy);
-  }
+if(falsy) {
+  console.log(falsy.aa = "aa");
+  console.log(falsy);
+}
 
-  コンソール出力結果：
-  "aa"
-  "false"
-  ```
+コンソール出力結果：
+"aa"
+"false"
+```
 
 オブジェクト的な扱いなのであれば、
 

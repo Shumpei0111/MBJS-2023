@@ -1,4 +1,5 @@
 ---
+id: 27
 title: 【Vue.js】v-forで作ったリスト内のラジオボタンをv-modelでチェックする
 date: 2021-03-07 1:35:00
 tags: [javascript, Vue.js]
@@ -14,28 +15,34 @@ tags: [javascript, Vue.js]
 
 また、v-forで動的にリストを取得してUIを構築するときに使えるかなと考えています。
 
-
 # コード
 
 具体的にはこんな感じです。
 
 ## Vue側
+
 ```js
 data: {
-  choosed: ""
+  choosed: '';
   list: [
-    { id: 1, name: "a", val: "b" },
-    { id: 2, name: "c", val: "d" }
-  ]
+    { id: 1, name: 'a', val: 'b' },
+    { id: 2, name: 'c', val: 'd' },
+  ];
 }
 ```
 
 ## テンプレート側
+
 ```html
 <ul>
-  <li v-for="item in list" :key='item.id'>
-    <input type="radio" name="sample" 
-      v-model="choosed" :id="item.name" :value="a.val">
+  <li v-for="item in list" :key="item.id">
+    <input
+      type="radio"
+      name="sample"
+      v-model="choosed"
+      :id="item.name"
+      :value="a.val"
+    />
     <label :for="item.name">{{ item.val }}</label>
   </li>
 </ul>

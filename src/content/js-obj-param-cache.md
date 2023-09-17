@@ -1,4 +1,5 @@
 ---
+id: 28
 title: 【JavaScript】オブジェクトの特定の値をキャッシュしておきたい
 date: 2021-03-08 6:59:00
 tags: [javascript]
@@ -12,7 +13,6 @@ tags: [javascript]
 
 変数化した配列に値を入れておいて、好きなときに取り出して使う方法です。
 
-
 # オブジェクトをキャッシュする方法
 
 1. オブジェクトの配列を用意する
@@ -20,16 +20,16 @@ tags: [javascript]
 ```js
 const itemArr = [
   {
-    name: "mic",
+    name: 'mic',
     age: 16,
-    gen: "male",
-    params: document.getElementById("hoge")
+    gen: 'male',
+    params: document.getElementById('hoge'),
   },
   {
-    name: "drake",
+    name: 'drake',
     age: 20,
-    gen: "male",
-    params: document.getElementById("fuga")
+    gen: 'male',
+    params: document.getElementById('fuga'),
   },
 ];
 ```
@@ -65,8 +65,6 @@ function addCache(arr) {
 addCache(itemArr);
 ```
 
-
-
 ## 使い所
 
 例えば初期値と現在のパラメータの比較で使えるかと思います。
@@ -89,9 +87,9 @@ addCache(itemArr);
 
 ```js
 function addInitCacheItems() {
-    addCacheInitName();
-    addCacheInitAge();
-    addCacheInitParams();
+  addCacheInitName();
+  addCacheInitAge();
+  addCacheInitParams();
 }
 ```
 
