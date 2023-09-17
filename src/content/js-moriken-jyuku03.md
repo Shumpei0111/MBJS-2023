@@ -1,4 +1,5 @@
 ---
+id: 33
 title: 【JavaScript】もりけん塾のフロントエンドエンジニア向けドリルをやってみた ９〜１１
 date: 2021-03-17 2:32:00
 tags: [javascript]
@@ -20,8 +21,6 @@ tags: [javascript]
 
 ご連絡いただけましたら幸いです。
 
-
-
 # マークアップエンジニアの方がフロントエンドエンジニアになる為の課題 ９〜１１
 
 ## 課題9
@@ -37,81 +36,86 @@ tags: [javascript]
 - HTML
 
 ```html
-<div class='kadai-9'>
-    <p>課題9</p>
-    <div class='kadai-9-wrapper'>
-        <img src='./img/loading.gif' alt='loading' id='isLoading-kadai9' style='display:none'>
-        <ul id='kadai9Ul'></ul>
-    </div>
+<div class="kadai-9">
+  <p>課題9</p>
+  <div class="kadai-9-wrapper">
+    <img
+      src="./img/loading.gif"
+      alt="loading"
+      id="isLoading-kadai9"
+      style="display:none"
+    />
+    <ul id="kadai9Ul"></ul>
+  </div>
 </div>
 ```
 
 - JS
 
 ```js
-const kadai9 = function() {
-    const $ = document.getElementById( 'kadai9Ul' );
-    const $loading = document.getElementById( 'isLoading-kadai9' );
+const kadai9 = function () {
+  const $ = document.getElementById('kadai9Ul');
+  const $loading = document.getElementById('isLoading-kadai9');
 
-    $loading.style = 'display:block';
+  $loading.style = 'display:block';
 
-    function getElmContents() {
-        return [
-            {
-                to: 'bookmark.html',
-                img: '1.png',
-                alt: '画像1',
-                text: 'ブックマーク'
-            },
-            {
-                to: 'message.html',
-                img: '2.png',
-                alt: '画像2',
-                text: 'メッセージ'
-            },
-        ];
+  function getElmContents() {
+    return [
+      {
+        to: 'bookmark.html',
+        img: '1.png',
+        alt: '画像1',
+        text: 'ブックマーク',
+      },
+      {
+        to: 'message.html',
+        img: '2.png',
+        alt: '画像2',
+        text: 'メッセージ',
+      },
+    ];
+  }
+
+  const getContentAsync = () =>
+    new Promise((resolve, _) => {
+      setTimeout(() => {
+        $loading.style = 'display:none;';
+        resolve(getElmContents());
+      }, 3000);
+    });
+
+  async function execute() {
+    const items = await getContentAsync();
+    function createLines(elmContents) {
+      function makeInnerElms(obj) {
+        const newLi = document.createElement('li');
+        const newContent = document.createTextNode(obj.text);
+
+        const aTag = document.createElement('a');
+        aTag.href = obj.to;
+
+        const imgTag = document.createElement('img');
+        imgTag.src = obj.img;
+
+        const elms = [aTag, imgTag, newContent];
+
+        elms.map((item) => {
+          newLi.appendChild(item);
+        });
+
+        return newLi;
+      }
+
+      elmContents.forEach((item) => {
+        $.appendChild(makeInnerElms(item));
+      });
     }
 
-    const getContentAsync = () => new Promise( (resolve, _) => {
-        setTimeout( () => {
-            $loading.style = 'display:none;'
-            resolve( getElmContents() );
-        }, 3000 );
-    } );
+    createLines(items);
+  }
 
-    async function execute() {
-        const items = await getContentAsync();
-        function createLines ( elmContents ) {
-
-            function makeInnerElms( obj ) {
-                const newLi = document.createElement( 'li' );
-                const newContent = document.createTextNode( obj.text );
-    
-                const aTag = document.createElement( 'a' );
-                aTag.href = obj.to;
-    
-                const imgTag = document.createElement( 'img' );
-                imgTag.src = obj.img;
-    
-                const elms = [ aTag, imgTag, newContent ];
-    
-                elms.map( item => {
-                    newLi.appendChild( item );
-                } );
-    
-                return newLi;
-            }
-    
-            elmContents.forEach( item => {
-                $.appendChild( makeInnerElms( item ) );
-            } );
-        }
-    
-        createLines( items );
-    }
-
-    execute();
-}
+  execute();
+};
 ```
 
 ### コメント
@@ -126,7 +130,6 @@ getContentAsyncは中身はPromiseを使い、`getElmContents`を実行し、処
 
 itemsは名前からして配列が返ってくる感じにできてるか、若干抽象的な名前になっているかもしれません。
 
-
 ## 課題10
 
 ### 問題9に追加で try-catch-finaliy を書いてください
@@ -138,89 +141,93 @@ itemsは名前からして配列が返ってくる感じにできてるか、若
 - HTML
 
 ```html
-<div class='kadai-10'>
-    <p>課題10</p>
-    <div class='kadai-10-wrapper'>
-        <img src='./img/loading.gif' alt='loading' id='isLoading-kadai10' style='display:none;'>
-        <ul id='kadai10Ul'></ul>
-    </div>
+<div class="kadai-10">
+  <p>課題10</p>
+  <div class="kadai-10-wrapper">
+    <img
+      src="./img/loading.gif"
+      alt="loading"
+      id="isLoading-kadai10"
+      style="display:none;"
+    />
+    <ul id="kadai10Ul"></ul>
+  </div>
 </div>
 ```
 
 - JS
 
 ```js
-const kadai10 = function() {
-    const $ = document.getElementById( 'kadai10Ul' );
-    const $loading = document.getElementById( 'isLoading-kadai10' );
+const kadai10 = function () {
+  const $ = document.getElementById('kadai10Ul');
+  const $loading = document.getElementById('isLoading-kadai10');
 
-    function getElmContents() {
-        return [
-            {
-                to: 'bookmark.html',
-                img: '1.png',
-                alt: '画像1',
-                text: 'ブックマーク'
-            },
-            {
-                to: 'message.html',
-                img: '2.png',
-                alt: '画像2',
-                text: 'メッセージ'
-            },
-        ];
+  function getElmContents() {
+    return [
+      {
+        to: 'bookmark.html',
+        img: '1.png',
+        alt: '画像1',
+        text: 'ブックマーク',
+      },
+      {
+        to: 'message.html',
+        img: '2.png',
+        alt: '画像2',
+        text: 'メッセージ',
+      },
+    ];
+  }
+
+  const getContentAsync = () =>
+    new Promise((resolve, _) => {
+      try {
+        // setTimeout( () => {
+        //     $loading.style = 'display:none;'
+        //     resolve( getElmContents() );
+        // }, 3000 );
+      } catch (e) {
+        console.log(e);
+      } finally {
+        setTimeout(() => {
+          $loading.style = 'display:none;';
+          resolve(getElmContents());
+        }, 3000);
+      }
+    });
+
+  async function execute() {
+    const items = await getContentAsync();
+    function createLines(elmContents) {
+      function makeInnerElms(obj) {
+        const newLi = document.createElement('li');
+        const newContent = document.createTextNode(obj.text);
+
+        const aTag = document.createElement('a');
+        aTag.href = obj.to;
+
+        const imgTag = document.createElement('img');
+        imgTag.src = obj.img;
+
+        const elms = [aTag, imgTag, newContent];
+
+        elms.map((item) => {
+          newLi.appendChild(item);
+        });
+
+        return newLi;
+      }
+
+      elmContents.forEach((item) => {
+        $.appendChild(makeInnerElms(item));
+      });
     }
 
-    const getContentAsync = () => new Promise( (resolve, _) => {
-        try {
-            // setTimeout( () => {
-            //     $loading.style = 'display:none;'
-            //     resolve( getElmContents() );
-            // }, 3000 );
-        } catch( e ) {
-            console.log( e );
-        }
-         finally {
-            setTimeout( () => {
-                $loading.style = 'display:none;'
-                resolve( getElmContents() );
-            }, 3000 );
-        }
-    } );
+    createLines(items);
+  }
 
-    async function execute() {
-        const items = await getContentAsync();
-        function createLines ( elmContents ) {
-
-            function makeInnerElms( obj ) {
-                const newLi = document.createElement( 'li' );
-                const newContent = document.createTextNode( obj.text );
-    
-                const aTag = document.createElement( 'a' );
-                aTag.href = obj.to;
-    
-                const imgTag = document.createElement( 'img' );
-                imgTag.src = obj.img;
-    
-                const elms = [ aTag, imgTag, newContent ];
-    
-                elms.map( item => {
-                    newLi.appendChild( item );
-                } );
-    
-                return newLi;
-            }
-    
-            elmContents.forEach( item => {
-                $.appendChild( makeInnerElms( item ) );
-            } );
-        }
-    
-        createLines( items );
-    }
-
-    execute();
-}
+  execute();
+};
 ```
 
 ### コメント
@@ -232,22 +239,22 @@ Promiseで書いているんだし、then/catchでもいいかもしれません
 解決中に判定して絶対コケない処理をしたいという時に有効なのかな？と思いました。
 
 ```js
-const getContentAsync = () => new Promise( (resolve, _) => {
+const getContentAsync = () =>
+  new Promise((resolve, _) => {
     try {
-        // setTimeout( () => {
-        //     $loading.style = 'display:none;'
-        //     resolve( getElmContents() );
-        // }, 3000 );
-    } catch( e ) {
-        console.log( e );
+      // setTimeout( () => {
+      //     $loading.style = 'display:none;'
+      //     resolve( getElmContents() );
+      // }, 3000 );
+    } catch (e) {
+      console.log(e);
+    } finally {
+      setTimeout(() => {
+        $loading.style = 'display:none;';
+        resolve(getElmContents());
+      }, 3000);
     }
-        finally {
-        setTimeout( () => {
-            $loading.style = 'display:none;'
-            resolve( getElmContents() );
-        }, 3000 );
-    }
-} );
+  });
 ```
 
 ただtry節に何書いていいかわからなかったので、何もしないでいます。
@@ -265,20 +272,22 @@ const getContentAsync = () => new Promise( (resolve, _) => {
 簡易的なAPIを使って同じことを[こちら](https://jsondata.okiba.me)のサイトに
 
 ```json
-{ "data": [
-  {
-    "a": "bookmark",
-    "img": "img/1.png",
-    "alt": "画像１",
-    "text": "ブックマーク"
-  },
-  {
-    "a": "message",
-    "img": "img/2.png",
-    "alt": "画像２",
-    "text": "メッセージ"
-  }
-]}
+{
+  "data": [
+    {
+      "a": "bookmark",
+      "img": "img/1.png",
+      "alt": "画像１",
+      "text": "ブックマーク"
+    },
+    {
+      "a": "message",
+      "img": "img/2.png",
+      "alt": "画像２",
+      "text": "メッセージ"
+    }
+  ]
+}
 ```
 
 上記を登録してエンドポイントを取得 前回までのコードを生かして fetchを使ってデータを取得してください
@@ -290,78 +299,77 @@ const getContentAsync = () => new Promise( (resolve, _) => {
 - HTML
 
 ```html
-<div class='kadai-11'>
-    <p>課題11</p>
-    <div class='kadai-11-wrapper'>
-        <img src='./img/loading.gif' alt='loading' id='isLoading-kadai11'>
-        <ul id='kadai11Ul'></ul>
-    </div>
+<div class="kadai-11">
+  <p>課題11</p>
+  <div class="kadai-11-wrapper">
+    <img src="./img/loading.gif" alt="loading" id="isLoading-kadai11" />
+    <ul id="kadai11Ul"></ul>
+  </div>
 </div>
-
 ```
 
 - JS
 
 ```js
-const kadai11 = function() {
-    const $ = document.getElementById( 'kadai11Ul' );
-    const $loading = document.getElementById( 'isLoading-kadai11' );
+const kadai11 = function () {
+  const $ = document.getElementById('kadai11Ul');
+  const $loading = document.getElementById('isLoading-kadai11');
 
-    function getElmContents() {
-        return fetch( 'https://jsondata.okiba.me/v1/json/ydbaQ210312030342' )
-                .then( res => res.json() )
+  function getElmContents() {
+    return fetch('https://jsondata.okiba.me/v1/json/ydbaQ210312030342').then(
+      (res) => res.json(),
+    );
+  }
+
+  const getContentAsync = () =>
+    new Promise((resolve, _) => {
+      try {
+        // setTimeout( () => {
+        //     $loading.style = 'display:none;'
+        //     resolve( getElmContents() );
+        // }, 3000 );
+      } catch (e) {
+        console.log(e);
+      } finally {
+        setTimeout(() => {
+          $loading.style = 'display:none;';
+          resolve(getElmContents());
+        }, 3000);
+      }
+    });
+
+  async function execute() {
+    const items = await getContentAsync();
+    function createLines(elmContents) {
+      function makeInnerElms(obj) {
+        const newLi = document.createElement('li');
+        const newContent = document.createTextNode(obj.text);
+
+        const aTag = document.createElement('a');
+        aTag.href = obj.to;
+
+        const imgTag = document.createElement('img');
+        imgTag.src = obj.img;
+
+        const elms = [aTag, imgTag, newContent];
+
+        elms.map((item) => {
+          newLi.appendChild(item);
+        });
+
+        return newLi;
+      }
+
+      elmContents.forEach((item) => {
+        $.appendChild(makeInnerElms(item));
+      });
     }
 
-    const getContentAsync = () => new Promise( (resolve, _) => {
-        try {
-            // setTimeout( () => {
-            //     $loading.style = 'display:none;'
-            //     resolve( getElmContents() );
-            // }, 3000 );
-        } catch( e ) {
-            console.log( e );
-        }
-         finally {
-            setTimeout( () => {
-                $loading.style = 'display:none;'
-                resolve( getElmContents() );
-            }, 3000 );
-        }
-    } );
+    createLines(items.data);
+  }
 
-    async function execute() {
-        const items = await getContentAsync();
-        function createLines ( elmContents ) {
-
-            function makeInnerElms( obj ) {
-                const newLi = document.createElement( 'li' );
-                const newContent = document.createTextNode( obj.text );
-    
-                const aTag = document.createElement( 'a' );
-                aTag.href = obj.to;
-    
-                const imgTag = document.createElement( 'img' );
-                imgTag.src = obj.img;
-    
-                const elms = [ aTag, imgTag, newContent ];
-    
-                elms.map( item => {
-                    newLi.appendChild( item );
-                } );
-    
-                return newLi;
-            }
-    
-            elmContents.forEach( item => {
-                $.appendChild( makeInnerElms( item ) );
-            } );
-        }
-    
-        createLines( items.data );
-    }
-
-    execute();
-}
+  execute();
+};
 ```
 
 ### コメント
@@ -380,8 +388,9 @@ fetchメソッドを使ったことがなかったですが、Promiseが返っ�
 
 ```js
 function getElmContents() {
-    return fetch( 'https://jsondata.okiba.me/v1/json/ydbaQ210312030342' )
-            .then( res => res.json() )
+  return fetch('https://jsondata.okiba.me/v1/json/ydbaQ210312030342').then(
+    (res) => res.json(),
+  );
 }
 ```
 
@@ -392,22 +401,22 @@ thenしか書いてないですが、ちゃんと書くならcatchも書いて�
 あとはawaitで使う`getContentAsync`でこのメソッドを叩きます。
 
 ```js
-const getContentAsync = () => new Promise( (resolve, _) => {
+const getContentAsync = () =>
+  new Promise((resolve, _) => {
     try {
-        // setTimeout( () => {
-        //     $loading.style = 'display:none;'
-        //     resolve( getElmContents() );
-        // }, 3000 );
-    } catch( e ) {
-        console.log( e );
+      // setTimeout( () => {
+      //     $loading.style = 'display:none;'
+      //     resolve( getElmContents() );
+      // }, 3000 );
+    } catch (e) {
+      console.log(e);
+    } finally {
+      setTimeout(() => {
+        $loading.style = 'display:none;';
+        resolve(getElmContents());
+      }, 3000);
     }
-        finally {
-        setTimeout( () => {
-            $loading.style = 'display:none;'
-            resolve( getElmContents() );
-        }, 3000 );
-    }
-} );
+  });
 ```
 
 finally節内のsetTimeoutで実行します。
@@ -423,7 +432,6 @@ try/catch/finallyで最終的に必ずgetElmContentsが実行
 getElmContents内でもthen/catchを用意して、必ずなにか行う
 
 という網を張っておく感じでしょうか。
-
 
 ## まとめ
 

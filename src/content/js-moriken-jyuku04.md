@@ -1,4 +1,5 @@
 ---
+id: 34
 title: 【JavaScript】もりけん塾のフロントエンドエンジニア向けドリルをやってみた １２〜１４
 date: 2021-03-21 1:49:00
 tags: [javascript]

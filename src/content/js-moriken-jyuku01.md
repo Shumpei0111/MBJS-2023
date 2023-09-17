@@ -1,4 +1,5 @@
 ---
+id: 31
 title: 【JavaScript】もりけん塾のフロントエンドエンジニア向けドリルをやってみた １〜５
 date: 2021-03-15 2:17:00
 tags: [javascript]
@@ -30,8 +31,6 @@ tags: [javascript]
 
 ご連絡いただけましたら幸いです。
 
-
-
 # マークアップエンジニアの方がフロントエンドエンジニアになる為の課題 １〜５
 
 ## 課題1
@@ -47,28 +46,28 @@ tags: [javascript]
 - HTML
 
 ```html
-<div class='kadai-1'>
-    <p>課題1</p>
-    <ul id='kadai1Ul'></ul>
+<div class="kadai-1">
+  <p>課題1</p>
+  <ul id="kadai1Ul"></ul>
 </div>
 ```
 
 - JS
 
 ```js
-const kadai1 = function() {
-    const $ = document.getElementById( 'kadai1Ul' );
-    const newLi = document.createElement( 'li' );
-    const newContent = document.createTextNode( 'これです' );
-    newLi.appendChild( newContent );
+const kadai1 = function () {
+  const $ = document.getElementById('kadai1Ul');
+  const newLi = document.createElement('li');
+  const newContent = document.createTextNode('これです');
+  newLi.appendChild(newContent);
 
-    $.appendChild( newLi );
-}
+  $.appendChild(newLi);
+};
 ```
 
 ```js
 function init() {
-    kadai1();
+  kadai1();
 }
 
 init();
@@ -83,7 +82,6 @@ init();
 今回の課題に対しては採用していきたいと思います。
 
 また、実行する`init()`関数は、すべての課題に対してこの形で実行していきます。
-
 
 ## 課題2
 
@@ -100,42 +98,42 @@ init();
 - HTML
 
 ```html
-<div class='kadai-2'>
-    <p>課題2</p>
-    <ul id='kadai2Ul'></ul>
+<div class="kadai-2">
+  <p>課題2</p>
+  <ul id="kadai2Ul"></ul>
 </div>
 ```
 
 - JS
 
 ```js
-const kadai2 = function() {
-    const $ = document.getElementById( 'kadai2Ul' );
-    
-    function makeInnerElms() {
-        const newLi = document.createElement( 'li' );
-        const newContent = document.createTextNode( 'これです' );
+const kadai2 = function () {
+  const $ = document.getElementById('kadai2Ul');
 
-        const aTag = document.createElement( 'a' );
-        aTag.href = '1.html';
+  function makeInnerElms() {
+    const newLi = document.createElement('li');
+    const newContent = document.createTextNode('これです');
 
-        const imgTag = document.createElement( 'img' );
-        imgTag.src = 'bookmark.png';
-        imgTag.alt = 'ブックマーク';
+    const aTag = document.createElement('a');
+    aTag.href = '1.html';
 
-        const elms = [ aTag, imgTag, newContent ];
+    const imgTag = document.createElement('img');
+    imgTag.src = 'bookmark.png';
+    imgTag.alt = 'ブックマーク';
 
-        elms.forEach( item => {
-            newLi.appendChild( item );
-        } )
+    const elms = [aTag, imgTag, newContent];
 
-        return newLi;
-    }
+    elms.forEach((item) => {
+      newLi.appendChild(item);
+    });
 
-    const elms = makeInnerElms();
+    return newLi;
+  }
 
-    $.appendChild( elms );
-}
+  const elms = makeInnerElms();
+
+  $.appendChild(elms);
+};
 ```
 
 ### コメント
@@ -147,7 +145,6 @@ const kadai2 = function() {
 配列の順序を変えてあげることで、DOMの構造を変えることができるのでいいかなと考えました。
 
 今後はこの`makeInnerElms`を拡張していく形で進めていきます。
-
 
 ## 課題3
 
@@ -165,59 +162,58 @@ const kadai2 = function() {
 - HTML
 
 ```html
-<div class='kadai-3'>
-    <p>課題3</p>
-    <ul id='kadai3Ul'></ul>
+<div class="kadai-3">
+  <p>課題3</p>
+  <ul id="kadai3Ul"></ul>
 </div>
 ```
 
 - JS
 
 ```js
-const kadai3 = function() {
-    const $ = document.getElementById( 'kadai3Ul' );
+const kadai3 = function () {
+  const $ = document.getElementById('kadai3Ul');
 
-    const elmContents = [
-        {
-            href: 'a1.html',
-            imgSrc: '/img/bookmark1.png',
-            txt: 'a1'
-        },
-        {
-            href: 'a2.html',
-            imgSrc: '/img/bookmark2.png',
-            txt: 'a2'
-        },
-    ];
-    
-    function createLines ( elmContents ) {
+  const elmContents = [
+    {
+      href: 'a1.html',
+      imgSrc: '/img/bookmark1.png',
+      txt: 'a1',
+    },
+    {
+      href: 'a2.html',
+      imgSrc: '/img/bookmark2.png',
+      txt: 'a2',
+    },
+  ];
 
-        function makeInnerElms( obj ) {
-            const newLi = document.createElement( 'li' );
-            const newContent = document.createTextNode( obj.txt );
+  function createLines(elmContents) {
+    function makeInnerElms(obj) {
+      const newLi = document.createElement('li');
+      const newContent = document.createTextNode(obj.txt);
 
-            const aTag = document.createElement( 'a' );
-            aTag.href = obj.href;
+      const aTag = document.createElement('a');
+      aTag.href = obj.href;
 
-            const imgTag = document.createElement( 'img' );
-            imgTag.src = obj.imgSrc;
+      const imgTag = document.createElement('img');
+      imgTag.src = obj.imgSrc;
 
-            const elms = [ aTag, imgTag, newContent ];
+      const elms = [aTag, imgTag, newContent];
 
-            elms.map( item => {
-                newLi.appendChild( item );
-            } );
+      elms.map((item) => {
+        newLi.appendChild(item);
+      });
 
-            return newLi;
-        }
-
-        elmContents.forEach( item => {
-            $.appendChild( makeInnerElms( item ) );
-        } );
+      return newLi;
     }
 
-    createLines( elmContents );
-}
+    elmContents.forEach((item) => {
+      $.appendChild(makeInnerElms(item));
+    });
+  }
+
+  createLines(elmContents);
+};
 ```
 
 ### コメント
@@ -228,7 +224,6 @@ const kadai3 = function() {
 
 `elmContents`を分解してDOMを作るループ処理を行っています。
 
-
 ## 課題4
 
 ### 配列を使ってhtmlの中でJavaScriptでDOMを作りブラウザ出力がこのようになるようにしてください
@@ -236,15 +231,22 @@ const kadai3 = function() {
 - 配列
 
 ```js
-[{to: "bookmark.html", img: "1.png", alt:"画像1", text: "ブックマーク"}, {to: "message.html", img: "2.png", alt:"画像2", text: "メッセージ"}]
+[
+  { to: 'bookmark.html', img: '1.png', alt: '画像1', text: 'ブックマーク' },
+  { to: 'message.html', img: '2.png', alt: '画像2', text: 'メッセージ' },
+];
 ```
 
 - DOM
 
 ```html
 <ul>
- <li><a href="/bookmark.html"><img src="1.png" alt="画像1">ブックマーク</a></li>
- <li><a href="/message.html"><img src="2.png" alt="画像2">メッセージ</a></li>
+  <li>
+    <a href="/bookmark.html"><img src="1.png" alt="画像1" />ブックマーク</a>
+  </li>
+  <li>
+    <a href="/message.html"><img src="2.png" alt="画像2" />メッセージ</a>
+  </li>
 </ul>
 ```
 
@@ -253,61 +255,60 @@ const kadai3 = function() {
 - HTML
 
 ```html
-<div class='kadai-4'>
-    <p>課題4</p>
-    <ul id='kadai4Ul'></ul>
+<div class="kadai-4">
+  <p>課題4</p>
+  <ul id="kadai4Ul"></ul>
 </div>
 ```
 
 - JS
 
 ```js
-const kadai4 = function() {
-    const $ = document.getElementById( 'kadai4Ul' );
+const kadai4 = function () {
+  const $ = document.getElementById('kadai4Ul');
 
-    const elmContents = [
-        {
-            to: 'bookmark.html',
-            img: '1.png',
-            alt: '画像1',
-            text: 'ブックマーク'
-        },
-        {
-            to: 'message.html',
-            img: '2.png',
-            alt: '画像2',
-            text: 'メッセージ'
-        },
-    ];
+  const elmContents = [
+    {
+      to: 'bookmark.html',
+      img: '1.png',
+      alt: '画像1',
+      text: 'ブックマーク',
+    },
+    {
+      to: 'message.html',
+      img: '2.png',
+      alt: '画像2',
+      text: 'メッセージ',
+    },
+  ];
 
-    function createLines ( elmContents ) {
+  function createLines(elmContents) {
+    function makeInnerElms(obj) {
+      const newLi = document.createElement('li');
+      const newContent = document.createTextNode(obj.text);
 
-        function makeInnerElms( obj ) {
-            const newLi = document.createElement( 'li' );
-            const newContent = document.createTextNode( obj.text );
+      const aTag = document.createElement('a');
+      aTag.href = obj.to;
 
-            const aTag = document.createElement( 'a' );
-            aTag.href = obj.to;
+      const imgTag = document.createElement('img');
+      imgTag.src = obj.img;
 
-            const imgTag = document.createElement( 'img' );
-            imgTag.src = obj.img;
+      const elms = [aTag, imgTag, newContent];
 
-            const elms = [ aTag, imgTag, newContent ];
+      elms.map((item) => {
+        newLi.appendChild(item);
+      });
 
-            elms.map( item => {
-                newLi.appendChild( item );
-            } );
-
-            return newLi;
-        }
-
-        elmContents.forEach( item => {
-            $.appendChild( makeInnerElms( item ) );
-        } );
+      return newLi;
     }
 
-    createLines( elmContents );
-}
+    elmContents.forEach((item) => {
+      $.appendChild(makeInnerElms(item));
+    });
+  }
+
+  createLines(elmContents);
+};
 ```
 
 ### コメント
@@ -321,15 +322,22 @@ const kadai4 = function() {
 - 配列
 
 ```js
-[{to: "bookmark.html", img: "1.png", alt:"画像1", text: "ブックマーク"}, {to: "message.html", img: "2.png", alt:"画像2", text: "メッセージ"}]
+[
+  { to: 'bookmark.html', img: '1.png', alt: '画像1', text: 'ブックマーク' },
+  { to: 'message.html', img: '2.png', alt: '画像2', text: 'メッセージ' },
+];
 ```
 
 - DOM
 
 ```html
 <ul>
- <li><a href="/bookmark.html"><img src="1.png" alt="画像1">ブックマーク</a></li>
- <li><a href="/message.html"><img src="2.png" alt="画像2">メッセージ</a></li>
+  <li>
+    <a href="/bookmark.html"><img src="1.png" alt="画像1" />ブックマーク</a>
+  </li>
+  <li>
+    <a href="/message.html"><img src="2.png" alt="画像2" />メッセージ</a>
+  </li>
 </ul>
 ```
 
@@ -338,77 +346,76 @@ const kadai4 = function() {
 - HTML
 
 ```html
-<div class='kadai-5'>
-    <p>課題5</p>
-    <ul id='kadai5Ul'></ul>
+<div class="kadai-5">
+  <p>課題5</p>
+  <ul id="kadai5Ul"></ul>
 </div>
 ```
 
 - JS
 
 ```js
-const kadai5 = function() {
-    const $ = document.getElementById( 'kadai5Ul' );
+const kadai5 = function () {
+  const $ = document.getElementById('kadai5Ul');
 
-    function getElmContents() {
-        return [
-            {
-                to: 'bookmark.html',
-                img: '1.png',
-                alt: '画像1',
-                text: 'ブックマーク'
-            },
-            {
-                to: 'message.html',
-                img: '2.png',
-                alt: '画像2',
-                text: 'メッセージ'
-            },
-        ];
-    }
+  function getElmContents() {
+    return [
+      {
+        to: 'bookmark.html',
+        img: '1.png',
+        alt: '画像1',
+        text: 'ブックマーク',
+      },
+      {
+        to: 'message.html',
+        img: '2.png',
+        alt: '画像2',
+        text: 'メッセージ',
+      },
+    ];
+  }
 
+  return new Promise((resolve) => {
+    resolve(getElmContents());
+  })
+    .then((res) => {
+      if (!res) {
+        return;
+      }
 
-    return new Promise( (resolve) => {
-        resolve( getElmContents() );
-    } )
-    .then( res => {
-        if( !res ) { return; }
+      const elmContents = res;
 
-        const elmContents = res;
+      function createLines(elmContents) {
+        function makeInnerElms(obj) {
+          const newLi = document.createElement('li');
+          const newContent = document.createTextNode(obj.text);
 
-        function createLines ( elmContents ) {
+          const aTag = document.createElement('a');
+          aTag.href = obj.to;
 
-            function makeInnerElms( obj ) {
-                const newLi = document.createElement( 'li' );
-                const newContent = document.createTextNode( obj.text );
-    
-                const aTag = document.createElement( 'a' );
-                aTag.href = obj.to;
-    
-                const imgTag = document.createElement( 'img' );
-                imgTag.src = obj.img;
-    
-                const elms = [ aTag, imgTag, newContent ];
-    
-                elms.map( item => {
-                    newLi.appendChild( item );
-                } );
-    
-                return newLi;
-            }
-    
-            elmContents.forEach( item => {
-                $.appendChild( makeInnerElms( item ) );
-            } );
+          const imgTag = document.createElement('img');
+          imgTag.src = obj.img;
+
+          const elms = [aTag, imgTag, newContent];
+
+          elms.map((item) => {
+            newLi.appendChild(item);
+          });
+
+          return newLi;
         }
-    
-        createLines( elmContents );
-    } )
-    .catch( err => {
-        console.log( err );
-    } );
 
-}
+        elmContents.forEach((item) => {
+          $.appendChild(makeInnerElms(item));
+        });
+      }
+
+      createLines(elmContents);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
 ```
 
 ### コメント
@@ -420,7 +427,6 @@ Promiseが出てきました。今回はrejectは書かないため、引数はr
 また、thenの最初で早期リターンを行い、余計なコードが走らないようにしています。
 
 今回は`this`を使っていないので、`this`がどこを指しているかなどのスコープは考えていません。
-
 
 ## forEachとmap
 

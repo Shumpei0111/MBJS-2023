@@ -1,4 +1,5 @@
 ---
+id: 32
 title: 【JavaScript】もりけん塾のフロントエンドエンジニア向けドリルをやってみた ６〜８
 date: 2021-03-17 1:58:00
 tags: [javascript]
@@ -20,8 +21,6 @@ tags: [javascript]
 
 ご連絡いただけましたら幸いです。
 
-
-
 # マークアップエンジニアの方がフロントエンドエンジニアになる為の課題 ６〜８
 
 ## 課題6
@@ -35,78 +34,78 @@ tags: [javascript]
 - HTML
 
 ```html
-<div class='kadai-6'>
-    <p>課題6</p>
-    <ul id='kadai6Ul'></ul>
+<div class="kadai-6">
+  <p>課題6</p>
+  <ul id="kadai6Ul"></ul>
 </div>
 ```
 
 - JS
 
 ```js
-const kadai6 = function() {
-    const $ = document.getElementById( 'kadai6Ul' );
+const kadai6 = function () {
+  const $ = document.getElementById('kadai6Ul');
 
-    function getElmContents() {
-        return [
-            {
-                to: 'bookmark.html',
-                img: '1.png',
-                alt: '画像1',
-                text: 'ブックマーク'
-            },
-            {
-                to: 'message.html',
-                img: '2.png',
-                alt: '画像2',
-                text: 'メッセージ'
-            },
-        ];
-    }
+  function getElmContents() {
+    return [
+      {
+        to: 'bookmark.html',
+        img: '1.png',
+        alt: '画像1',
+        text: 'ブックマーク',
+      },
+      {
+        to: 'message.html',
+        img: '2.png',
+        alt: '画像2',
+        text: 'メッセージ',
+      },
+    ];
+  }
 
+  return new Promise((resolve, _) => {
+    setTimeout(() => {
+      resolve(getElmContents());
+    }, 3000);
+  })
+    .then((res) => {
+      if (!res) {
+        return;
+      }
 
-    return new Promise( (resolve, _) => {
-        setTimeout( () => {
-            resolve( getElmContents() );
-        }, 3000 );
-    } )
-    .then( res => {
-        if( !res ) { return; }
+      const elmContents = res;
 
-        const elmContents = res;
+      function createLines(elmContents) {
+        function makeInnerElms(obj) {
+          const newLi = document.createElement('li');
+          const newContent = document.createTextNode(obj.text);
 
-        function createLines ( elmContents ) {
+          const aTag = document.createElement('a');
+          aTag.href = obj.to;
 
-            function makeInnerElms( obj ) {
-                const newLi = document.createElement( 'li' );
-                const newContent = document.createTextNode( obj.text );
-    
-                const aTag = document.createElement( 'a' );
-                aTag.href = obj.to;
-    
-                const imgTag = document.createElement( 'img' );
-                imgTag.src = obj.img;
-    
-                const elms = [ aTag, imgTag, newContent ];
-    
-                elms.map( item => {
-                    newLi.appendChild( item );
-                } );
-    
-                return newLi;
-            }
-    
-            elmContents.forEach( item => {
-                $.appendChild( makeInnerElms( item ) );
-            } );
+          const imgTag = document.createElement('img');
+          imgTag.src = obj.img;
+
+          const elms = [aTag, imgTag, newContent];
+
+          elms.map((item) => {
+            newLi.appendChild(item);
+          });
+
+          return newLi;
         }
-    
-        createLines( elmContents );
-    } )
-    .catch( err => {
-        console.log( err );
-    } );
-}
+
+        elmContents.forEach((item) => {
+          $.appendChild(makeInnerElms(item));
+        });
+      }
+
+      createLines(elmContents);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
 ```
 
 ### コメント
@@ -120,11 +119,11 @@ Promise内で`setTimeout`を使います。
 明示的に使わない引数ですとしています。
 
 ```js
-return new Promise( (resolve, _) => {
-    setTimeout( () => {
-        resolve( getElmContents() );
-    }, 3000 );
-} )
+return new Promise((resolve, _) => {
+  setTimeout(() => {
+    resolve(getElmContents());
+  }, 3000);
+});
 ```
 
 3000ミリ秒後に`getElmContents()`が実行され、その戻り値が解決された値としてthen/catch節に渡ってきます。
@@ -144,83 +143,83 @@ return new Promise( (resolve, _) => {
 - HTML
 
 ```html
-<div class='kadai-7'>
-    <p>課題7</p>
-    <div class='kadai-7-wrapper'>
-        <img src='./img/loading.gif' alt='loading' id='isLoading-kadai7'>
-        <ul id='kadai7Ul'></ul>
-    </div>
+<div class="kadai-7">
+  <p>課題7</p>
+  <div class="kadai-7-wrapper">
+    <img src="./img/loading.gif" alt="loading" id="isLoading-kadai7" />
+    <ul id="kadai7Ul"></ul>
+  </div>
 </div>
 ```
 
 - JS
 
 ```js
-const kadai7 = function() {
-    const $ = document.getElementById( 'kadai7Ul' );
-    const $loading = document.getElementById( 'isLoading-kadai7' );
+const kadai7 = function () {
+  const $ = document.getElementById('kadai7Ul');
+  const $loading = document.getElementById('isLoading-kadai7');
 
-    function getElmContents() {
-        return [
-            {
-                to: 'bookmark.html',
-                img: '1.png',
-                alt: '画像1',
-                text: 'ブックマーク'
-            },
-            {
-                to: 'message.html',
-                img: '2.png',
-                alt: '画像2',
-                text: 'メッセージ'
-            },
-        ];
-    }
+  function getElmContents() {
+    return [
+      {
+        to: 'bookmark.html',
+        img: '1.png',
+        alt: '画像1',
+        text: 'ブックマーク',
+      },
+      {
+        to: 'message.html',
+        img: '2.png',
+        alt: '画像2',
+        text: 'メッセージ',
+      },
+    ];
+  }
 
+  return new Promise((resolve, _) => {
+    setTimeout(() => {
+      $loading.style = 'display:none;';
+      resolve(getElmContents());
+    }, 3000);
+  })
+    .then((res) => {
+      if (!res) {
+        return;
+      }
 
-    return new Promise( (resolve, _) => {
-        setTimeout( () => {
-            $loading.style = 'display:none;'
-            resolve( getElmContents() );
-        }, 3000 );
-    } )
-    .then( res => {
-        if( !res ) { return; }
+      const elmContents = res;
 
-        const elmContents = res;
+      function createLines(elmContents) {
+        function makeInnerElms(obj) {
+          const newLi = document.createElement('li');
+          const newContent = document.createTextNode(obj.text);
 
-        function createLines ( elmContents ) {
+          const aTag = document.createElement('a');
+          aTag.href = obj.to;
 
-            function makeInnerElms( obj ) {
-                const newLi = document.createElement( 'li' );
-                const newContent = document.createTextNode( obj.text );
-    
-                const aTag = document.createElement( 'a' );
-                aTag.href = obj.to;
-    
-                const imgTag = document.createElement( 'img' );
-                imgTag.src = obj.img;
-    
-                const elms = [ aTag, imgTag, newContent ];
-    
-                elms.map( item => {
-                    newLi.appendChild( item );
-                } );
-    
-                return newLi;
-            }
-    
-            elmContents.forEach( item => {
-                $.appendChild( makeInnerElms( item ) );
-            } );
+          const imgTag = document.createElement('img');
+          imgTag.src = obj.img;
+
+          const elms = [aTag, imgTag, newContent];
+
+          elms.map((item) => {
+            newLi.appendChild(item);
+          });
+
+          return newLi;
         }
-    
-        createLines( elmContents );
-    } )
-    .catch( err => {
-        console.log( err );
-    } );
-}
+
+        elmContents.forEach((item) => {
+          $.appendChild(makeInnerElms(item));
+        });
+      }
+
+      createLines(elmContents);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
 ```
 
 ### コメント
@@ -228,7 +227,7 @@ const kadai7 = function() {
 HTMLにローディングのDOMを追加しました。
 
 ```html
-<img src='./img/loading.gif' alt='loading' id='isLoading-kadai7'>
+<img src="./img/loading.gif" alt="loading" id="isLoading-kadai7" />
 ```
 
 ちょっとIDの付け方がミスったなぁと今は思います。
@@ -263,7 +262,6 @@ JS側では、先にローディングのidを捕捉しておいて、Promiseの
 
 今回はdisplay:noneにするタイミングはここでいいかなと考えています。
 
-
 ## 課題8
 
 ### 3秒後にrejectを実行してthenでその値をコンソール出力してください
@@ -279,52 +277,56 @@ JS側では、先にローディングのidを捕捉しておいて、Promiseの
 - HTML
 
 ```html
-<div class='kadai-8'>
-    <p>課題8</p>
-    <div class='kadai-8-wrapper'>
-        <img src='./img/loading.gif' alt='loading' id='isLoading-kadai8' style='display:none'>
-        <ul id='kadai8Ul'></ul>
-    </div>
+<div class="kadai-8">
+  <p>課題8</p>
+  <div class="kadai-8-wrapper">
+    <img
+      src="./img/loading.gif"
+      alt="loading"
+      id="isLoading-kadai8"
+      style="display:none"
+    />
+    <ul id="kadai8Ul"></ul>
+  </div>
 </div>
 ```
 
 - JS
 
 ```js
-const kadai8 = function() {
-    const $ = document.getElementById( 'kadai8Ul' );
-    const $loading = document.getElementById( 'isLoading-kadai8' );
+const kadai8 = function () {
+  const $ = document.getElementById('kadai8Ul');
+  const $loading = document.getElementById('isLoading-kadai8');
 
-    $loading.style = 'display:block';
+  $loading.style = 'display:block';
 
-    function getElmContents() {
-        return [
-            {
-                to: 'bookmark.html',
-                img: '1.png',
-                alt: '画像1',
-                text: 'ブックマーク'
-            },
-            {
-                to: 'message.html',
-                img: '2.png',
-                alt: '画像2',
-                text: 'メッセージ'
-            },
-        ];
-    }
+  function getElmContents() {
+    return [
+      {
+        to: 'bookmark.html',
+        img: '1.png',
+        alt: '画像1',
+        text: 'ブックマーク',
+      },
+      {
+        to: 'message.html',
+        img: '2.png',
+        alt: '画像2',
+        text: 'メッセージ',
+      },
+    ];
+  }
 
-
-    return new Promise( (_, reject) => {
-        setTimeout( () => {
-            reject( getElmContents() );
-        }, 3000 );
-    } )
-    .then( () => {} )
-    .catch( err => {
-        // console.log( err );
-    } );
-}
+  return new Promise((_, reject) => {
+    setTimeout(() => {
+      reject(getElmContents());
+    }, 3000);
+  })
+    .then(() => {})
+    .catch((err) => {
+      // console.log( err );
+    });
+};
 ```
 
 ### コメント
@@ -336,7 +338,6 @@ const kadai8 = function() {
 そしてrejectメソットでgetElmContents()を叩き、
 
 無事catch節にたどり着きました。
-
 
 ## まとめ
 
