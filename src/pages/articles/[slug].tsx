@@ -5,18 +5,21 @@ import ReactMarkdown from 'react-markdown';
 import CodeBlock from '@/features/blog/code-block';
 import { DefaultLayout } from '@/layout/default';
 import { TransitionItem } from '@/features/animation/transitionItem';
+import { Post, readContentFiles } from '@/lib/content-loader';
+import Link from 'next/link';
 
 const BlogPost: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   title,
   tags,
-  frontmatter,
   markdownBody,
+  prev,
+  next,
 }) => {
   const H1 = ({ node, ...props }: any) => {
     return (
       <h1
         id={node.position?.start.line.toString()}
-        className="font-bold text-24 py-6"
+        className="font-bold text-24 py-6 mt-20"
       >
         {props.children}
       </h1>
@@ -27,7 +30,7 @@ const BlogPost: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
     return (
       <h2
         id={node.position?.start.line.toString()}
-        className="border-dotted border-white border-b-1 font-bold text-18 mb-3 mt-20"
+        className="border-dotted border-white border-b-1 font-bold text-18 mb-3 mt-16"
       >
         {props.children}
       </h2>
@@ -62,25 +65,34 @@ const BlogPost: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
                 ))}
               </ul>
             )}
-            <h2 className="text-40 text-center pt-4">{title}</h2>
+            <h2 className="text-40 pt-4 text-center">{title}</h2>
           </TransitionItem>
           {/* 目次 */}
           <TransitionItem transitionIndex={1}>
-            <nav className="py-10 flex flex-col gap-y-2 text-14">
-              <ReactMarkdown
-                allowedElements={['h1', 'h2']}
-                components={{
-                  h1: ankerLink,
-                  h2: ankerLink,
-                }}
-              >
-                {markdownBody}
-              </ReactMarkdown>
+            <nav className="py-10 pt-24 px-6 relative overflow-hidden">
+              <div className="inline-flex flex-col gap-y-2 text-14">
+                <ReactMarkdown
+                  allowedElements={['h1', 'h2']}
+                  components={{
+                    h1: ankerLink,
+                    h2: ankerLink,
+                  }}
+                >
+                  {markdownBody}
+                </ReactMarkdown>
+              </div>
+              <span className="absolute -bottom-5 right-2">
+                <svg width="300" height="60" viewBox="10 -43 156 60">
+                  <text className="fill-transparent text-60 stroke-white stroke-[0.2]">
+                    <tspan>CONTENTS</tspan>
+                  </text>
+                </svg>
+              </span>
             </nav>
           </TransitionItem>
           {/* 本文 */}
           <TransitionItem transitionIndex={2}>
-            <div className="leading-10 font-blog">
+            <div className="leading-10 font-blog pt-40">
               <ReactMarkdown
                 components={{ code: CodeBlock, h1: H1, h2: H2, a: ankerLink }}
                 remarkPlugins={[gfm]}
@@ -91,6 +103,35 @@ const BlogPost: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
           </TransitionItem>
           <div className="py-40 text-center">
             <span>*</span>
+          </div>
+          {/* 前後の記事 */}
+          <div className="grid grid-cols-2 gap-x-8">
+            {next ? (
+              <div className="text-14">
+                <p className="text-12">次の記事</p>
+                <Link
+                  href={`/articles/${next.slug}`}
+                  className="underline hover:text-primary duration-200"
+                >
+                  {next.title}
+                </Link>
+              </div>
+            ) : (
+              <div role="presentation" />
+            )}
+            {prev ? (
+              <div className="text-14">
+                <p className="text-12">前の記事</p>
+                <Link
+                  href={`/articles/${prev.slug}`}
+                  className="underline hover:text-primary duration-200"
+                >
+                  {prev.title}
+                </Link>
+              </div>
+            ) : (
+              <div role="presentation" />
+            )}
           </div>
         </article>
       </div>
@@ -130,12 +171,23 @@ export async function getStaticProps({
     return [frontmatter.tags];
   })();
 
+  const posts = await readContentFiles();
+
+  const orderdPosts = posts.sort((a: Post, b: Post) => {
+    return a.date > b.date ? -1 : 1;
+  });
+
+  const prev = orderdPosts.filter((post) => post.id === singlePost.data.id - 1);
+  const next = orderdPosts.filter((post) => post.id === singlePost.data.id + 1);
+
   return {
     props: {
       title,
       tags,
       frontmatter,
       markdownBody: singlePost.content,
+      prev: prev[0] || null,
+      next: next[0] || null,
     },
   };
 }

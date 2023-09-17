@@ -5,7 +5,8 @@ import matter from 'gray-matter';
 const DIR = path.join(process.cwd(), 'src/content/');
 const EXTENSION = '.md';
 
-type Post = {
+export type Post = {
+  id: number;
   content: string;
   date: string;
   slug: string;
@@ -28,12 +29,6 @@ const readContentFiles = async (): Promise<Post[] | []> => {
 
 const listContentFiles = (): FileName[] => {
   const filenames = fs.readdirSync(DIR);
-  console.log(
-    123,
-    filenames.filter(
-      (filename: string) => path.extname(filename) === EXTENSION,
-    ),
-  );
 
   return filenames.filter(
     (filename: string) => path.extname(filename) === EXTENSION,
@@ -54,10 +49,11 @@ const readContentFile = async ({
   const raw = fs.readFileSync(path.join(DIR, `${slug}${EXTENSION}`), 'utf8');
   const matterResult = matter(raw);
 
-  const { title, date, tags } = matterResult.data;
+  const { id, title, date, tags } = matterResult.data;
   const { content } = matterResult;
 
   return {
+    id,
     title,
     date,
     tags,

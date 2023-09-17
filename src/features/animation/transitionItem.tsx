@@ -15,11 +15,6 @@ export const TransitionItem = (props: {
           duration: 0.2,
         },
       }}
-      exit={{
-        opacity: 0,
-        transform: 'translateY(-100px)',
-        transition: { delay: props.transitionIndex * 0.04, duration: 0.2 },
-      }}
     >
       {props.children}
     </motion.div>

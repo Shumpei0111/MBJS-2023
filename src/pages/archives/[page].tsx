@@ -1,20 +1,12 @@
 import { DefaultLayout } from '@/layout/default';
-import { listContentFiles, readContentFiles } from '@/lib/content-loader';
+import { Post, listContentFiles, readContentFiles } from '@/lib/content-loader';
 import classNames from 'classnames';
 import { TransitionItem } from '@/features/animation/transitionItem';
 import dayjs from 'dayjs';
 import Link from 'next/link';
 
 type Props = {
-  posts:
-    | {
-        content: string;
-        date: string;
-        slug: string;
-        tags: string[] | string;
-        title: string;
-      }[]
-    | [];
+  posts: Post[] | [];
   page: number;
   total: number;
   perPage: number;
@@ -108,7 +100,7 @@ export async function getStaticProps(params: {
   const start = end - COUNT_PER_PAGE;
   const posts = await readContentFiles();
 
-  const orderdPosts = posts.sort((a: any, b: any) => {
+  const orderdPosts = posts.sort((a: Post, b: Post) => {
     return a.date > b.date ? -1 : 1;
   });
 
