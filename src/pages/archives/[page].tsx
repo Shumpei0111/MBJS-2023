@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { TransitionItem } from '@/features/animation/transitionItem';
 import dayjs from 'dayjs';
 import Link from 'next/link';
+import { SeoMeta } from '@/components/Seo';
 
 type Props = {
   posts: Post[] | [];
@@ -19,6 +20,7 @@ export default function Archives({ posts, page, total, perPage }: Props) {
 
   return (
     <DefaultLayout>
+      <SeoMeta pageTitle={'Archives'} pagePath={`archives/${page}`} />
       <div className="max-w-[960px] mx-auto pt-20">
         <hgroup>
           <h2 className="text-40">BLOG</h2>

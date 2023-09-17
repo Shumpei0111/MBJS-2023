@@ -13,6 +13,7 @@ import classNames from 'classnames';
 import { wait } from '@/util/wait';
 import { DoujinSection } from '@/layout/home/DoujinSection';
 import { OtherSection } from '@/layout/home/OtherSection';
+import { SeoMeta } from '@/components/Seo';
 
 export default function Home() {
   const [isShowInner, setIsShowInner] = useState<boolean>(false);
@@ -24,6 +25,7 @@ export default function Home() {
 
   return (
     <DefaultLayout isShowInner={isShowInner}>
+      <SeoMeta />
       <div className="flex flex-col container mx-auto">
         <MainVisual
           isShowInner={isShowInner}

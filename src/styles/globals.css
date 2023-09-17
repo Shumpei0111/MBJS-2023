@@ -146,3 +146,32 @@ body {
   overflow: auto;
   scrollbar-gutter: stable;
 }
+
+pre code {
+  -webkit-font-smoothing: antialiased;
+}
+
+pre code span,
+pre code {
+  font-size: 0.8rem !important;
+  font-family:
+    SFMono-Regular,
+    Consolas,
+    Liberation Mono,
+    Menlo,
+    monospace,
+    Apple Color Emoji,
+    Segoe UI Emoji,
+    Segoe UI Symbol,
+    Noto Color Emoji;
+}
+
+code.font-blog {
+  background-color: #dc7a7d;
+  color: #121212;
+  font-size: 0.79rem;
+  padding-inline: 8px;
+  padding-block: 4px;
+  border-radius: 4px;
+  line-height: 1rem;
+}

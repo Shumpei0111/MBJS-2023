@@ -8,8 +8,10 @@ import { TransitionItem } from '@/features/animation/transitionItem';
 import { Post, readContentFiles } from '@/lib/content-loader';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { SeoMeta } from '@/components/Seo';
 
 const BlogPost: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
+  slug,
   title,
   tags,
   markdownBody,
@@ -51,6 +53,7 @@ const BlogPost: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
 
   return (
     <DefaultLayout>
+      <SeoMeta pageTitle={title} pagePath={`articles/${slug}`} />
       <div className="max-w-[800px] mx-auto pt-20">
         <article className="bg-black text-white px-16 py-20 z-[100] relative drop-shadow-lg">
           <TransitionItem transitionIndex={0}>
@@ -71,7 +74,7 @@ const BlogPost: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
           {/* 目次 */}
           <TransitionItem transitionIndex={1}>
             <nav className="py-10 pt-24 px-6 relative overflow-hidden">
-              <div className="inline-flex flex-col gap-y-2 text-14">
+              <div className="inline-flex flex-col gap-y-2 text-14 font-blog">
                 <ReactMarkdown
                   allowedElements={['h1', 'h2']}
                   components={{
@@ -185,6 +188,7 @@ export async function getStaticProps({
 
   return {
     props: {
+      slug,
       title,
       tags,
       frontmatter,

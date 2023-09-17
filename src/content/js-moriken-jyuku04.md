@@ -15,8 +15,6 @@ tags: [javascript]
 
 [マークアップエンジニアの方がフロントエンドエンジニアになる為の課題](https://github.com/kenmori/handsonFrontend/blob/master/work/markup/1.md)
 
----
-
 もしポリシーに違反していたりする場合は当該記事・ツイートを削除いたしますので、
 
 ご連絡いただけましたら幸いです。
@@ -607,6 +605,6 @@ const kadai14 = function() {
 
 ちゃんと作り込むともっと長くなってくるので楽しくなってきますね。
 
----
+## それと...
 
 try-catch、Promise内でやらずに、それを呼び出しているところで書いたほうがよかったですかね…

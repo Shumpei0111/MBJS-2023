@@ -3,6 +3,7 @@ import { LeftSection } from '@/layout/about/LeftSection';
 import { RightSection } from '@/layout/about/RightSection';
 import classNames from 'classnames';
 import { useEffect, useState } from 'react';
+import { SeoMeta } from '@/components/Seo';
 
 export default function About() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -14,6 +15,7 @@ export default function About() {
 
   return (
     <NoFooterLayout>
+      <SeoMeta pageTitle={'About'} pagePath={'about'} />
       <aside className="relative">
         <LeftSection />
       </aside>
