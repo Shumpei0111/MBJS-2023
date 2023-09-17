@@ -136,6 +136,12 @@ body {
   animation-fill-mode: forwards;
 }
 
+.fade-up {
+  animation-name: fadeUpAnime;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
 .set-gutter-stable {
   overflow: auto;
   scrollbar-gutter: stable;
