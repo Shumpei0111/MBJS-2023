@@ -59,11 +59,11 @@ export const MainVisual: React.FC<Props> = ({
           ])}
         >
           <hgroup>
-            <h2 className="uppercase text-30">
+            <h2 className="uppercase text-43">
               Web front-end developer
               <br />& Doujin creator
             </h2>
-            <p className="text-20 before:content-['{'] before:pr-1 after:content-['}'] after:pl-1 mt-10 ">
+            <p className="text-27 before:content-['{'] before:pr-1 after:content-['}'] after:pl-1 mt-10 ">
               Illustration : Graphic Design : Manga
             </p>
           </hgroup>

@@ -89,7 +89,7 @@ export const DoujinSection: React.FC = () => {
       </div>
       {/* NOTE; parentRef カードの枚数で h-[n*100vh] が決まる */}
       <div className="relative h-[350vh]" ref={parentRef}>
-        <div className="h-screen sticky top-0 left-0 bg-primary mt-6 w-screen mx-[calc(50%_-_50vw)]">
+        <div className="h-screen sticky top-0 left-0 bg-primary mt-14 w-screen mx-[calc(50%_-_50vw)]">
           <ul className="relative" data-scroll-slider ref={scrollSliderRef}>
             {doujinData.map((book, index) => (
               <li key={book.title} data-scroll-slider-item>
