@@ -1,4 +1,5 @@
 ---
+id: 9
 title: はじめてのシェルスクリプト - AWS/S3にログファイルをアップロードする
 date: 2019-07-12 21:58:41
 tags: [シェルスクリプト, AWS, S3]
@@ -16,8 +17,8 @@ WordPressで制作したものをAWSに乗せて管理していますが、
 
 ごく簡単なスクリプトを作ったので、備忘として紹介します。
 
-
 ## AWSの構成
+
 AWSのマーケットプレイスから、Bitnamiが配信しているWordPressテンプレートを使っています。
 
 EC2側のWebサーバはApache、OSはUbuntuで、
@@ -29,10 +30,11 @@ EC2側のWebサーバはApache、OSはUbuntuで、
 CLIからファイルをアップロードするので、`aws-cli`をインストールします。
 
 環境
-  - Bitnami
-  - Wordpress
-  - Ubuntu
-  - Apache
+
+- Bitnami
+- Wordpress
+- Ubuntu
+- Apache
 
 aws-cliは、Pythonとpip3（Pythonのパッケージマネージャ）で動くので、まずUbuntuにPythonとpipがあるか確認
 
@@ -71,7 +73,6 @@ $ aws --version
 
 ※ログファイルは膨らむので、.gzで圧縮されていることが通常です。
 
-
 1. 任意の場所にディレクトリを作成し、スクリプトファイル（拡張子.sh）を作成します
 
 ```
@@ -89,8 +90,8 @@ $ touch anyshell.sh
 logs_save() {
   TYPE=$1
   LOGDIR="/opt/User/apache2/logs"
-  
-  cd ${LOGDIR} 
+
+  cd ${LOGDIR}
 
   for F in ${TYPE}_log-*.gz; do
     aws s3 cp ${LOGDIR} s3://my-example-site/logs/${TYPE}/ --exclude "*" --include $F --recursive && rm $F;
@@ -103,38 +104,39 @@ logs_save access
 ```
 
 先頭行の`#!/bin/bash`はシェバンといいます。
+
 - シェバンの最後はbashか、bash以外のシェルを使うことを想定するならshと書きます。
 
 スクリプトを実行する前に、念のため`cd ${LOGDIR}`でログファイルがあるディレクトリに移動してから実行します。
 
 for文でアクセスログ、エラーログそれぞれのファイルがある文だけ回しています。
 
-  - log_save関数の1行目`$1`が、関数に渡す引数の個数です
-  - なるべくdryにするよう、できるだけ変数にしています
-  - for文で変数を格納する`F`は`file`のFで、`$F`でs3コマンドに渡しています
+- log_save関数の1行目`$1`が、関数に渡す引数の個数です
+- なるべくdryにするよう、できるだけ変数にしています
+- for文で変数を格納する`F`は`file`のFで、`$F`でs3コマンドに渡しています
 
 S3へのアップロードコマンド
 
 `aws s3 cp ${LOGDIR} s3://my-example-site/logs/${TYPE}/ --exclude "*" --include $F --recursive && rm $F;`
 
 手順としては、
+
 - `cp`でApache側のログファイルがあるディレクトリから、S3側のディレクトリへ渡す
 - それが成功したら`rm $F`で、for文の変数Fに入ったログファイルたちを削除します
 
 渡しているオプション
 
-| exclude | include | recursive |
-|-|-|-| 
+| exclude            | include                | recursive    |
+| ------------------ | ---------------------- | ------------ |
 | 指定した条件を除外 | 指定した条件を取り込む | 再帰的に行う |
 
 お作法的な書き方で、この3つはセットで書いていいと思います。
+
 - 一度`--exclude "*"`で、すべてのファイルを除外
 - `--include $F`で、該当ファイルを対象に指定
 - `--recursive`で、対象ディレクトリの中にある分だけ行う
 
-
 ## シェルを実行できるようにパスを通す
-
 
 このままだと実行権限がなくコマンド使えずに`command not found`が返ってくるので、
 
@@ -165,7 +167,6 @@ PATH="$PATH:/home/bitnami/myshellscript"
 export PATH
 ```
 
-
 ### コマンドでやる場合
 
 ```
@@ -181,8 +182,4 @@ $ export PATH="$PATH:/home/bitnami/myshellscript"
 $ anyshell.sh
 ```
 
-
-
 [参考：UNIX & Linux コマンド・シェルスクリプト リファレンス](https://shellscript.sunone.me/)
-
-

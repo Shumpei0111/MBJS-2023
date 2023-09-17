@@ -1,4 +1,5 @@
 ---
+id: 6
 title: 【Git】Git Feature Flow（的なもの）でシンプル運用する
 date: 2019-07-09 22:30:06
 tags: [Git]
@@ -18,21 +19,21 @@ tags: [Git]
 僕は**Git Feature Flow**というものを知ってやってみたところ、
 複数人開発した際のフローがわかりやすかったのでお伝えします。
 
-
 ## Git Feature Flowって？
 
 ぐるなびさんのエンジニアブログで紹介されていたフローです。
 
-
 > GitFeatureFlowで使う主なブランチはこの3つです。
-  - master：本番環境にリリースするブランチ
-  - feature：案件ごとにmasterから切ったブランチ
-  - test-env（もしくはstg-env）：テスト環境と（stg-envはステージング環境と）同期されているブランチ
-  このブランチモデルの特徴は下記の通りです。
-  1. 改修案件ごとにfeatureブランチをひとつ割り当て、テスト環境と同期されているブランチに対して個別に featureブランチをマージする (GitFlowは複数のfeatureブランチを含んでいるdevelopブランチをマージする)
-  1. 各featureブランチは独立しているため、急なリリースの発生、リリース日変更にも対応しやすい
 
-  引用：[GitFlowは使わない！シンプルな「GitFeatureFlow」を紹介します](https://developers.gnavi.co.jp/entry/GitFeatureFlow/koyama)
+- master：本番環境にリリースするブランチ
+- feature：案件ごとにmasterから切ったブランチ
+- test-env（もしくはstg-env）：テスト環境と（stg-envはステージング環境と）同期されているブランチ
+  このブランチモデルの特徴は下記の通りです。
+
+1. 改修案件ごとにfeatureブランチをひとつ割り当て、テスト環境と同期されているブランチに対して個別に featureブランチをマージする (GitFlowは複数のfeatureブランチを含んでいるdevelopブランチをマージする)
+1. 各featureブランチは独立しているため、急なリリースの発生、リリース日変更にも対応しやすい
+
+引用：[GitFlowは使わない！シンプルな「GitFeatureFlow」を紹介します](https://developers.gnavi.co.jp/entry/GitFeatureFlow/koyama)
 
 個人開発なら関係ないですが、複数人で開発する場合、
 おそらくmasterブランチの扱い方が結構迷うのではないかと思います。
@@ -41,8 +42,8 @@ Git Feature Flowであれば、リリースのタイミングだけmasterブラ�
 masterブランチがごちゃつかず、
 整理されたブランチがマージされて管理がしやすいのが特徴のようです。
 
-
 ### 自分たちのプロジェクト用にアレンジ
+
 社内のあるプロジェクトに、僕と同僚の2人で1つの成果物を作ることとなった際に、
 Gitの運用に悩みましたが、Git Feature Flowを知っていた同僚の提案で導入が決まりました。
 
@@ -98,7 +99,6 @@ rebaseはdevelopブランチを1本のきれいな歴史にするために行い
 rebaseはmergeと同じように統合されますが、
 それまでの他のメンバーが行った作業を加味した状態でその上に自分のコミットを積みます。
 
-
 なんとなくのイメージですが、
 
 - 本流のブランチに横から生えて本流に合体するのがmerge
@@ -107,11 +107,11 @@ rebaseはmergeと同じように統合されますが、
 という感じです。
 
 - merge(C5が最新コミット)
-![merge](/img/posts/190709-git-merge.png)
+  ![merge](/img/posts/190709-git-merge.png)
 
 - rebase(C3のコピーであるC3'が最新コミットになり、C3は消える)
-![rebase](/img/posts/190709-git-rebase1.png)
-[引用：git公式ドキュメント](https://git-scm.com/book/ja/v1/Git-%E3%81%AE%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E6%A9%9F%E8%83%BD-%E3%83%AA%E3%83%99%E3%83%BC%E3%82%B9)
+  ![rebase](/img/posts/190709-git-rebase1.png)
+  [引用：git公式ドキュメント](https://git-scm.com/book/ja/v1/Git-%E3%81%AE%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E6%A9%9F%E8%83%BD-%E3%83%AA%E3%83%99%E3%83%BC%E3%82%B9)
 
 そうすることで本流のブランチ（ここではdevelop）が1本の歴史になります。
 「rebaseはあくまでプッシュする前のコミットをきれいにするための方法である」と
@@ -119,8 +119,8 @@ rebaseはmergeと同じように統合されますが、
 
 そのあと念の為hogeブランチをバックアップのためにpushしておきます。
 
+### git merge --no-ff
 
-### git merge --no-ff 
 次にdevelopブランチにcheckoutして、今まで作業していたブランチをmergeします。
 
 mergeをする際、普通に行うとmerge元とmerge先のブランチが同じ位置に並びますが、
@@ -144,8 +144,8 @@ developブランチにいながら`git merge --no-ff hoge`とすると、
 
 というフローになります。
 
-
 ### きれいなmasterブランチでいたい
+
 Gitフローはプロジェクトごと個々にあるかと思いますが、
 自分たちが採用したフローはこのような感じでした。
 
