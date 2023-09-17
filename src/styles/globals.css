@@ -122,3 +122,21 @@ body {
   transform-origin: center bottom;
   animation: yurayura 2s linear infinite;
 }
+
+.fade-in {
+  animation-name: fadeInAnime;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+.fade-right {
+  animation-name: fadeRightAnime;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.set-gutter-stable {
+  overflow: auto;
+  scrollbar-gutter: stable;
+}

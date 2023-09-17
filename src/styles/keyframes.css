@@ -131,3 +131,23 @@
     transform: rotate(-10deg);
   }
 }
+
+@keyframes fadeInAnime {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeRightAnime {
+  from {
+    right: -100vw;
+  }
+
+  to {
+    right: 50%;
+  }
+}

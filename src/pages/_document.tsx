@@ -7,7 +7,7 @@ export default function Document() {
         <link rel="stylesheet" href="https://use.typekit.net/onf1knq.css" />
       </Head>
       <body className="flex flex-col min-w-[375px] w-full min-h-[100vh] mx-auto leading-[1.5] text-primary overflow-y-auto">
-        <div className="noise-overlay" />
+        <div role="presentation" className="noise-overlay" />
         <Main />
         <NextScript />
       </body>
