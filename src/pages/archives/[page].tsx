@@ -3,6 +3,7 @@ import { listContentFiles, readContentFiles } from '@/lib/content-loader';
 import classNames from 'classnames';
 import { TransitionItem } from '@/features/animation/transitionItem';
 import dayjs from 'dayjs';
+import Link from 'next/link';
 
 type Props = {
   posts:
@@ -37,27 +38,34 @@ export default function Archives({ posts, page, total, perPage }: Props) {
               {posts.map((post, index) => (
                 <TransitionItem key={post.title} transitionIndex={index}>
                   <li className="duration-300 ease-in hover:scale-105 flex flex-col w-fit">
-                    <div className="flex gap-x-2 items-center pb-1">
-                      <span className="text-14">{getPostDate(post.date)}</span>
-                      {post.tags && Array.isArray(post.tags) && (
-                        <ul className="flex gap-x-3">
-                          {post.tags.map((tag) => (
-                            <li className="text-12 uppercase border-1 border-primary px-2 rounded-md">
-                              {tag}
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                      {post.tags && typeof post.tags === 'string' && (
-                        <span className="text-12 uppercase border-1 border-primary px-2 rounded-md">
-                          {post.tags}
+                    <Link href={`/articles/${post.slug}`}>
+                      <div className="flex gap-x-2 items-center pb-1">
+                        <span className="text-14">
+                          {getPostDate(post.date)}
                         </span>
-                      )}
-                    </div>
-                    <p className="text-18 pt-1">{post.title}</p>
-                    <p className="pl-4 line-clamp-1 text-12 max-w-[500px] pt-1">
-                      <span>{post.content}</span>
-                    </p>
+                        {post.tags && Array.isArray(post.tags) && (
+                          <ul className="flex gap-x-3">
+                            {post.tags.map((tag, ind) => (
+                              <li
+                                key={`${tag}-${ind}`}
+                                className="text-12 uppercase border-1 border-primary px-2 rounded-md"
+                              >
+                                {tag}
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                        {post.tags && typeof post.tags === 'string' && (
+                          <span className="text-12 uppercase border-1 border-primary px-2 rounded-md">
+                            {post.tags}
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-18 pt-1">{post.title}</p>
+                      <p className="pl-4 line-clamp-1 text-12 max-w-[500px] pt-1">
+                        <span>{post.content}</span>
+                      </p>
+                    </Link>
                   </li>
                 </TransitionItem>
               ))}

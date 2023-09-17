@@ -22,6 +22,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ['YuMincho', 'Yu Mincho', 'serif'],
+        blog: ['Helvetica Neue', 'Arial', 'Yu Gothic', 'Meiryo', 'sans-serif'],
       },
       borderWidth: {
         // 1 ~ 10px
