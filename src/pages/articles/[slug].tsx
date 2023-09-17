@@ -7,6 +7,7 @@ import { DefaultLayout } from '@/layout/default';
 import { TransitionItem } from '@/features/animation/transitionItem';
 import { Post, readContentFiles } from '@/lib/content-loader';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 const BlogPost: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   title,
@@ -112,6 +113,7 @@ const BlogPost: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
                 <Link
                   href={`/articles/${next.slug}`}
                   className="underline hover:text-primary duration-200"
+                  scroll={false}
                 >
                   {next.title}
                 </Link>
@@ -125,6 +127,7 @@ const BlogPost: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
                 <Link
                   href={`/articles/${prev.slug}`}
                   className="underline hover:text-primary duration-200"
+                  scroll={false}
                 >
                   {prev.title}
                 </Link>
