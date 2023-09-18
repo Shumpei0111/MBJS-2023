@@ -14,8 +14,9 @@ export const TheFooter = () => {
         </li>
       </ul>
       <small className="text-22 px-4 md:px-0">
-        <p className="uppercase">
-          MB.js | copyright Shumpei All Rights Reserved.
+        <p className="uppercase text-center md:text-left">
+          MB.js | copyright Shumpei <br className="md:hidden block" />
+          All Rights Reserved.
         </p>
       </small>
     </footer>
