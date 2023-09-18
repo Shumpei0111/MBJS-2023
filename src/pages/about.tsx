@@ -16,12 +16,12 @@ export default function About() {
   return (
     <NoFooterLayout>
       <SeoMeta pageTitle={'About'} pagePath={'about'} />
-      <aside className="relative">
+      <aside className="relative hidden md:block">
         <LeftSection />
       </aside>
       <div
         className={classNames([
-          'absolute top-0 right-[-100vw]',
+          'absolute top-[-140px] md:top-0 right-[-100vw]',
           isLoaded && 'fade-right',
         ])}
       >

@@ -16,7 +16,7 @@ export const DefaultLayout: React.FC<Props> = ({
       <TheHeader
         className={classNames([
           'duration-[2800ms]',
-          isShowInner ? 'opacity-100' : 'opacity-0',
+          isShowInner ? 'opacity-100 relative' : 'opacity-0',
         ])}
         isShowInner={isShowInner}
       />

@@ -21,14 +21,14 @@ export default function Archives({ posts, page, total, perPage }: Props) {
   return (
     <DefaultLayout>
       <SeoMeta pageTitle={'Archives'} pagePath={`archives/${page}`} />
-      <div className="max-w-[960px] mx-auto pt-20">
+      <div className="md:max-w-[960px] mx-auto pt-20 px-4">
         <hgroup>
           <h2 className="text-40">BLOG</h2>
           <p className="text-14">日々思ったこと・学習の記録</p>
         </hgroup>
-        <section className="pt-10 pl-4">
+        <section className="pt-10 md:pl-4">
           {posts && posts.length > 0 && (
-            <ul className="flex flex-col gap-y-6 fade-up">
+            <ul className="flex flex-col gap-y-10 md:gap-y-6 fade-up">
               {posts.map((post, index) => (
                 <TransitionItem key={post.title} transitionIndex={index}>
                   <li className="duration-300 ease-in hover:scale-105 flex flex-col w-fit">
@@ -57,7 +57,7 @@ export default function Archives({ posts, page, total, perPage }: Props) {
                       </div>
                       <p className="text-18 pt-1">{post.title}</p>
                       <p className="pl-4 line-clamp-1 text-12 max-w-[500px] pt-1">
-                        <span>{post.content}</span>
+                        <span className="md:block hidden">{post.content}</span>
                       </p>
                     </Link>
                   </li>
