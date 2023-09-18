@@ -2,79 +2,15 @@ import { CategoryBackGround } from '@/layout/home/CategoryBackGround';
 import { DoujinCard } from '@/components/DoujinCard';
 import { doujinData } from '@/features/home/doujinData';
 import { useRef, createRef, useEffect, RefObject } from 'react';
+import { useSideSlide } from '@/hooks/useSideSlide';
 
 export const DoujinSection: React.FC = () => {
-  const cardRefs = useRef<RefObject<HTMLDivElement>[]>([]);
-  const parentRef = useRef<HTMLDivElement | null>(null);
-  const scrollSliderRef = useRef<HTMLUListElement | null>(null);
+  const { cardRefs, parentRef, scrollSliderRef, handleUpdateTranslate } =
+    useSideSlide();
 
   doujinData.forEach((_, index) => {
-    cardRefs.current[index] = createRef<HTMLDivElement>();
+    cardRefs.current[index] = createRef<HTMLLIElement>();
   });
-
-  useEffect(() => {
-    // カードを横に並べる
-    if (cardRefs.current) {
-      cardRefs.current.forEach((card, ind) => {
-        if (card.current) {
-          card.current.style.left = `${1000 * ind}px`;
-        }
-      });
-    }
-
-    window.addEventListener('scroll', () => {
-      handleUpdateTranslate(scrollSliderRef.current);
-    });
-
-    return () => {
-      window.removeEventListener('scroll', () => {
-        handleUpdateTranslate(scrollSliderRef.current);
-      });
-    };
-  }, []);
-
-  const getWidthFirstItem = () => {
-    if (cardRefs.current) {
-      const f = cardRefs.current[0];
-      return f && f.current ? f.current.getBoundingClientRect().width : 0;
-    }
-    return 0;
-  };
-
-  const getDistance = () => {
-    let t = 0;
-    if (cardRefs.current) {
-      return (
-        cardRefs.current.forEach((e, s) => {
-          s === 0 || s === cardRefs.current.length - 1
-            ? (t += e && e.current ? e.current.offsetWidth / 2 : 0)
-            : (t += e && e.current ? e.current.offsetWidth : 0);
-        }),
-        (t += (cardRefs.current.length - 1) * 100),
-        t
-      );
-    }
-    return t;
-  };
-
-  const handleUpdateTranslate = (elm: HTMLUListElement | null) => {
-    if (!elm) return;
-    const firstItemWidth = getWidthFirstItem();
-    console.log('firstItemWidth: ', firstItemWidth);
-
-    const parentHeight = parentRef.current
-      ? parentRef.current.getBoundingClientRect().height
-      : 0;
-    const parentWidth = parentRef.current
-      ? parentRef.current.getBoundingClientRect().width
-      : 0;
-
-    const distance = getDistance() - document.documentElement.scrollTop;
-
-    elm.style.transform = `translate(${
-      (parentWidth + firstItemWidth) / 3 + distance
-    }px, ${parentHeight / 20}px)`;
-  };
 
   return (
     <div className="relative">
@@ -92,10 +28,14 @@ export const DoujinSection: React.FC = () => {
         <div className="h-screen sticky top-0 left-0 bg-primary mt-14 w-screen mx-[calc(50%_-_50vw)]">
           <ul className="relative" data-scroll-slider ref={scrollSliderRef}>
             {doujinData.map((book, index) => (
-              <li key={book.title} data-scroll-slider-item>
+              <li
+                key={book.title}
+                data-scroll-slider-item
+                ref={cardRefs.current[index]}
+                className="absolute top-0 left-0 pr-10 md:p-4"
+              >
                 <DoujinCard
-                  className="absolute top-0 left-0 sm:w-[100vw] md:w-[85vw] w-[50vw] text-black"
-                  ref={cardRefs.current[index]}
+                  className="text-black"
                   coverImage={book.coverImage}
                   image={book.image}
                   title={book.title}

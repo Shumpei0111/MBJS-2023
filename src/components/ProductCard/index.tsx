@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import classNames from 'classnames';
 import { useProductCard } from '@/hooks/useProductCard';
 import { AlwaysShow } from '@/features/home/AlwaysShow';
