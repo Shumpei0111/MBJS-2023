@@ -38,10 +38,10 @@ export const MainVisual: React.FC<Props> = ({
           ])}
         >
           <div
-            className="absolute translate-y-[-30%] left-[10%]"
+            className="absolute translate-y-[-55%] md:translate-y-[-30%] left-[10%]"
             ref={innerRef}
           >
-            <div className="w-400 flow-arm">
+            <div className="w-full md:w-400 flow-arm">
               <img
                 src={'/images/arm_and_sign.png'}
                 alt=""
