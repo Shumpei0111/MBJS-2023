@@ -13,7 +13,7 @@ export const DoujinSection: React.FC = () => {
   });
 
   return (
-    <div className="relative pt-[500px]">
+    <section className="relative pt-[500px]">
       <CategoryBackGround titleFirst={'Doujin'} titleSecond={'Artwork'} />
       <div className="md:w-560">
         <p className="text-20 pb-2 leading-5 border-b-2 border-primary inline-block">
@@ -25,7 +25,7 @@ export const DoujinSection: React.FC = () => {
       </div>
       {/* NOTE; parentRef カードの枚数で h-[n*100vh] が決まる */}
       <div className="relative h-[350vh]" ref={parentRef}>
-        <div className="h-screen sticky top-0 left-0 bg-primary mt-14 w-screen mx-[calc(50%_-_50vw)]">
+        <div className="h-screen sticky overflow-hidden top-0 left-0 bg-primary mt-14 w-screen mx-[calc(50%_-_50vw)]">
           <ul className="relative" data-scroll-slider ref={scrollSliderRef}>
             {doujinData.map((book, index) => (
               <li
@@ -51,6 +51,6 @@ export const DoujinSection: React.FC = () => {
           <div className="absolute top-[95%] left-0 w-screen mx-[calc(50%_-_50vw)] h-2 bg-black" />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
