@@ -3,7 +3,7 @@ import { ProductCard } from '@/components/ProductCard';
 
 export const OtherSection: React.FC = () => {
   return (
-    <div className="relative">
+    <div className="relative pt-[500px]">
       <CategoryBackGround titleFirst={'Other'} titleSecond={'Artwork'} />
       <div className="flex flex-row flex-wrap justify-between gap-y-10">
         <ProductCard

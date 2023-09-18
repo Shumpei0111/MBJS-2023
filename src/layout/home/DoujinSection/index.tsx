@@ -13,13 +13,13 @@ export const DoujinSection: React.FC = () => {
   });
 
   return (
-    <div className="relative">
+    <div className="relative pt-[500px]">
       <CategoryBackGround titleFirst={'Doujin'} titleSecond={'Artwork'} />
-      <div className="w-560">
+      <div className="md:w-560">
         <p className="text-20 pb-2 leading-5 border-b-2 border-primary inline-block">
           同人活動「なな爺」名義にて活動中
         </p>
-        <p className="mt-4 text-justify text-14 leading-6">
+        <p className="mt-4 text-justify text-14 leading-10">
           【ファッションイラスト×アニメ】をコンセプトに、同人サークル「1月の朝」でガルパン（ガールズアンドパンツァー）やプリキュアなどの二次創作をしています。アナログ感のある、ガーリーでちょっとクラシカルなイラストを制作しています。
         </p>
       </div>
