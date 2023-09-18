@@ -2,6 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import classNames from 'classnames';
 import { useProductCard } from '@/hooks/useProductCard';
+import { AlwaysShow } from '@/features/home/AlwaysShow';
+import { ThumbnailHover } from '@/features/home/ThumbnailHover';
 
 export type CommonCard = {
   image: {
@@ -32,14 +34,20 @@ export const ProductCard: React.FC<CommonCard> = ({
     useProductCard();
 
   return (
-    <div data-component="product-card" className="w-500" ref={targetRef}>
-      <div className="w-500 h-500 peer">
-        <div className="relative">
+    <article
+      data-component="product-card"
+      className="min-h-full"
+      ref={targetRef}
+    >
+      <div className="relative">
+        <div
+          className={classNames([
+            'absolute top-0 left-0 overflow-hidden z-20 hidden-cover duration-300 min-h-full',
+            isIntersecting && 'is-hidden',
+          ])}
+        >
           <Image
-            className={classNames([
-              'object-cover absolute top-0 left-0 z-20 hidden-cover duration-300',
-              isIntersecting && 'is-hidden',
-            ])}
+            className={'object-cover'}
             src={
               coverImage.url
                 ? coverImage.url
@@ -50,11 +58,14 @@ export const ProductCard: React.FC<CommonCard> = ({
             height={500}
             priority={false}
           />
+        </div>
+        <div
+          className={classNames([
+            'object-cover overflow-hidden top-0 left-0 min-h-full opacity-100 z-10',
+          ])}
+        >
           <Image
-            className={classNames([
-              'object-contain absolute top-0 left-0',
-              'opacity-100 z-10',
-            ])}
+            className={'object-cover'}
             src={image.url ? image.url : 'https://placehold.jp/500x500.png'}
             alt={image.alt}
             width={500}
@@ -63,37 +74,15 @@ export const ProductCard: React.FC<CommonCard> = ({
           />
         </div>
       </div>
-      <div data-show="always">
-        <p className="text-30 pt-4 font-sans">{title}</p>
-        <p className="text-12 pt-4 font-sans">{genre}</p>
+      <div className="max-w-[500px]">
+        <AlwaysShow title={title} genre={genre} />
+        <ThumbnailHover
+          description={description}
+          stack={stack}
+          isStackShow={isStackShow}
+          peerTargetRef={peerTargetRef}
+        />
       </div>
-      <div className="overflow-hidden">
-        <div data-show="thum-hover" ref={peerTargetRef}>
-          <div className="border-t-1 border-b-1 border-primary mt-4">
-            <p className="py-8 text-12 font-sans">{description}</p>
-          </div>
-          <ul
-            className={classNames([
-              'pt-4 opacity-0 duration-[300ms] -translate-y-10',
-              isStackShow && 'opacity-100 translate-y-0',
-            ])}
-          >
-            {stack.map((item, index) => {
-              const key = Object.keys(item)[0];
-              const value = item[key];
-              return (
-                key &&
-                value && (
-                  <li key={index} className="text-12 tracking-wider font-sans">
-                    {key}: {value}
-                  </li>
-                )
-              );
-            })}
-          </ul>
-          {repository && <Link href={repository}>GitHub</Link>}
-        </div>
-      </div>
-    </div>
+    </article>
   );
 };

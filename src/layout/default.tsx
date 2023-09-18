@@ -12,7 +12,7 @@ export const DefaultLayout: React.FC<Props> = ({
   isShowInner = true,
 }) => {
   return (
-    <div>
+    <div className="px-4">
       <TheHeader
         className={classNames([
           'duration-[2800ms]',

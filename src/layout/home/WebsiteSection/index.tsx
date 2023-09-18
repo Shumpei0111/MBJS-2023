@@ -6,20 +6,21 @@ export const WebsiteSection: React.FC = () => {
   return (
     <div className="relative">
       <CategoryBackGround titleFirst={'Website'} titleSecond={'Artwork'} />
-      <div className="flex flex-row flex-wrap justify-between gap-y-10">
+      <ul className="grid grid-cols-2 gap-y-10 gap-x-4">
         {websiteData.map((site) => (
-          <ProductCard
-            key={site.title}
-            coverImage={site.coverImage}
-            image={site.image}
-            title={site.title}
-            genre={site.genre}
-            description={site.description}
-            stack={site.stack}
-            repository={site.repository}
-          />
+          <li key={site.title}>
+            <ProductCard
+              coverImage={site.coverImage}
+              image={site.image}
+              title={site.title}
+              genre={site.genre}
+              description={site.description}
+              stack={site.stack}
+              repository={site.repository}
+            />
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 };

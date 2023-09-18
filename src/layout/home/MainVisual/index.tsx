@@ -52,7 +52,7 @@ export const MainVisual: React.FC<Props> = ({
         </div>
         <div
           className={classNames([
-            'absolute right-0 top-[30vh] duration-[2800ms]',
+            'absolute left-[16px] md:left-auto md:right-0 top-[30vh] duration-[2800ms]',
             isShowInner
               ? 'opacity-100 top-0 blur-none'
               : 'opacity-0 -top-[600px] blur-md',
