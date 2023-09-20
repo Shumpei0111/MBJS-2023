@@ -5,18 +5,21 @@ import Link from 'next/link';
 type Props = {
   isShowInner?: boolean;
   isShowNavigation?: boolean;
+  zIndex?: string;
 } & ComponentProps<'header'>;
 
 export const TheHeader: React.FC<Props> = ({
   isShowInner = true,
   isShowNavigation = true,
   className,
+  zIndex = 'z-10',
 }) => {
   return (
     <header
       className={classNames([
         className,
-        'md:fixed z-10 w-full px-4 md:px-0',
+        'md:fixed w-full px-4 md:px-0',
+        zIndex,
         !isShowInner ? 'blur-md' : 'blur-none',
       ])}
     >

@@ -38,7 +38,7 @@ export const MainVisual: React.FC<Props> = ({
           ])}
         >
           <div
-            className="absolute translate-y-[-55%] md:translate-y-[-30%] left-[10%]"
+            className="absolute translate-y-[-55%] md:translate-y-[-30%] left-[10%] -z-[1]"
             ref={innerRef}
           >
             <div className="w-full md:w-400 flow-arm">

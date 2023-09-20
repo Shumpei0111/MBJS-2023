@@ -11,20 +11,18 @@ export const NoFooterLayout: React.FC<Props> = ({
   isShowInner = true,
 }) => {
   return (
-    <>
+    <div className="px-4">
       <TheHeader
         className={classNames([
-          'duration-[2800ms]',
+          'duration-[2800ms] -ml-4',
           isShowInner ? 'opacity-100' : 'opacity-0',
         ])}
         isShowInner={isShowInner}
         isShowNavigation={false}
       />
-      <div className="px-4">
-        <main className="min-h-screen pt-[140px] container mx-auto relative">
-          {children}
-        </main>
-      </div>
-    </>
+      <main className="min-h-screen pt-[140px] container mx-auto relative">
+        {children}
+      </main>
+    </div>
   );
 };

@@ -1,7 +1,7 @@
 export const LeftSection: React.FC = () => {
   return (
     <div role="presentation">
-      <div className="absolute translate-y-[-30%] left-[10%]">
+      <div className="absolute translate-y-[-30%] left-[10%] -z-[100]">
         <div className="w-400 flow-arm">
           <img
             src={'/images/arm_and_sign.png'}

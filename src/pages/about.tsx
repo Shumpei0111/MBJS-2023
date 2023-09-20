@@ -21,7 +21,7 @@ export default function About() {
       </aside>
       <div
         className={classNames([
-          'absolute top-[-140px] md:top-0 right-[-100vw]',
+          'absolute top-[-140px] md:top-0 right-[-100vw] z-20',
           isLoaded && 'fade-right',
         ])}
       >
