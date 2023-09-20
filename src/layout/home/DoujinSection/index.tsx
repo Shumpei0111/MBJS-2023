@@ -1,12 +1,11 @@
 import { CategoryBackGround } from '@/layout/home/CategoryBackGround';
 import { DoujinCard } from '@/components/DoujinCard';
 import { doujinData } from '@/features/home/doujinData';
-import { useRef, createRef, useEffect, RefObject } from 'react';
+import { createRef } from 'react';
 import { useSideSlide } from '@/hooks/useSideSlide';
 
 export const DoujinSection: React.FC = () => {
-  const { cardRefs, parentRef, scrollSliderRef, handleUpdateTranslate } =
-    useSideSlide();
+  const { cardRefs, parentRef, scrollSliderRef } = useSideSlide();
 
   doujinData.forEach((_, index) => {
     cardRefs.current[index] = createRef<HTMLLIElement>();
@@ -32,7 +31,7 @@ export const DoujinSection: React.FC = () => {
                 key={book.title}
                 data-scroll-slider-item
                 ref={cardRefs.current[index]}
-                className="absolute top-0 left-0 pr-10 md:p-4"
+                className="absolute top-0 left-0 pr-8 md:p-4"
               >
                 <DoujinCard
                   className="text-black"

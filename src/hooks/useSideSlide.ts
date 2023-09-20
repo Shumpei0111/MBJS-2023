@@ -10,8 +10,10 @@ export const useSideSlide = () => {
     if (cardRefs.current) {
       cardRefs.current.forEach((card, ind) => {
         if (card.current) {
+          const adjustMargin = window.innerWidth > 768 ? 300 : 40;
+
           card.current.style.left = `${
-            (card.current.offsetWidth + 40) * (ind + 1)
+            (card.current.offsetWidth + adjustMargin) * (ind + 1)
           }px`;
         }
       });

@@ -63,7 +63,7 @@ export const DoujinCard = forwardRef(
     );
 
     const DescriptionSet: React.FC = () => (
-      <div className="flex flex-col md:w-500">
+      <div className="flex flex-col md:w-500 -mt-16 md:mt-0">
         <TitleBox />
         <GenreBox />
         <StackBox />
@@ -72,31 +72,42 @@ export const DoujinCard = forwardRef(
     );
 
     const ImagesContainer = () => (
-      <div className="relative w-300 md:w-400 min-h-[300px] h-430 md:h-auto">
-        <Image
+      <div className="h-320 md:h-full -mt-16 md:mt-0">
+        <div className="relative">
+          <div
+            className={classNames([
+              'absolute top-0 left-0 overflow-hidden z-20 hidden-cover duration-1000 min-h-full',
+              isIntersecting && 'is-hidden',
+            ])}
+          >
+            <Image
+              className={'object-cover'}
+              src={
+                coverImage.url
+                  ? coverImage.url
+                  : 'https://placehold.jp/500x500.png'
+              }
+              alt={coverImage.alt}
+              width={400}
+              height={300}
+              priority={false}
+            />
+          </div>
+        </div>
+        <div
           className={classNames([
-            'object-cover absolute top-0 left-0 z-20 hidden-cover duration-300',
-            isIntersecting && 'is-hidden',
+            'object-cover overflow-hidden top-0 left-0 min-h-full opacity-100 z-10',
           ])}
-          src={
-            coverImage.url ? coverImage.url : 'https://placehold.jp/500x500.png'
-          }
-          alt={coverImage.alt}
-          width={400}
-          height={300}
-          priority={false}
-        />
-        <Image
-          className={classNames([
-            'object-contain absolute top-0 left-0',
-            'opacity-100 z-10',
-          ])}
-          src={image.url ? image.url : 'https://placehold.jp/500x500.png'}
-          alt={image.alt}
-          width={400}
-          height={300}
-          priority={false}
-        />
+        >
+          <Image
+            className={'object-cover'}
+            src={image.url ? image.url : 'https://placehold.jp/500x500.png'}
+            alt={image.alt}
+            width={400}
+            height={300}
+            priority={false}
+          />
+        </div>
       </div>
     );
 
@@ -106,8 +117,8 @@ export const DoujinCard = forwardRef(
         className={classNames([className])}
         ref={containerRef}
       >
-        <div ref={targetRef}>
-          <div className="flex md:flex-row flex-col gap-x-2 md:gap-x-10">
+        <div data-ref="targetRef" ref={targetRef}>
+          <div className="grid grid-cols-2 gap-x-6 md:gap-x-10 w-700">
             <ImagesContainer />
             <DescriptionSet />
           </div>
