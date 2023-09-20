@@ -7,7 +7,7 @@ export const CategoryBackGround: React.FC<{
       <svg
         className="overflow-visible"
         width="750"
-        height="416"
+        height="460"
         viewBox="0 -20 750 306"
       >
         <text className="fill-transparent text-160 stroke-primary stroke-[0.2] scale-[1] md:scale-[2]">

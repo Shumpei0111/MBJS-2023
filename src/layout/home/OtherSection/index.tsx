@@ -5,7 +5,7 @@ export const OtherSection: React.FC = () => {
   return (
     <section className="relative pt-[500px]">
       <CategoryBackGround titleFirst={'Other'} titleSecond={'Artwork'} />
-      <div className="flex flex-row flex-wrap justify-between gap-y-10">
+      <div className="grid md:grid-cols-2 gap-y-10 gap-x-4 justify-center items-center">
         <ProductCard
           coverImage={{
             url: '/images/project/cover-counter.png',

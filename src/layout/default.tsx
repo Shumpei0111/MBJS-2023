@@ -12,7 +12,7 @@ export const DefaultLayout: React.FC<Props> = ({
   isShowInner = true,
 }) => {
   return (
-    <div className="px-4">
+    <>
       <TheHeader
         className={classNames([
           'duration-[2800ms]',
@@ -20,10 +20,12 @@ export const DefaultLayout: React.FC<Props> = ({
         ])}
         isShowInner={isShowInner}
       />
-      <main className="min-h-[calc(100dvh_-140px_-600px)] pt-[140px] container mx-auto">
-        {children}
-      </main>
-      <TheFooter />
-    </div>
+      <div className="px-4">
+        <main className="min-h-[calc(100dvh_-140px_-600px)] pt-[140px] container mx-auto">
+          {children}
+        </main>
+        <TheFooter />
+      </div>
+    </>
   );
 };

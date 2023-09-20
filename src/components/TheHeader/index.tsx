@@ -16,7 +16,7 @@ export const TheHeader: React.FC<Props> = ({
     <header
       className={classNames([
         className,
-        'md:fixed z-10 w-full',
+        'md:fixed z-10 w-full px-4 md:px-0',
         !isShowInner ? 'blur-md' : 'blur-none',
       ])}
     >

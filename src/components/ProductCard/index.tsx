@@ -35,7 +35,7 @@ export const ProductCard: React.FC<CommonCard> = ({
   return (
     <article
       data-component="product-card"
-      className="min-h-full"
+      className="min-h-full grid justify-center items-center"
       ref={targetRef}
     >
       <div className="relative">
