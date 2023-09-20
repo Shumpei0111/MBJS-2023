@@ -1,6 +1,7 @@
 import { CommonCard } from '@/components/ProductCard';
 import classNames from 'classnames';
 import { RefObject } from 'react';
+import Link from 'next/link';
 
 export const ThumbnailHover: React.FC<
   Pick<CommonCard, 'description' | 'stack' | 'repository'> & {
@@ -11,11 +12,16 @@ export const ThumbnailHover: React.FC<
   <div className="overflow-hidden">
     <div data-show="thum-hover" ref={peerTargetRef}>
       <div className="border-t-1 border-b-1 border-primary mt-4">
-        <p className="py-8 text-12 font-sans">{description}</p>
+        <p style={{ padding: '24px 0' }} className="text-12 font-sans">
+          {description}
+        </p>
       </div>
       <ul
+        style={{
+          transitionDuration: '300ms',
+        }}
         className={classNames([
-          'pt-4 opacity-0 duration-[300ms] -translate-y-10',
+          'pt-4 opacity-0 -translate-y-10',
           isStackShow && 'opacity-100 translate-y-0',
         ])}
       >
