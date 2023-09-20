@@ -41,7 +41,7 @@ export const RightSection: React.FC = () => {
   return (
     <div
       role="main"
-      className="absolute right-0 top-0 bg-black md:h-screen z-[100] w-screen md:w-[calc(100vw_/_2)] mr-[calc(50%_-_50vw)] md:p-20 p-10 pt-10"
+      className="absolute right-0 top-0 bg-black z-[100] w-screen md:w-[calc(100vw_/_2)] mr-[calc(50%_-_50vw)] md:p-20 p-10 pt-10"
     >
       <div className="flex justify-end">
         <button
