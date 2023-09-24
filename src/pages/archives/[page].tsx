@@ -31,7 +31,7 @@ export default function Archives({ posts, page, total, perPage }: Props) {
             <ul className="flex flex-col gap-y-10 md:gap-y-6 fade-up">
               {posts.map((post, index) => (
                 <TransitionItem key={post.title} transitionIndex={index}>
-                  <li className="duration-300 ease-in hover:scale-105 flex flex-col w-fit">
+                  <li className="duration-300 ease-in group/blog-title flex flex-col w-fit">
                     <Link href={`/articles/${post.slug}`}>
                       <div className="flex gap-x-2 items-center pb-1">
                         <span className="text-14">
@@ -55,7 +55,9 @@ export default function Archives({ posts, page, total, perPage }: Props) {
                           </span>
                         )}
                       </div>
-                      <p className="text-18 pt-1">{post.title}</p>
+                      <p className="text-18 pt-1 group-hover/blog-title:tracking-widest duration-200 ease-out">
+                        {post.title}
+                      </p>
                       <p className="pl-4 line-clamp-1 text-12 max-w-[500px] pt-1">
                         <span className="md:block hidden">{post.content}</span>
                       </p>
