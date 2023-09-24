@@ -84,6 +84,7 @@ export const ProductCard: React.FC<CommonCard> = ({
           stack={stack}
           isStackShow={isStackShow}
           peerTargetRef={peerTargetRef}
+          repository={repository}
         />
       </div>
     </article>

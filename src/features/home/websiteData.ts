@@ -29,6 +29,73 @@ export const websiteData: CommonCard[] = [
         Responsible: '企画 / デザイン / ライティング / 実装',
       },
     ],
+    repository:
+      'https://github.com/Shumpei0111/kamiinabotan-fansite/tree/master',
+  },
+  {
+    pageUrl: 'https://temp.co.jp/',
+    image: {
+      url: '/images/project/temp-corp.png',
+      alt: '株式会社TEMPのスクリーンショット',
+    },
+    coverImage: {
+      url: '/images/project/cover-temp-corp.png',
+      alt: '株式会社TEMPのスクリーンショット',
+    },
+    title: '株式会社TEMP',
+    genre: '企業サイト',
+    description:
+      'Notion公式アンバサダー、Tsuburayaさんが経営する株式会社TEMPの公式サイト。実装を担当。',
+    stack: [
+      {
+        'Front-End': 'Vue(Nuxt.js) / tailwindcss',
+      },
+      {
+        Infra: 'cloudflare',
+      },
+      {
+        Period: '1.5 months',
+      },
+      {
+        Responsible: '実装',
+      },
+      {
+        client: '株式会社TEMP',
+      },
+    ],
+    repository: '',
+  },
+  {
+    pageUrl: 'https://temp.co.jp/services/notion-university',
+    image: {
+      url: '/images/project/notion-univ.png',
+      alt: 'Notion大学のスクリーンショット',
+    },
+    coverImage: {
+      url: '/images/project/cover-notion-univ.png',
+      alt: 'Notion大学のスクリーンショット',
+    },
+    title: 'Notion大学',
+    genre: 'サービスサイト',
+    description:
+      'Notion公式アンバサダー、Tsuburayaさんが運営するオンラインコミュニティ「Notion大学」のLP。実装を担当。',
+    stack: [
+      {
+        'Front-End': 'Vue(Nuxt.js) / tailwindcss',
+      },
+      {
+        Infra: 'cloudflare',
+      },
+      {
+        Period: '1 months',
+      },
+      {
+        Responsible: '実装',
+      },
+      {
+        client: '株式会社TEMP',
+      },
+    ],
     repository: '',
   },
   {

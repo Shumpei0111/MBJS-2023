@@ -16,7 +16,7 @@ export const ThumbnailHover: React.FC<
 
   return (
     <div className="overflow-hidden">
-      <div data-show="thum-hover" ref={peerTargetRef}>
+      <div className="relative" data-show="thum-hover" ref={peerTargetRef}>
         <div className="border-t-1 border-b-1 border-primary mt-4">
           <p
             style={{ padding: '24px 0' }}
@@ -50,7 +50,26 @@ export const ThumbnailHover: React.FC<
             );
           })}
         </ul>
-        {repository && <Link href={repository}>GitHub</Link>}
+        {repository && (
+          <span
+            style={{
+              transitionDuration: '300ms',
+            }}
+            className={classNames([
+              windowWidth > 768
+                ? 'opacity-0 -translate-y-10'
+                : 'opacity-100 translate-y-0',
+              isStackShow && 'opacity-100 translate-y-0',
+            ])}
+          >
+            <Link
+              href={repository}
+              className="text-12 tracking-wider font-sans underline"
+            >
+              GitHub
+            </Link>
+          </span>
+        )}
       </div>
     </div>
   );
