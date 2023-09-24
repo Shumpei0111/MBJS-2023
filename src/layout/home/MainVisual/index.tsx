@@ -38,7 +38,7 @@ export const MainVisual: React.FC<Props> = ({
           ])}
         >
           <div
-            className="absolute translate-y-[-55%] md:translate-y-[-30%] left-[10%] -z-[1]"
+            className="absolute translate-y-[-60%] md:translate-y-[-30%] left-[10%] -z-[1]"
             ref={innerRef}
           >
             <div className="w-full md:w-400 flow-arm">
@@ -67,7 +67,7 @@ export const MainVisual: React.FC<Props> = ({
               Illustration : Graphic Design : Manga
             </p>
           </hgroup>
-          <span className="arrow down" />
+          <span className="arrow down !hidden md:!block" />
         </div>
       </div>
     </section>

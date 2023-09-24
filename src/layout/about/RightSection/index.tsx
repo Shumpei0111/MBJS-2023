@@ -42,7 +42,7 @@ export const RightSection: React.FC = () => {
     <TransitionItem transitionIndex={0}>
       <div
         role="main"
-        className="fixed right-0 top-0 z-[100] w-screen md:w-[calc(100vw_/_2)] mr-[calc(50%_-_50vw)] md:p-20 p-10 pt-10"
+        className="absolute right-0 top-0 z-[100] w-screen md:w-[calc(100vw_/_2)] mr-[calc(50%_-_50vw)] md:p-20 p-10 pt-10"
         style={{ backgroundColor: 'black' }}
       >
         <div className="flex justify-end">

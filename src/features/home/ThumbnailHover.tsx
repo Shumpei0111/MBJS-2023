@@ -20,7 +20,7 @@ export const ThumbnailHover: React.FC<
         <div className="border-t-1 border-b-1 border-primary mt-4">
           <p
             style={{ padding: '24px 0' }}
-            className="text-12 font-sans leading-3"
+            className="text-12 font-sans leading-7"
           >
             {description}
           </p>
