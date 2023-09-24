@@ -55,7 +55,7 @@ const BlogPost: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
     <DefaultLayout>
       <SeoMeta pageTitle={title} pagePath={`articles/${slug}`} />
       <div className="max-w-[800px] mx-auto pt-20">
-        <article className="bg-black text-white px-8 md:px-16 py-20 z-[100] relative drop-shadow-lg">
+        <article className="bg-black text-white px-4 md:px-16 py-20 z-[100] relative drop-shadow-lg">
           <TransitionItem transitionIndex={0}>
             {tags && Array.isArray(tags) && (
               <ul className="flex gap-x-3 justify-center">
