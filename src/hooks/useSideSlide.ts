@@ -5,15 +5,24 @@ export const useSideSlide = () => {
   const parentRef = useRef<HTMLDivElement | null>(null);
   const scrollSliderRef = useRef<HTMLUListElement | null>(null);
 
+  const helper = {
+    getAdjustMargin: (ind: number, width: number) => {
+      const adjustMargin = window.innerWidth > 768 ? 300 : 40;
+      return ind === 0 ? 0 : adjustMargin;
+    },
+  };
+
   // カードを横に並べる
   const handleResize = () => {
     if (cardRefs.current) {
       cardRefs.current.forEach((card, ind) => {
         if (card.current) {
-          const adjustMargin = window.innerWidth > 768 ? 300 : 40;
+          const adjustMargin = helper.getAdjustMargin(ind, window.innerWidth);
+
+          const adjustByIndex = ind === 0 ? 0.25 : ind + 0.25;
 
           card.current.style.left = `${
-            (card.current.offsetWidth + adjustMargin) * (ind + 1)
+            (card.current.offsetWidth + adjustMargin) * adjustByIndex
           }px`;
         }
       });

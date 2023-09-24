@@ -18,7 +18,10 @@ export const ThumbnailHover: React.FC<
     <div className="overflow-hidden">
       <div data-show="thum-hover" ref={peerTargetRef}>
         <div className="border-t-1 border-b-1 border-primary mt-4">
-          <p style={{ padding: '24px 0' }} className="text-12 font-sans">
+          <p
+            style={{ padding: '24px 0' }}
+            className="text-12 font-sans leading-3"
+          >
             {description}
           </p>
         </div>

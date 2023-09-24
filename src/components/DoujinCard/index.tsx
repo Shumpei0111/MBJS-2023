@@ -39,12 +39,12 @@ export const DoujinCard = forwardRef(
     const GenreBox = () => (
       <div data-component="GenreBox" className="border-y-1 border-black py-10">
         <p>GENRE: {genre}</p>
-        <p>{description}</p>
+        <p className="text-12 font-sans">{description}</p>
       </div>
     );
 
     const StackBox = () => (
-      <ul data-component="StackBox">
+      <ul data-component="StackBox" className="pt-4">
         {stack.map((item, index) => {
           const key = Object.keys(item)[0];
           const value = item[key];
