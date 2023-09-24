@@ -13,6 +13,7 @@ export type DoujinCardProps = CommonCard & {
 export const DoujinCard = forwardRef(
   (
     {
+      pageUrl,
       image,
       coverImage,
       title,
@@ -99,14 +100,16 @@ export const DoujinCard = forwardRef(
             'object-cover overflow-hidden top-0 left-0 min-h-full opacity-100 z-10',
           ])}
         >
-          <Image
-            className={'object-cover'}
-            src={image.url ? image.url : 'https://placehold.jp/500x500.png'}
-            alt={image.alt}
-            width={400}
-            height={300}
-            priority={false}
-          />
+          <a href={pageUrl} target="_blank" rel="noopener noreferrer">
+            <Image
+              className={'object-cover'}
+              src={image.url ? image.url : 'https://placehold.jp/500x500.png'}
+              alt={image.alt}
+              width={400}
+              height={300}
+              priority={false}
+            />
+          </a>
         </div>
       </div>
     );

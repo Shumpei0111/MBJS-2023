@@ -3,6 +3,7 @@ import { type DoujinCardProps } from '@/components/DoujinCard';
 export const doujinData: DoujinCardProps[] = [
   {
     eventName: 'パンツァーガールズ8',
+    pageUrl: 'https://www.pixiv.net/artworks/59232048',
     image: {
       url: '/images/project/wakenai.png',
       alt: '理由なんてないっのスクリーンショット',
@@ -35,6 +36,7 @@ export const doujinData: DoujinCardProps[] = [
   },
   {
     eventName: 'ぱんっあ！ふぉー！7',
+    pageUrl: 'https://www.pixiv.net/artworks/57371698',
     image: {
       url: '/images/project/date.png',
       alt: '西ダジがデートする話のスクリーンショット',
@@ -58,6 +60,7 @@ export const doujinData: DoujinCardProps[] = [
   },
   {
     eventName: '海ゆかば4',
+    pageUrl: 'https://www.pixiv.net/artworks/55104947',
     image: {
       url: '/images/project/kancolle.png',
       alt: '鎮守府をPRセヨ！のスクリーンショット',

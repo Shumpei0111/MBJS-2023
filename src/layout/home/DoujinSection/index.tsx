@@ -35,6 +35,7 @@ export const DoujinSection: React.FC = () => {
               >
                 <DoujinCard
                   className="text-black"
+                  pageUrl={book.pageUrl}
                   coverImage={book.coverImage}
                   image={book.image}
                   title={book.title}

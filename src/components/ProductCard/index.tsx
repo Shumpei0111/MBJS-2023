@@ -5,6 +5,7 @@ import { AlwaysShow } from '@/features/home/AlwaysShow';
 import { ThumbnailHover } from '@/features/home/ThumbnailHover';
 
 export type CommonCard = {
+  pageUrl: string;
   image: {
     url: string;
     alt: string;
@@ -21,6 +22,7 @@ export type CommonCard = {
 };
 
 export const ProductCard: React.FC<CommonCard> = ({
+  pageUrl,
   image,
   coverImage,
   title,
@@ -45,18 +47,20 @@ export const ProductCard: React.FC<CommonCard> = ({
             isIntersecting && 'is-hidden',
           ])}
         >
-          <Image
-            className={'object-cover'}
-            src={
-              coverImage.url
-                ? coverImage.url
-                : 'https://placehold.jp/500x500.png'
-            }
-            alt={coverImage.alt}
-            width={500}
-            height={500}
-            priority={false}
-          />
+          <a href={pageUrl} target="_blank" rel="noopener noreferrer">
+            <Image
+              className={'object-cover'}
+              src={
+                coverImage.url
+                  ? coverImage.url
+                  : 'https://placehold.jp/500x500.png'
+              }
+              alt={coverImage.alt}
+              width={500}
+              height={500}
+              priority={false}
+            />
+          </a>
         </div>
         <div
           className={classNames([

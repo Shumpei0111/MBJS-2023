@@ -7,6 +7,7 @@ export const OtherSection: React.FC = () => {
       <CategoryBackGround titleFirst={'Other'} titleSecond={'Artwork'} />
       <div className="grid md:grid-cols-2 gap-y-10 gap-x-4 justify-center items-center">
         <ProductCard
+          pageUrl="https://github.com/Shumpei0111/simple_word_count"
           coverImage={{
             url: '/images/project/cover-counter.png',
             alt: 'シンプル文字数カウンターのスクリーンショット',

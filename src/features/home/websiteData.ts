@@ -2,6 +2,7 @@ import { type CommonCard } from '@/components/ProductCard';
 
 export const websiteData: CommonCard[] = [
   {
+    pageUrl: 'https://yuriyoi.site/',
     image: {
       url: '/images/project/kamiinabotan.png',
       alt: '百合に酔うのスクリーンショット',
@@ -31,6 +32,7 @@ export const websiteData: CommonCard[] = [
     repository: '',
   },
   {
+    pageUrl: 'https://demo-exploring-abandoned-schools.netlify.app/',
     image: {
       url: '/images/project/haiko.png',
       alt: '廃校探索のスクリーンショット',
@@ -60,6 +62,7 @@ export const websiteData: CommonCard[] = [
     repository: '',
   },
   {
+    pageUrl: 'https://present-resort-point.netlify.app/',
     image: {
       url: '/images/project/resort.png',
       alt: 'PRESENT RESORT POINTのスクリーンショット',

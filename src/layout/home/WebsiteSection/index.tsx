@@ -10,6 +10,7 @@ export const WebsiteSection: React.FC = () => {
         {websiteData.map((site) => (
           <li key={site.title}>
             <ProductCard
+              pageUrl={site.pageUrl}
               coverImage={site.coverImage}
               image={site.image}
               title={site.title}
