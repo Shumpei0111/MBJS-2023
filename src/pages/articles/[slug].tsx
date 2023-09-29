@@ -9,8 +9,10 @@ import { Post, readContentFiles } from '@/lib/content-loader';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { SeoMeta } from '@/components/Seo';
+import classNames from 'classnames';
 
 const BlogPost: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
+  id,
   slug,
   title,
   tags,
@@ -33,18 +35,45 @@ const BlogPost: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
     return (
       <h2
         id={node.position?.start.line.toString()}
-        className="border-dotted border-white border-b-1 font-bold text-18 mb-3 mt-16"
+        className="border-dotted border-white border-b-1 font-bold text-20 mb-3 pb-1 mt-16"
       >
         {props.children}
       </h2>
     );
   };
 
-  const ankerLink = ({ node, ...props }: any) => {
+  const H3 = ({ node, ...props }: any) => {
+    return (
+      <h3
+        id={node.position?.start.line.toString()}
+        className=" font-bold text-18 mb-3 mt-12"
+      >
+        {props.children}
+      </h3>
+    );
+  };
+
+  const innerAnkerLink = ({ node, ...props }: any) => {
     return (
       <a
         href={'#' + node.position?.start.line.toString()}
-        className="underline hover:text-primary duration-200"
+        className={classNames(
+          'underline hover:text-primary duration-200',
+          props.level === 3 && 'pl-4',
+        )}
+      >
+        {props.children}
+      </a>
+    );
+  };
+
+  const ankerLink = ({ node, ...props }: any) => {
+    return (
+      <a
+        className="underline text-primary"
+        href={props.href}
+        target="_blank"
+        rel="noopener noreferrer"
       >
         {props.children}
       </a>
@@ -69,17 +98,25 @@ const BlogPost: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
                 ))}
               </ul>
             )}
-            <h2 className="text-40 pt-4 text-center">{title}</h2>
+            <span
+              className="text-center leading-[150%] pt-2 block"
+              data-post-id={id}
+              role="presentation"
+            >
+              #{id}
+            </span>
+            <h2 className="text-40 pt-2 text-center">{title}</h2>
           </TransitionItem>
           {/* 目次 */}
           <TransitionItem transitionIndex={1}>
             <nav className="py-10 pt-24 px-6 relative overflow-hidden">
               <div className="inline-flex flex-col gap-y-2 text-14 font-blog">
                 <ReactMarkdown
-                  allowedElements={['h1', 'h2']}
+                  allowedElements={['h1', 'h2', 'h3']}
                   components={{
-                    h1: ankerLink,
-                    h2: ankerLink,
+                    h1: innerAnkerLink,
+                    h2: innerAnkerLink,
+                    h3: innerAnkerLink,
                   }}
                 >
                   {markdownBody}
@@ -98,7 +135,13 @@ const BlogPost: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
           <TransitionItem transitionIndex={2}>
             <div className="leading-10 font-blog pt-40">
               <ReactMarkdown
-                components={{ code: CodeBlock, h1: H1, h2: H2, a: ankerLink }}
+                components={{
+                  code: CodeBlock,
+                  h1: H1,
+                  h2: H2,
+                  h3: H3,
+                  a: ankerLink,
+                }}
                 remarkPlugins={[gfm]}
               >
                 {markdownBody}
@@ -171,6 +214,7 @@ export async function getStaticProps({
   const singlePost = matter(data.default);
 
   const title: string = singlePost.data.title;
+  const id: string = singlePost.data.id;
   const frontmatter = JSON.parse(JSON.stringify(singlePost.data));
   const tags: string[] = (() => {
     if (Array.isArray(frontmatter.tags)) return frontmatter.tags;
@@ -188,6 +232,7 @@ export async function getStaticProps({
 
   return {
     props: {
+      id,
       slug,
       title,
       tags,
