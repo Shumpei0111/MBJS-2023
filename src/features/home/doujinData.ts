@@ -5,11 +5,11 @@ export const doujinData: DoujinCardProps[] = [
     eventName: 'パンツァーガールズ8',
     pageUrl: 'https://www.pixiv.net/artworks/59232048',
     image: {
-      url: '/images/project/wakenai.png',
+      url: '/images/project/wakenai.webp',
       alt: '理由なんてないっのスクリーンショット',
     },
     coverImage: {
-      url: '/images/project/cover-wakenai.png',
+      url: '/images/project/cover-wakenai.webp',
       alt: '理由なんてないっのスクリーンショット',
     },
     title: '理由なんてないっ',
@@ -38,11 +38,11 @@ export const doujinData: DoujinCardProps[] = [
     eventName: 'ぱんっあ！ふぉー！7',
     pageUrl: 'https://www.pixiv.net/artworks/57371698',
     image: {
-      url: '/images/project/date.png',
+      url: '/images/project/date.webp',
       alt: '西ダジがデートする話のスクリーンショット',
     },
     coverImage: {
-      url: '/images/project/cover-date.png',
+      url: '/images/project/cover-date.webp',
       alt: '西ダジがデートする話のスクリーンショット',
     },
     title: '西ダジがデートする話',
@@ -62,11 +62,11 @@ export const doujinData: DoujinCardProps[] = [
     eventName: '海ゆかば4',
     pageUrl: 'https://www.pixiv.net/artworks/55104947',
     image: {
-      url: '/images/project/kancolle.png',
+      url: '/images/project/kancolle.webp',
       alt: '鎮守府をPRセヨ！のスクリーンショット',
     },
     coverImage: {
-      url: '/images/project/cover-kancolle.png',
+      url: '/images/project/cover-kancolle.webp',
       alt: '鎮守府をPRセヨ！のスクリーンショット',
     },
     title: '鎮守府をPRセヨ！',

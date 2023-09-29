@@ -4,11 +4,11 @@ export const websiteData: CommonCard[] = [
   {
     pageUrl: 'https://yuriyoi.site/',
     image: {
-      url: '/images/project/kamiinabotan.png',
+      url: '/images/project/kamiinabotan.webp',
       alt: '百合に酔うのスクリーンショット',
     },
     coverImage: {
-      url: '/images/project/cover-kamiinabotan.png',
+      url: '/images/project/cover-kamiinabotan.webp',
       alt: '百合に酔うのスクリーンショット',
     },
     title: '百合に酔う',
@@ -35,11 +35,11 @@ export const websiteData: CommonCard[] = [
   {
     pageUrl: 'https://temp.co.jp/',
     image: {
-      url: '/images/project/temp-corp.png',
+      url: '/images/project/temp-corp.webp',
       alt: '株式会社TEMPのスクリーンショット',
     },
     coverImage: {
-      url: '/images/project/cover-temp-corp.png',
+      url: '/images/project/cover-temp-corp.webp',
       alt: '株式会社TEMPのスクリーンショット',
     },
     title: '株式会社TEMP',
@@ -49,12 +49,6 @@ export const websiteData: CommonCard[] = [
     stack: [
       {
         'Front-End': 'Vue(Nuxt.js) / tailwindcss',
-      },
-      {
-        Infra: 'cloudflare',
-      },
-      {
-        Period: '1.5 months',
       },
       {
         Responsible: '実装',
@@ -68,11 +62,11 @@ export const websiteData: CommonCard[] = [
   {
     pageUrl: 'https://temp.co.jp/services/notion-university',
     image: {
-      url: '/images/project/notion-univ.png',
+      url: '/images/project/notion-univ.webp',
       alt: 'Notion大学のスクリーンショット',
     },
     coverImage: {
-      url: '/images/project/cover-notion-univ.png',
+      url: '/images/project/cover-notion-univ.webp',
       alt: 'Notion大学のスクリーンショット',
     },
     title: 'Notion大学',
@@ -82,12 +76,6 @@ export const websiteData: CommonCard[] = [
     stack: [
       {
         'Front-End': 'Vue(Nuxt.js) / tailwindcss',
-      },
-      {
-        Infra: 'cloudflare',
-      },
-      {
-        Period: '1 months',
       },
       {
         Responsible: '実装',
@@ -101,11 +89,11 @@ export const websiteData: CommonCard[] = [
   {
     pageUrl: 'https://demo-exploring-abandoned-schools.netlify.app/',
     image: {
-      url: '/images/project/haiko.png',
+      url: '/images/project/haiko.webp',
       alt: '廃校探索のスクリーンショット',
     },
     coverImage: {
-      url: '/images/project/cover-haiko.png',
+      url: '/images/project/cover-haiko.webp',
       alt: '廃校探索のスクリーンショット',
     },
     title: '廃校探索',
@@ -131,11 +119,11 @@ export const websiteData: CommonCard[] = [
   {
     pageUrl: 'https://present-resort-point.netlify.app/',
     image: {
-      url: '/images/project/resort.png',
+      url: '/images/project/resort.webp',
       alt: 'PRESENT RESORT POINTのスクリーンショット',
     },
     coverImage: {
-      url: '/images/project/cover-resort.png',
+      url: '/images/project/cover-resort.webp',
       alt: 'PRESENT RESORT POINTのスクリーンショット',
     },
     title: 'PRESENT RESORT POINT',

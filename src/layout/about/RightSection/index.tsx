@@ -30,8 +30,8 @@ export const RightSection: React.FC = () => {
       new hoverEffect({
         parent: document.querySelector('#prof'),
         intensity: 0.2,
-        image1: '/images/me.png',
-        image2: '/images/me-color.png',
+        image1: '/images/me.webp',
+        image2: '/images/me-color.webp',
         displacementImage: '/images/nosie_cover.png',
         imagesRatio: 505 / 929,
       });
