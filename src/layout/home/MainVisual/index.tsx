@@ -1,5 +1,5 @@
 import { Count } from '@/layout/home/Count';
-import { ComponentProps, useEffect, useRef, useState } from 'react';
+import { ComponentProps, useEffect, useState } from 'react';
 import classNames from 'classnames';
 
 type Props = ComponentProps<typeof Count>;
@@ -19,14 +19,8 @@ export const MainVisual: React.FC<Props> = ({
     }
   }, []);
 
-  const innerRef = useRef<HTMLDivElement>(null);
-
   return (
-    <section
-      data-section="MainVisual"
-      className="relative"
-      style={{ height: innerRef.current?.clientHeight ?? 0 + 1000 }}
-    >
+    <section data-section="MainVisual" className="relative h-screen">
       <Count isShowInner={isShowInner} handleShowInner={handleShowInner} />
       <div className="relative container mx-auto">
         <div
@@ -37,22 +31,22 @@ export const MainVisual: React.FC<Props> = ({
               : 'opacity-0 -top-[600px] blur-md',
           ])}
         >
-          <div
-            className="absolute translate-y-[-60%] md:translate-y-[-30%] left-[10%] -z-[1]"
-            ref={innerRef}
-          >
-            <div className="w-full md:w-400 flow-arm">
+          <div className="relative translate-y-[-70%] sm:translate-y-[-40%] md:translate-y-[-20%] left-0 md:left-[10%] -z-[1]">
+            <div
+              className="flow-arm max-w-[523px] w-full pt-[calc(876/543_*_100%)]"
+              data-taihi="w-full sm:w-460 md:w-523 "
+            >
               <img
                 src={'/images/arm_and_sign.png'}
                 alt=""
-                className="w-full h-auto opacity-80"
+                className="w-full h-auto opacity-80 absolute top-0 left-0 object-cover object-center"
               />
             </div>
           </div>
         </div>
         <div
           className={classNames([
-            'absolute left-[16px] md:left-auto md:right-0 top-[30vh] duration-[2800ms]',
+            'absolute left-[16px] md:left-auto md:right-0 top-[168px] duration-[2800ms]',
             isShowInner
               ? 'opacity-100 top-0 blur-none'
               : 'opacity-0 -top-[600px] blur-md',
