@@ -11,8 +11,10 @@ export default function NotFound() {
             <span className="text-100">404</span>
           </h2>
           <p className="uppercase text-50 md:text-100">
-            Sorry, This pase could not be found.
+            Sorry, This pase could not be found 🛫
           </p>
+        </TransitionItem>
+        <TransitionItem transitionIndex={2}>
           <div className="text-center p-6">
             <Link href={'/'} className="text-32 border-b-1 border-primary">
               Return to Home
