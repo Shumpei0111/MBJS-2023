@@ -6,7 +6,7 @@ export default function DevIndex() {
   return (
     <DefaultLayout>
       <SeoMeta pageTitle={'DevIndex'} pagePath={`dev`} />
-      <section className="md:max-w-[960px] mx-auto pt-20 px-4">
+      <section className="md:max-w-[960px] mx-auto pt-0 md:pt-20 px-4">
         <hgroup>
           <h1 className="text-40">DevIndex</h1>
           <p className="text-14">技術的な実験の場</p>

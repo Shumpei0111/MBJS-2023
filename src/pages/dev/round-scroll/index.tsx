@@ -58,7 +58,7 @@ const Presenter: React.FC<{
   const { wheelRef } = useRoundScroll({ ImageList });
 
   return (
-    <div className="mx-auto pt-20 px-4 h-[600vh]">
+    <div className="mx-auto pt-0 md:pt-20 px-4 h-[600vh]">
       <section className="fixed">
         <TransitionItem transitionIndex={0}>
           <h2 className="text-40">Around "Yokai in Ukiyoe"</h2>
@@ -74,7 +74,7 @@ const Presenter: React.FC<{
           </Link>
         </TransitionItem>
       </section>
-      <p className="fixed text-30 left-1/2 -translate-x-1/2 top-1/2 translate-y-1/2 border-1 rounded-full px-4 border-primary">
+      <p className="fixed text-30 left-1/2 -translate-x-1/2 md:top-1/2 top-[35rem] md:translate-y-1/2 border-1 rounded-full px-4 border-primary">
         Scroll {isIntersecting ? 'up' : 'down'}
       </p>
       <section

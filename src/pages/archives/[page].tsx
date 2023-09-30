@@ -21,7 +21,7 @@ export default function Archives({ posts, page, total, perPage }: Props) {
   return (
     <DefaultLayout>
       <SeoMeta pageTitle={'Archives'} pagePath={`archives/${page}`} />
-      <div className="md:max-w-[960px] mx-auto pt-20 px-4">
+      <div className="md:max-w-[960px] mx-auto pt-0 md:pt-20 px-4">
         <hgroup>
           <h2 className="text-40">BLOG</h2>
           <p className="text-14">日々思ったこと・学習の記録</p>
