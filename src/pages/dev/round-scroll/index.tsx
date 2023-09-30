@@ -8,6 +8,7 @@ import style from './animation.module.css';
 import { useEffect, useRef, useState } from 'react';
 import { useInterSectionObserver } from './hooks/useInterSectionObserver';
 import Link from 'next/link';
+import { TransitionItem } from '@/features/animation/transitionItem';
 
 const ImageList = [
   '01_tennyopng.webp',
@@ -59,17 +60,19 @@ const Presenter: React.FC<{
   return (
     <div className="mx-auto pt-20 px-4 h-[600vh]">
       <section className="fixed">
-        <h2 className="text-40">Around "Yokai in Ukiyoe"</h2>
-        <p className="">スクロールに応じて要素を回転させる</p>
-        <section className="pt-10">
-          <h3 className="text-28 uppercase">Development</h3>
-          <ul>
-            <li className="text-22">- gsap</li>
-          </ul>
-        </section>
-        <Link href={'/dev'} className="underline pt-8 inline-block">
-          一覧に戻る
-        </Link>
+        <TransitionItem transitionIndex={0}>
+          <h2 className="text-40">Around "Yokai in Ukiyoe"</h2>
+          <p className="">スクロールに応じて要素を回転させる</p>
+          <section className="pt-10">
+            <h3 className="text-26 uppercase">Development</h3>
+            <ul>
+              <li className="text-20">- gsap</li>
+            </ul>
+          </section>
+          <Link href={'/dev'} className="underline pt-8 inline-block">
+            一覧に戻る
+          </Link>
+        </TransitionItem>
       </section>
       <p className="fixed text-30 left-1/2 -translate-x-1/2 top-1/2 translate-y-1/2 border-1 rounded-full px-4 border-primary">
         Scroll {isIntersecting ? 'up' : 'down'}
