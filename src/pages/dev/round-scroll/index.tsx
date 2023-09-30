@@ -49,6 +49,8 @@ const WheelCard: React.FC<{ src: string }> = ({ src }) => {
         style['animation'],
       ])}
       fill
+      sizes="300px"
+      style={{ objectFit: 'contain' }}
     />
   );
 };
@@ -86,13 +88,13 @@ const Presenter: React.FC<{
           id="wheel"
           ref={wheelRef}
           data-name="wheel"
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-[300vw] h-[300vw] max-w-[2000px] max-h-[2000px]"
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-[300vw] h-[300vw] max-w-[4000px] max-h-[4000px]"
         >
           {ImageList.map((src, ind) => (
             <li
               key={`${src}-${ind}`}
               data-name="wheel-card"
-              className="wheel-card absolute top-0 left-0 w-[6%] max-w-[200px] aspect-square"
+              className="wheel-card absolute top-0 left-0 w-[6%] max-w-[300px] aspect-square"
             >
               <WheelCard key={src} src={`/images/dev/ukiyoe/${src}`} />
             </li>
