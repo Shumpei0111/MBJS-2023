@@ -18,7 +18,8 @@ export default function DevIndex() {
                 href={'/dev/round-scroll'}
                 className="underline duration-300 ease-in hover:tracking-widest"
               >
-                スクロールに応じて要素を回転させる Around "Yokai in Ukiyoe"
+                スクロールに応じて要素を回転させる Around &ldquo;Yokai in
+                Ukiyoe&ldquo;
               </Link>
             </li>
           </ul>

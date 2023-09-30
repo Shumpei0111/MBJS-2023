@@ -1,14 +1,14 @@
 import { SeoMeta } from '@/components/Seo';
 import { DefaultLayout } from '@/layout/default';
 import classNames from 'classnames';
-import { useRoundScroll } from './hooks/useRoundScroll';
+import { useRoundScroll } from '@/hooks/round-scroll/useRoundScroll';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import gsap from 'gsap';
 import style from './animation.module.css';
-import { useEffect, useRef, useState } from 'react';
-import { useInterSectionObserver } from './hooks/useInterSectionObserver';
+import { useInterSectionObserver } from '@/hooks/round-scroll/useInterSectionObserver';
 import Link from 'next/link';
 import { TransitionItem } from '@/features/animation/transitionItem';
+import Image from 'next/image';
 
 const ImageList = [
   '01_tennyopng.webp',
@@ -41,13 +41,14 @@ const ImageList = [
 
 const WheelCard: React.FC<{ src: string }> = ({ src }) => {
   return (
-    <img
+    <Image
       src={src}
       alt={`wheel card item, ${src}`}
       className={classNames([
         'w-full z-[999] relative duration-300',
         style['animation'],
       ])}
+      fill
     />
   );
 };
@@ -61,7 +62,7 @@ const Presenter: React.FC<{
     <div className="mx-auto pt-0 md:pt-20 px-4 h-[600vh]">
       <section className="fixed">
         <TransitionItem transitionIndex={0}>
-          <h2 className="text-40">Around "Yokai in Ukiyoe"</h2>
+          <h2 className="text-40">Around &quot;Yokai in Ukiyoe&quot;</h2>
           <p className="">スクロールに応じて要素を回転させる</p>
           <section className="pt-10">
             <h3 className="text-26 uppercase">Development</h3>
