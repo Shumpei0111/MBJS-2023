@@ -5,6 +5,8 @@ import { useRoundScroll } from './hooks/useRoundScroll';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import gsap from 'gsap';
 import style from './animation.module.css';
+import { useEffect, useRef, useState } from 'react';
+import { useInterSectionObserver } from './hooks/useInterSectionObserver';
 
 const ImageList = [
   '01_tennyopng.webp',
@@ -48,7 +50,9 @@ const WheelCard: React.FC<{ src: string }> = ({ src }) => {
   );
 };
 
-const Presenter: React.FC = () => {
+const Presenter: React.FC<{
+  isIntersecting: boolean;
+}> = ({ isIntersecting }) => {
   const { wheelRef } = useRoundScroll({ ImageList });
 
   return (
@@ -64,7 +68,7 @@ const Presenter: React.FC = () => {
         </section>
       </section>
       <p className="fixed text-30 left-1/2 -translate-x-1/2 top-1/2 translate-y-1/2 border-1 rounded-full px-4 border-primary">
-        Scroll down
+        Scroll {isIntersecting ? 'up' : 'down'}
       </p>
       <section
         data-name="slider-section"
@@ -76,9 +80,9 @@ const Presenter: React.FC = () => {
           data-name="wheel"
           className="absolute top-0 left-1/2 -translate-x-1/2 w-[300vw] h-[300vw] max-w-[2000px] max-h-[2000px]"
         >
-          {ImageList.map((src) => (
+          {ImageList.map((src, ind) => (
             <li
-              key={src}
+              key={`${src}-${ind}`}
               data-name="wheel-card"
               className="wheel-card absolute top-0 left-0 w-[6%] max-w-[200px] aspect-square"
             >
@@ -94,10 +98,13 @@ const Presenter: React.FC = () => {
 export default function RoundScroll() {
   gsap.registerPlugin(ScrollTrigger);
 
+  const { scrollRef, isIntersecting } = useInterSectionObserver();
+
   return (
     <DefaultLayout>
       <SeoMeta pageTitle={'RoundScroll'} pagePath={`dev/round-scroll`} />
-      <Presenter />
+      <Presenter isIntersecting={isIntersecting} />
+      <div ref={scrollRef} className=" opacity-0 h-100 w-screen"></div>
     </DefaultLayout>
   );
 }
