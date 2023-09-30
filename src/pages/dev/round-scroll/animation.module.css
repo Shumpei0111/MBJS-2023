@@ -1,0 +1,47 @@
+.animation:hover {
+  animation: hover 0.1s ease forwards;
+}
+
+@-webkit-keyframes hover {
+  0% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0;
+    transform: scaleX(1.6);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleX(1.2);
+  }
+  85% {
+    opacity: 0;
+    transform: scaleX(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes hover {
+  0% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0;
+    transform: scaleX(1.6);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleX(1.2);
+  }
+  85% {
+    opacity: 0;
+    transform: scaleX(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
