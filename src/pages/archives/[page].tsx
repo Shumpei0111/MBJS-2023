@@ -34,6 +34,7 @@ export default function Archives({ posts, page, total, perPage }: Props) {
                   <li className="duration-300 ease-in group/blog-title flex flex-col w-fit">
                     <Link href={`/articles/${post.slug}`}>
                       <div className="flex gap-x-2 items-center pb-1">
+                        <span className="text-14">#{post.id}</span>
                         <span className="text-14">
                           {getPostDate(post.date)}
                         </span>
