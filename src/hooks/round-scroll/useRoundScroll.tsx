@@ -5,33 +5,33 @@ export const useRoundScroll = ({ ImageList }: { ImageList: string[] }) => {
   const wheelRef = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
-    if (wheelRef.current) {
-      const images = gsap.utils.toArray<HTMLElement>('.wheel-card');
+    const images = gsap.utils.toArray<HTMLElement>('.wheel-card');
 
-      const setup = () => {
-        const radius =
-          (wheelRef.current && wheelRef.current?.offsetWidth / 2) || 0;
-        const center =
-          (wheelRef.current && wheelRef.current?.offsetWidth / 2) || 0;
-        const total = ImageList.length;
-        const slice = (Math.PI * 2) / total;
+    const setup = () => {
+      const radius =
+        (wheelRef.current && wheelRef.current?.offsetWidth / 2) || 0;
+      const center =
+        (wheelRef.current && wheelRef.current?.offsetWidth / 2) || 0;
+      const total = ImageList.length;
+      const slice = (Math.PI * 2) / total;
 
-        images.forEach((item, i) => {
-          let angle = i * slice;
+      images.forEach((item, i) => {
+        let angle = i * slice;
 
-          let x = center + radius * Math.sin(angle);
-          let y = center + radius * Math.cos(angle);
+        let x = center + radius * Math.sin(angle);
+        let y = center + radius * Math.cos(angle);
 
-          gsap.set(item, {
-            rotation: angle + '-rad',
-            xPercent: -50,
-            yPercent: -50,
-            x,
-            y,
-          });
+        gsap.set(item, {
+          rotation: angle + '-rad',
+          xPercent: -50,
+          yPercent: -50,
+          x,
+          y,
         });
-      };
+      });
+    };
 
+    if (wheelRef.current) {
       gsap.to('#wheel', {
         rotate: () => -360,
         ease: 'none',
@@ -50,7 +50,7 @@ export const useRoundScroll = ({ ImageList }: { ImageList: string[] }) => {
     }
 
     return () => {
-      window.removeEventListener('resize', () => {});
+      window.removeEventListener('resize', setup);
     };
   }, []);
 
