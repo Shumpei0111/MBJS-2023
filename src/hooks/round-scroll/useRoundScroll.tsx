@@ -16,10 +16,10 @@ export const useRoundScroll = ({ ImageList }: { ImageList: string[] }) => {
       const slice = (Math.PI * 2) / total;
 
       images.forEach((item, i) => {
-        let angle = i * slice;
+        const angle = i * slice;
 
-        let x = center + radius * Math.sin(angle);
-        let y = center + radius * Math.cos(angle);
+        const x = center + radius * Math.sin(angle);
+        const y = center + radius * Math.cos(angle);
 
         gsap.set(item, {
           rotation: angle + '-rad',
