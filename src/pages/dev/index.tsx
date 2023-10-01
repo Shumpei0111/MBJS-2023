@@ -12,14 +12,22 @@ export default function DevIndex() {
           <p className="text-14">技術的な実験の場</p>
         </hgroup>
         <section className="pt-10 md:pl-4">
-          <ul>
+          <ul className="grid grid-cols-1 gap-4">
             <li className="w-fit">
               <Link
                 href={'/dev/round-scroll'}
-                className="underline duration-300 ease-in hover:tracking-widest"
+                className="underline duration-300 ease-in hover:tracking-wider"
               >
                 スクロールに応じて要素を回転させる Around &ldquo;Yokai in
                 Ukiyoe&ldquo;
+              </Link>
+            </li>
+            <li className="w-fit">
+              <Link
+                href={'/dev/hero-reveal'}
+                className="underline duration-300 ease-in hover:tracking-wider"
+              >
+                うにょっと表示させるヒーローセクション Hero Reveal Animation
               </Link>
             </li>
           </ul>
