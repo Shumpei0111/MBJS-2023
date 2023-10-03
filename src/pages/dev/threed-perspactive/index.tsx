@@ -9,7 +9,7 @@ const ImageList = [
   { src: '01_tennyopng.webp', top: '10.3rem', left: '1.3rem', zIndex: 1 },
   { src: '05_oiwa.webp', top: '5rem', left: '19.5rem' },
   { src: '09_tuzura_yokai.webp', top: '28.5rem', left: '10.6rem', zIndex: 2 },
-  { src: '02_bake_neko.webp', top: '0', right: '2.6rem' },
+  { src: '02_bake_neko.webp', top: '1rem', right: '2.6rem' },
   { src: '06_onibi.webp', top: '39rem', right: '7rem' },
   { src: '10_hebi_onna.webp', top: '34rem', right: '16rem' },
 ];
@@ -223,10 +223,6 @@ const Presenter: React.FC = () => {
   };
 
   const animateImages = (e: MouseEvent): void => {
-    const directHeroFrames =
-      heroFrameRefs.current &&
-      document.querySelectorAll('[data-name="hero-gallery-frame"]');
-
     heroFrameRefs.current.forEach((frames) => {
       if (frames.current) {
         let xPos = e.clientX / window.innerWidth - 0.5;
@@ -286,7 +282,7 @@ const Presenter: React.FC = () => {
       </nav>
       <section
         data-name="hero"
-        className="relative w-full h-screen overflow-hidden top-[-160px]"
+        className="relative w-full overflow-hidden top-[-130px]"
       >
         <div
           data-name="hero-wrapper"
@@ -339,12 +335,6 @@ const Presenter: React.FC = () => {
 };
 
 export default function ThreeDPerspective() {
-  useEffect(() => {
-    if (document.body) {
-      document.body.style.overflowY = 'hidden';
-    }
-  }, []);
-
   return (
     <DefaultLayout>
       <SeoMeta
