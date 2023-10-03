@@ -40,9 +40,10 @@ export const useRoundScroll = ({ ImageList }: { ImageList: string[] }) => {
           start: 0,
           end: 'max',
           scrub: 1,
-          snap: 1 / images.length,
+          // snap: 1 / images.length,
           invalidateOnRefresh: true,
         },
+        paused: true,
       });
 
       setup();
