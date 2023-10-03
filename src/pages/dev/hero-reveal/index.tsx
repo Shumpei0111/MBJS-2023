@@ -119,7 +119,7 @@ const Presenter = () => {
     <div className="mx-auto px-4 md:pt-20 pt-0">
       <hgroup>
         <h2 className="text-40">Hero Reveal Animation</h2>
-        <p>分割して画像を表示する</p>
+        <p>分割して画像を表示する（PC推奨）</p>
       </hgroup>
       <section
         ref={heroRef}

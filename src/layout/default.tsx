@@ -5,11 +5,13 @@ import { TheFooter } from '@/components/TheFooter';
 type Props = {
   children: React.ReactNode;
   isShowInner?: boolean;
+  className?: string;
 };
 
 export const DefaultLayout: React.FC<Props> = ({
   children,
   isShowInner = true,
+  className,
 }) => {
   return (
     <>

@@ -30,6 +30,14 @@ export default function DevIndex() {
                 うにょっと表示させるヒーローセクション Hero Reveal Animation
               </Link>
             </li>
+            <li className="w-fit">
+              <Link
+                href={'/dev/threed-perspactive'}
+                className="underline duration-300 ease-in hover:tracking-wider"
+              >
+                マウスの動きに追従してパースを変更する Three-D Perspactive
+              </Link>
+            </li>
           </ul>
         </section>
       </section>
