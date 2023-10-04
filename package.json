@@ -25,6 +25,7 @@
     "framer-motion": "^10.16.4",
     "gsap": "^3.12.2",
     "hover-effect": "^1.2.1",
+    "locomotive-scroll": "^4.1.4",
     "next": "13.4.13",
     "postcss": "8.4.27",
     "react": "18.2.0",

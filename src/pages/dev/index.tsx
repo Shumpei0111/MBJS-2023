@@ -3,6 +3,30 @@ import { DefaultLayout } from '@/layout/default';
 import Link from 'next/link';
 
 export default function DevIndex() {
+  const urlList = [
+    {
+      href: 'round-scroll',
+      title:
+        'スクロールに応じて要素を回転させる Around &ldquo;Yokai inUkiyoe&ldquo;',
+      tag: ['gsap', 'scroll', 'image'],
+    },
+    {
+      href: 'hero-reveal',
+      title: 'うにょっと表示させるヒーローセクション Hero Reveal Animation',
+      tag: ['gsap', 'image'],
+    },
+    {
+      href: 'threed-perspactive',
+      title: 'マウスの動きに追従してパースを変更する Three-D Perspactive',
+      tag: ['gsap', 'scroll', 'image'],
+    },
+    {
+      href: 'scroll-wider',
+      title: 'スクロールすると文字のレイアウトが横に広がる',
+      tag: ['gsap', 'scroll', 'text'],
+    },
+  ];
+
   return (
     <DefaultLayout>
       <SeoMeta pageTitle={'DevIndex'} pagePath={`dev`} />
@@ -13,31 +37,16 @@ export default function DevIndex() {
         </hgroup>
         <section className="pt-10 md:pl-4">
           <ul className="grid grid-cols-1 gap-4">
-            <li className="w-fit">
-              <Link
-                href={'/dev/round-scroll'}
-                className="underline duration-300 ease-in hover:tracking-wider"
-              >
-                スクロールに応じて要素を回転させる Around &ldquo;Yokai in
-                Ukiyoe&ldquo;
-              </Link>
-            </li>
-            <li className="w-fit">
-              <Link
-                href={'/dev/hero-reveal'}
-                className="underline duration-300 ease-in hover:tracking-wider"
-              >
-                うにょっと表示させるヒーローセクション Hero Reveal Animation
-              </Link>
-            </li>
-            <li className="w-fit">
-              <Link
-                href={'/dev/threed-perspactive'}
-                className="underline duration-300 ease-in hover:tracking-wider"
-              >
-                マウスの動きに追従してパースを変更する Three-D Perspactive
-              </Link>
-            </li>
+            {urlList.map((item, i) => (
+              <li key={i} className="w-fit">
+                <Link
+                  href={`/dev/${item.href}`}
+                  className="underline duration-300 ease-in hover:tracking-wider"
+                >
+                  #{i + 1} {item.title}
+                </Link>
+              </li>
+            ))}
           </ul>
         </section>
       </section>
