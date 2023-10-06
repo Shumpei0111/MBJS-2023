@@ -25,6 +25,11 @@ export default function DevIndex() {
       title: 'スクロールすると文字のレイアウトが横に広がる',
       tag: ['gsap', 'scroll', 'text'],
     },
+    {
+      href: 'mask-cursor-effect',
+      title: '文字の上をホバーするとエフェクトが発生する',
+      tag: ['framer motion', 'text'],
+    },
   ];
 
   return (

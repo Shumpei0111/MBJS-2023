@@ -1,0 +1,8 @@
+.mask-image {
+  mask-image: url('/images/dev/symbol/ellipse-purple.svg');
+  mask-repeat: no-repeat;
+  background: #ec4e39;
+  /* mask-position: 50%; */
+  mask-size: 40px;
+  color: black;
+}
