@@ -22,12 +22,13 @@ export default function DevIndex() {
     },
     {
       href: 'scroll-wider',
-      title: 'スクロールすると文字のレイアウトが横に広がる',
+      title: 'スクロールすると文字のレイアウトが横に広がる Scroll Wider',
       tag: ['gsap', 'scroll', 'text'],
     },
     {
       href: 'mask-cursor-effect',
-      title: '文字の上をホバーするとエフェクトが発生する',
+      title:
+        '文字の上をホバーするとエフェクトが発生する Mask Cursor Effect Text',
       tag: ['framer motion', 'text'],
     },
   ];
