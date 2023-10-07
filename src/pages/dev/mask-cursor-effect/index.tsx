@@ -14,7 +14,7 @@ export const Presenter: React.FC = () => {
   const size = isHovered ? 400 : 40;
 
   return (
-    <div className="mx-auto pt-0 md:pt-20 px-4 grid grid-cols-1 gap-[6rem]">
+    <div className="mx-auto pt-0 md:pt-20 px-4 grid grid-cols-1">
       <nav>
         <div data-name="nav-wrapper" className="w-[inherit] relative">
           <div data-name="nav-title">
@@ -39,48 +39,41 @@ export const Presenter: React.FC = () => {
       <TransitionItem transitionIndex={0}>
         <p className="text-100 text-center">↓ hover?</p>
       </TransitionItem>
-      <div className="relative h-screen">
-        <section
-          className="h-screen"
-          // className="h-screen absolute left-1/2 w-full top-0 -translate-x-1/2"
+      <div className="relative h-screen mx-[calc(50%_-_50vw)]">
+        <motion.div
+          data-name="mask"
+          animate={{
+            WebkitMaskPosition: `${x - size / 2}px ${y - size / 2}px`,
+            WebkitMaskSize: `${size}px`,
+          }}
+          transition={{ type: 'tween', ease: 'backOut' }}
+          className={classNames(
+            'absolute w-full h-full flex items-center justify-center',
+            style['mask-image'],
+          )}
         >
-          <motion.div
-            data-name="mask"
-            animate={{
-              WebkitMaskPosition: `${x - size / 2}px ${y - size / 2}px`,
-              WebkitMaskSize: `${size}px`,
+          <p
+            onMouseEnter={() => {
+              setIseHovered(true);
             }}
-            transition={{ type: 'tween', ease: 'backOut' }}
-            className={classNames(
-              'absolute w-full h-full flex items-center justify-center',
-              style['mask-image'],
-            )}
+            onMouseLeave={() => {
+              setIseHovered(false);
+            }}
+            className="leading-10 text-center w-600 cursor-default"
           >
-            <p
-              onMouseEnter={() => {
-                console.log('enter');
-                setIseHovered(true);
-              }}
-              onMouseLeave={() => {
-                console.log('leave');
-                setIseHovered(false);
-              }}
-              className="leading-10 text-center md:max-w-[600px] max-w-[300px]"
-            >
-              「ではみなさんは、そういうふうに川だと言われたり、乳の流れたあとだと言われたりしていた、このぼんやりと白いものがほんとうは何かご承知ですか」先生は、黒板につるした大きな黒い星座の図の、上から下へ白くけぶった銀河帯のようなところを指しながら、みんなに問いをかけました。カムパネルラが手をあげました。それから四、五人手をあげました。ジョバンニも手をあげようとして、急いでそのままやめました。たしかにあれが
-            </p>
-          </motion.div>
-          <div
-            data-name="body"
-            className={classNames(
-              'w-full h-full flex items-center justify-center',
-            )}
-          >
-            <p className="leading-10 text-center md:max-w-[600px] max-w-[300px]">
-              「ではみなさんは、そういうふうに川だと言われたり、乳の流れたあとだと言われたりしていた、このぼんやりと白いものがほんとうは何かご承知ですか」先生は、黒板につるした大きな黒い星座の図の、上から下へ白くけぶった銀河帯のようなところを指しながら、みんなに問いをかけました。カムパネルラが手をあげました。それから四、五人手をあげました。ジョバンニも手をあげようとして、急いでそのままやめました。たしかにあれが
-            </p>
-          </div>
-        </section>
+            「ではみなさんは、そういうふうに川だと言われたり、乳の流れたあとだと言われたりしていた、このぼんやりと白いものがほんとうは何かご承知ですか」先生は、黒板につるした大きな黒い星座の図の、上から下へ白くけぶった銀河帯のようなところを指しながら、みんなに問いをかけました。カムパネルラが手をあげました。それから四、五人手をあげました。ジョバンニも手をあげようとして、急いでそのままやめました。たしかにあれが
+          </p>
+        </motion.div>
+        <div
+          data-name="body"
+          className={classNames(
+            'w-full h-full flex items-center justify-center',
+          )}
+        >
+          <p className="leading-10 text-center w-600 cursor-default">
+            「ではみなさんは、そういうふうに川だと言われたり、乳の流れたあとだと言われたりしていた、このぼんやりと白いものがほんとうは何かご承知ですか」先生は、黒板につるした大きな黒い星座の図の、上から下へ白くけぶった銀河帯のようなところを指しながら、みんなに問いをかけました。カムパネルラが手をあげました。それから四、五人手をあげました。ジョバンニも手をあげようとして、急いでそのままやめました。たしかにあれが
+          </p>
+        </div>
       </div>
     </div>
   );
