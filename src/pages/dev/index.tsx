@@ -31,6 +31,12 @@ export default function DevIndex() {
         '文字の上をホバーするとエフェクトが発生する Mask Cursor Effect Text',
       tag: ['framer motion', 'text'],
     },
+    {
+      href: 'menu-hover-show-image',
+      title:
+        'メニューにホバーするとイメージ画像が表示される Menu Hover Show Image',
+      tag: ['text'],
+    },
   ];
 
   return (
