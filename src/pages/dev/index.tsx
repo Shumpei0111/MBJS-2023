@@ -54,14 +54,13 @@ export default function DevIndex() {
           <p className="text-14">技術的な実験の場</p>
         </hgroup>
         <section className="pt-10 md:pl-4">
-          <ul className="grid grid-cols-1 gap-4">
+          <ul className="grid grid-cols-1 gap-6">
             {urlList.map((item, i) => (
               <li key={i} className="w-fit">
-                <Link
-                  href={`/dev/${item.href}`}
-                  className="underline duration-300 ease-in hover:tracking-wider"
-                >
-                  #{i + 1} {item.title}
+                <Link href={`/dev/${item.href}`}>
+                  <span className="pr-1">{i + 1}</span>
+                  <span className="pr-1">{' / '}</span>
+                  <span className="hover:underline">{item.title}</span>
                 </Link>
               </li>
             ))}
