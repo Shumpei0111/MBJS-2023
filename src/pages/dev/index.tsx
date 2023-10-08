@@ -1,4 +1,5 @@
 import { SeoMeta } from '@/components/Seo';
+import { TransitionItem } from '@/features/animation/transitionItem';
 import { DefaultLayout } from '@/layout/default';
 import Link from 'next/link';
 
@@ -43,6 +44,12 @@ export default function DevIndex() {
         'スクロールすると画像とテキストが順に表示される Block Reveal Animation',
       tag: ['gsap', 'image', 'text'],
     },
+    {
+      href: 'modern-gallary',
+      title:
+        'スクロールしたらズレながら画像が表示されるギャラリー Modern Gallary',
+      tag: ['lenis', 'image'],
+    },
   ];
 
   return (
@@ -54,14 +61,25 @@ export default function DevIndex() {
           <p className="text-14">技術的な実験の場</p>
         </hgroup>
         <section className="pt-10 md:pl-4">
-          <ul className="grid grid-cols-1 gap-6">
+          <ul className="grid grid-cols-1 gap-8">
             {urlList.map((item, i) => (
               <li key={i} className="w-fit">
-                <Link href={`/dev/${item.href}`}>
-                  <span className="pr-1">{i + 1}</span>
-                  <span className="pr-1">{' / '}</span>
-                  <span className="hover:underline">{item.title}</span>
-                </Link>
+                <TransitionItem transitionIndex={i}>
+                  <Link href={`/dev/${item.href}`}>
+                    <span className="pr-1">{i + 1}</span>
+                    <span className="pr-1">{' / '}</span>
+                    <span className="hover:underline">{item.title}</span>
+                  </Link>
+                  <ul data-name="tags" className="flex gap-2">
+                    {item.tag.map((tag, i) => (
+                      <li key={i} className="text-14 tracking-wider">
+                        <span className="border-1 border-primary px-2 rounded-md">
+                          {tag}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </TransitionItem>
               </li>
             ))}
           </ul>
