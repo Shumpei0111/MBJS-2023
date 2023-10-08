@@ -35,7 +35,13 @@ export default function DevIndex() {
       href: 'menu-hover-show-image',
       title:
         'メニューにホバーするとイメージ画像が表示される Menu Hover Show Image',
-      tag: ['text'],
+      tag: ['text', 'image'],
+    },
+    {
+      href: 'block-reveal-animation',
+      title:
+        'スクロールすると画像とテキストが順に表示される Block Reveal Animation',
+      tag: ['gsap', 'image', 'text'],
     },
   ];
 
