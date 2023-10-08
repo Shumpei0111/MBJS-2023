@@ -48,7 +48,7 @@ export default function DevIndex() {
       href: 'modern-gallary',
       title:
         'スクロールしたらズレながら画像が表示されるギャラリー Modern Gallary',
-      tag: ['lenis', 'image'],
+      tag: ['lenis', 'gsap', 'image'],
     },
   ];
 
