@@ -257,17 +257,20 @@ const Presenter: React.FC = () => {
   return (
     <div className="mx-auto pt-0 md:pt-20 px-4 h-[600vh]">
       <nav
-        className="fixed top-1/2 translate-y-1/3 left-0 w-full z-[999999] p-[3rem]"
+        className="md:fixed top-1/2 translate-y-1/3 left-0 w-full z-[999999] p-[3rem]"
         ref={navRef}
       >
         <div data-name="nav-wrapper" className="w-[inherit] relative">
           <div data-name="nav-title">
-            <hgroup className="absolute left-0">
+            <hgroup className="bg-black inline-block">
               <h2 className="text-40">Mouse Move Animation</h2>
-              <p>マウスの動きに追従してパースを変更する（PC推奨）</p>
+              <p>
+                マウスの動きに追従してパースを変更する（PCで閲覧してください）
+              </p>
+              <p>Please view on PC.</p>
             </hgroup>
           </div>
-          <div className="absolute right-0">
+          <div className="bg-black inline-block">
             <section className="pt-10">
               <h3 className="text-26 uppercase">Development</h3>
               <ul>
@@ -282,7 +285,7 @@ const Presenter: React.FC = () => {
       </nav>
       <section
         data-name="hero"
-        className="relative w-full overflow-hidden top-[-130px]"
+        className="relative w-full overflow-hidden top-[-130px] hidden md:block"
       >
         <div
           data-name="hero-wrapper"
