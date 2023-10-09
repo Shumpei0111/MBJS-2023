@@ -107,82 +107,82 @@ const Presenter = () => {
               >
                 <h1
                   className={classNames([
-                    'relative uppercase text-center text-[7vw] leading-[90%] text-black',
+                    'relative uppercase text-center text-[7vw] leading-[100%] text-black',
                     style['header-animation'],
                   ])}
                   style={{ WebkitTextStroke: '1px rgba(255, 255, 255, 0.6)' }}
                 >
-                  A creator of
+                  秋の公園、落ち葉が
                 </h1>
                 <HeaderWrapper />
               </div>
               <div data-name="header" className="relative w-max mx-auto flex">
                 <h1
                   className={classNames([
-                    'relative uppercase text-center text-[7vw] leading-[90%] text-black',
+                    'relative uppercase text-center text-[7vw] leading-[100%] text-black',
                     style['header-animation'],
                   ])}
                   style={{ WebkitTextStroke: '1px rgba(255, 255, 255, 0.6)' }}
-                  data-text="sound"
+                  data-text="足元を飾る。"
                 >
-                  sound
+                  足元を飾る。
                 </h1>
                 &nbsp;&nbsp;
+              </div>
+              <div data-name="header" className="relative w-max mx-auto flex">
                 <h1
                   className={classNames([
-                    'relative uppercase text-center text-[7vw] leading-[90%] text-black',
+                    'relative uppercase text-center text-[7vw] leading-[100%] text-black',
                     style['header-animation'],
                   ])}
                   style={{ WebkitTextStroke: '1px rgba(255, 255, 255, 0.6)' }}
                 >
-                  From pure
+                  冬の訪れを
                 </h1>
                 <HeaderWrapper hasDataText />
-              </div>
-              <div data-name="header" className="relative w-max mx-auto">
                 <h1
                   className={classNames([
-                    'relative uppercase text-center text-[7vw] leading-[90%] text-black',
+                    'relative uppercase text-center text-[7vw] leading-[100%] text-black',
                     style['header-animation'],
                   ])}
                   style={{ WebkitTextStroke: '1px rgba(255, 255, 255, 0.6)' }}
                 >
-                  noise of melody,
+                  待つ木々、
                 </h1>
                 <HeaderWrapper />
               </div>
               <div data-name="header" className="relative w-max mx-auto">
                 <h1
                   className={classNames([
-                    'relative uppercase text-center text-[7vw] leading-[90%] text-black',
+                    'relative uppercase text-center text-[7vw] leading-[100%] text-black',
                     style['header-animation'],
                   ])}
                   style={{ WebkitTextStroke: '1px rgba(255, 255, 255, 0.6)' }}
                 >
-                  everyday life
+                  静寂と温もりの中で
                 </h1>
                 <HeaderWrapper />
               </div>
               <div data-name="header" className="relative w-max mx-auto flex">
                 <h1
                   className={classNames([
-                    'relative uppercase text-center text-[7vw] leading-[90%] text-black',
+                    'relative uppercase text-center text-[7vw] leading-[100%] text-black',
                     style['header-animation'],
                   ])}
                   style={{ WebkitTextStroke: '1px rgba(255, 255, 255, 0.6)' }}
                 >
-                  is her
+                  時間が
                 </h1>
                 &nbsp;&nbsp;
                 <h1
                   className={classNames([
-                    'relative uppercase text-center text-[7vw] leading-[90%] text-black',
+                    'relative uppercase text-center text-[7vw] leading-[100%] text-black',
                     style['header-animation'],
                   ])}
                   style={{ WebkitTextStroke: '1px rgba(255, 255, 255, 0.6)' }}
-                  data-text="symphony"
+                  data-text="流れる。"
                 >
-                  symphony
+                  流れる。
                 </h1>
                 <HeaderWrapper hasDataText />
               </div>

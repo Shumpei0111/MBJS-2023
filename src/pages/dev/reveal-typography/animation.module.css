@@ -2,19 +2,18 @@
   content: attr(data-text);
   position: absolute;
   color: #b0282c;
-  overflow: hidden;
-  width: 0;
+  clip-path: inset(0 100% 0 0); /* 初期状態では全体を隠す */
   transition: 1s;
-  animation: fill 1.4s cubic-bezier(0.6, 0, 0.4, 1) forwards;
+  animation: fill 2s cubic-bezier(0.6, 0, 0.4, 1) forwards;
   -webkit-text-stroke: rgba(176, 40, 44, 0.6);
 }
 
 @keyframes fill {
   0% {
-    width: 0;
+    clip-path: inset(0 100% 0 0); /* 全体を隠す */
   }
 
   100% {
-    width: 100%;
+    clip-path: inset(0 0 0 0); /* 全体を表示 */
   }
 }
