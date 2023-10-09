@@ -53,7 +53,7 @@ export default function DevIndex() {
     {
       href: 'reveal-typography',
       title: 'テキストが表示されたら一部にエフェクトがかかる Reveal Typography',
-      tag: ['text', 'gsap'],
+      tag: ['text', 'gsap', 'css animation'],
     },
   ];
 
