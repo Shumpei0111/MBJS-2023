@@ -52,7 +52,7 @@ export default function DevIndex() {
     },
     {
       href: 'reveal-typography',
-      title: 'Reveal Typography',
+      title: 'テキストが表示されたら一部にエフェクトがかかる Reveal Typography',
       tag: ['text', 'gsap'],
     },
   ];
@@ -77,8 +77,8 @@ export default function DevIndex() {
                   </Link>
                   <ul data-name="tags" className="flex gap-2">
                     {item.tag.map((tag, i) => (
-                      <li key={i} className="text-14 tracking-wider">
-                        <span className="border-1 border-primary px-2 rounded-md">
+                      <li key={i} className="text-12 tracking-wider">
+                        <span className="border-1 border-primary px-2 rounded-full font-blog opacity-90">
                           {tag}
                         </span>
                       </li>
