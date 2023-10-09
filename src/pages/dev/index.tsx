@@ -76,13 +76,15 @@ export default function DevIndex() {
                     <span className="hover:underline">{item.title}</span>
                   </Link>
                   <ul data-name="tags" className="flex gap-2">
-                    {item.tag.map((tag, i) => (
-                      <li key={i} className="text-12 tracking-wider">
-                        <span className="border-1 border-primary px-2 rounded-full font-blog opacity-90">
-                          {tag}
-                        </span>
-                      </li>
-                    ))}
+                    {item.tag
+                      .sort((a, b) => (a < b ? -1 : a > b ? 1 : 0))
+                      .map((tag, i) => (
+                        <li key={i} className="text-12 tracking-wider">
+                          <span className="border-1 border-primary px-2 rounded-full font-blog opacity-90">
+                            {tag}
+                          </span>
+                        </li>
+                      ))}
                   </ul>
                 </TransitionItem>
               </li>
