@@ -1,0 +1,20 @@
+.header-animation::before {
+  content: attr(data-text);
+  position: absolute;
+  color: #b0282c;
+  overflow: hidden;
+  width: 0;
+  transition: 1s;
+  animation: fill 1.4s cubic-bezier(0.6, 0, 0.4, 1) forwards;
+  -webkit-text-stroke: rgba(176, 40, 44, 0.6);
+}
+
+@keyframes fill {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 100%;
+  }
+}

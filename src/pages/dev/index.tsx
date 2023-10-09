@@ -50,6 +50,11 @@ export default function DevIndex() {
         'スクロールしたらズレながら画像が表示されるギャラリー Modern Gallary',
       tag: ['lenis', 'gsap', 'image'],
     },
+    {
+      href: 'reveal-typography',
+      title: 'Reveal Typography',
+      tag: ['text', 'gsap'],
+    },
   ];
 
   return (
