@@ -72,14 +72,16 @@ const Presenter = () => {
         <div data-name="nav-wrapper" className="w-[inherit]">
           <div className="relative top-[20px] opacity-0" data-name="nav-title">
             <hgroup className="text-right">
-              <h2 className="text-140">Reveal Typography</h2>
+              <h2 className="text-80 md:text-140">Reveal Typography</h2>
               <p className="pt-6">
-                テキストが表示されたら一部にエフェクトがかかる
+                テキストが表示されたら一部に
+                <br className="block md:hidden" />
+                エフェクトがかかる
               </p>
             </hgroup>
           </div>
           <div data-name="nav-stack" className="relative top-[20px] opacity-0">
-            <section className="pt-10 flex justify-between w-full items-center">
+            <section className="pt-10 flex flex-col md:flex-row md:justify-between w-full md:items-center items-end">
               <h3 className="text-32 uppercase font-blog">Development</h3>
               <ul className="text-right">
                 <li className="text-16 font-blog">gsap</li>
