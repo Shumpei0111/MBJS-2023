@@ -3,6 +3,7 @@ import { DefaultLayout } from '@/layout/default';
 import Image from 'next/image';
 import { useEffect, useLayoutEffect, useState } from 'react';
 import gsap from 'gsap';
+import Link from 'next/link';
 
 const BgCover = () => (
   <div
@@ -36,7 +37,6 @@ const Presenter = () => {
       if (isAnimating) return;
 
       isAnimating = true;
-      console.log('isAnimating', isAnimating);
       const slide = slides[i];
       const img = slide.querySelector('img');
 
@@ -111,17 +111,11 @@ const Presenter = () => {
     }
 
     window.addEventListener('wheel', (e) => {
-      console.log('wheel isAnimating: ', isAnimating);
-
       if (isAnimating) return;
       if (e.deltaY > 0 && currentSlideIndex < slides.length - 1) {
-        console.log(1);
-
         showSlide(currentSlideIndex + 1);
         currentSlideIndex++;
       } else if (e.deltaY < 0 && currentSlideIndex > 0) {
-        console.log(999);
-
         hideSlide(currentSlideIndex);
         currentSlideIndex--;
       }
@@ -152,23 +146,24 @@ const Presenter = () => {
         className="absolute top-1/2 left-[10%] -translate-x-1/2 -translate-y-1/2 flex gap-2 z-[10001] text-white text-18"
         style={{ clipPath: 'polygon(0 0, 100% 0, 100% 30px, 0 20px)' }}
       >
-        <div data-name="prefix" className="relative top-0">
-          <div>1</div>
-          <div>2</div>
-          <div>3</div>
-          <div>4</div>
-          <div>5</div>
+        <div data-name="prefix" className="relative top-0 font-blog">
+          <p>1</p>
+          <p>2</p>
+          <p>3</p>
+          <p>4</p>
+          <p>5</p>
         </div>
         <div data-name="postfix">
-          <span className="py-2">/</span> 5
+          <span className="py-2 font-blog">/</span>
+          <span className="font-blog"> 5</span>
         </div>
       </div>
       <div
         data-name="slide-name"
-        className="absolute top-1/2 left-[30%] -translate-x-1/2 -translate-y-1/2 text-white text-18 z-[10001]"
+        className="absolute top-1/2 left-1/2 md:left-[30%] -translate-x-1/2 -translate-y-1/2 text-white text-18 z-[10001]"
         style={{ clipPath: 'polygon(0 0, 100% 0, 100% 30px, 0 20px)' }}
       >
-        <div data-name="names" className="relative top-0">
+        <div data-name="names" className="relative top-0 font-blog">
           <div>Ether Shift Mode</div>
           <div>Solar Thread</div>
           <div>Quantum Sheen Veil</div>
@@ -178,10 +173,10 @@ const Presenter = () => {
       </div>
       <div
         data-name="slide-year"
-        className="absolute top-1/2 right-[20%] -translate-x-1/2 -translate-y-1/2 text-white text-18 z-[10001]"
+        className="absolute top-1/2 right-0 md:right-[20%] -translate-x-1/2 -translate-y-1/2 text-white text-18 z-[10001]"
         style={{ clipPath: 'polygon(0 0, 100% 0, 100% 30px, 0 20px)' }}
       >
-        <div data-name="years" className="relative top-0">
+        <div data-name="years" className="relative top-0 font-blog">
           <div>2023</div>
           <div>2021</div>
           <div>2022</div>
@@ -276,6 +271,12 @@ const Presenter = () => {
           />
         </div>
         <div className="h-[400vh]" />
+        <div className="absolute bottom-[20%] left-1/2 -translate-x-1/2 z-[10000]">
+          <p className="text-center">Gsap</p>
+          <Link href="/dev" className="underline text-24">
+            Back to DevIndex
+          </Link>
+        </div>
       </div>
     </div>
   );
@@ -284,6 +285,10 @@ const Presenter = () => {
 export default function FullScreenImageSlider() {
   useEffect(() => {
     document.body.style.overflow = 'hidden';
+
+    return () => {
+      document.body.style.overflowY = 'auto';
+    };
   }, []);
 
   return (

@@ -57,8 +57,8 @@ export default function DevIndex() {
     },
     {
       href: 'full-screen-image-slider',
-      title: 'FullScreenImageSlider',
-      tag: ['text', 'gsap'],
+      title: 'フルスクリーンスライダー FullScreenImageSlider',
+      tag: ['text', 'image', 'gsap'],
     },
   ];
 
