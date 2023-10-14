@@ -55,6 +55,11 @@ export default function DevIndex() {
       title: 'テキストが表示されたら一部にエフェクトがかかる Reveal Typography',
       tag: ['text', 'gsap', 'css animation'],
     },
+    {
+      href: 'full-screen-image-slider',
+      title: 'FullScreenImageSlider',
+      tag: ['text', 'gsap'],
+    },
   ];
 
   return (
