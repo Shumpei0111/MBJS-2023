@@ -148,13 +148,13 @@ const Presenter = () => {
       >
         <div data-name="prefix" className="relative top-0 font-blog">
           <p>1</p>
-          <p>2</p>
-          <p>3</p>
-          <p>4</p>
-          <p>5</p>
+          <p className="pt-[2px]">2</p>
+          <p className="pt-[2px]">3</p>
+          <p className="pt-[2px]">4</p>
+          <p className="pt-[2px]">5</p>
         </div>
-        <div data-name="postfix">
-          <span className="py-2 font-blog">/</span>
+        <div data-name="postfix relative top-[-4px]">
+          <span className="font-blog">/</span>
           <span className="font-blog"> 5</span>
         </div>
       </div>
@@ -197,6 +197,7 @@ const Presenter = () => {
             fill
             style={{
               objectFit: 'cover',
+              objectPosition: '0 30%',
             }}
             sizes={'100vw'}
             className="flex-1 w-full h-auto"
