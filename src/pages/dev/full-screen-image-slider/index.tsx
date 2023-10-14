@@ -12,12 +12,9 @@ const BgCover = () => (
 );
 
 const Presenter = () => {
-  // const [currentSlideIndex, setCurrentIndex] = useState(0);
   let currentSlideIndex = 0;
   let isAnimating = false;
   let currentTopValue = 0;
-  // const [isAnimating, setIsAnimating] = useState(false);
-  // const [currentTopValue, setCurrentTopValue] = useState(0);
 
   const elements = [
     { selector: '[data-name="prefix"]', delay: 0 },
@@ -27,6 +24,7 @@ const Presenter = () => {
 
   useLayoutEffect(() => {
     const slides = document.querySelectorAll('[data-name="slide"]');
+
     slides.forEach((slide, i) => {
       if (i !== 0) {
         const img = slide.querySelector('img');
@@ -36,11 +34,13 @@ const Presenter = () => {
 
     function showSlide(i: number) {
       if (isAnimating) return;
+
       isAnimating = true;
+      console.log('isAnimating', isAnimating);
       const slide = slides[i];
       const img = slide.querySelector('img');
 
-      currentTopValue -= 30;
+      currentTopValue -= 29;
 
       elements.forEach((elm) => {
         gsap.to(document.querySelector(elm.selector), {
@@ -63,7 +63,9 @@ const Presenter = () => {
         duration: 2,
         ease: 'power4.inOut',
         onCompolete: () => {
-          isAnimating = false;
+          new Promise((r) => setTimeout(r, 1000)).then(
+            () => (isAnimating = false),
+          );
         },
       });
     }
@@ -74,7 +76,7 @@ const Presenter = () => {
       const slide = slides[i];
       const img = slide.querySelector('img');
 
-      currentTopValue += 30;
+      currentTopValue += 29;
 
       elements.forEach((elm) => {
         gsap.to(document.querySelector(elm.selector), {
@@ -98,28 +100,26 @@ const Presenter = () => {
         ease: 'power3.inOut',
       });
 
-      gsap.to(
-        slide,
-        {
-          clipPath: 'polygon(0 100%, 100% 100%, 100% 100%, 0 100%)',
-          duration: 2,
-          ease: 'power4.inOut',
-          onComplete: () => {
-            isAnimating = false;
-          },
+      gsap.to(slide, {
+        clipPath: 'polygon(0 100%, 100% 100%, 100% 100%, 0 100%)',
+        duration: 2,
+        ease: 'power4.inOut',
+        onComplete: () => {
+          isAnimating = false;
         },
-        // '<',
-      );
+      });
     }
 
     window.addEventListener('wheel', (e) => {
+      console.log('wheel isAnimating: ', isAnimating);
+
       if (isAnimating) return;
       if (e.deltaY > 0 && currentSlideIndex < slides.length - 1) {
         console.log(1);
 
         showSlide(currentSlideIndex + 1);
         currentSlideIndex++;
-      } else if (e.deltaY < 0) {
+      } else if (e.deltaY < 0 && currentSlideIndex > 0) {
         console.log(999);
 
         hideSlide(currentSlideIndex);
@@ -132,11 +132,9 @@ const Presenter = () => {
         if (isAnimating) return;
         if (e.deltaY > 0 && currentSlideIndex < slides.length - 1) {
           showSlide(currentSlideIndex + 1);
-          // setCurrentIndex((p) => p + 1);
           currentSlideIndex++;
         } else if (e.deltaY < 0 && currentSlideIndex > 0) {
           hideSlide(currentSlideIndex);
-          // setCurrentIndex((p) => p - 1);
           currentSlideIndex--;
         }
       });
@@ -152,7 +150,7 @@ const Presenter = () => {
       <div
         data-name="slide-number"
         className="absolute top-1/2 left-[10%] -translate-x-1/2 -translate-y-1/2 flex gap-2 z-[10001] text-white text-18"
-        style={{ clipPath: 'polygon(0 0, 100% 0, 100% 30px, 0 30px)' }}
+        style={{ clipPath: 'polygon(0 0, 100% 0, 100% 30px, 0 20px)' }}
       >
         <div data-name="prefix" className="relative top-0">
           <div>1</div>
@@ -168,7 +166,7 @@ const Presenter = () => {
       <div
         data-name="slide-name"
         className="absolute top-1/2 left-[30%] -translate-x-1/2 -translate-y-1/2 text-white text-18 z-[10001]"
-        style={{ clipPath: 'polygon(0 0, 100% 0, 100% 30px, 0 30px)' }}
+        style={{ clipPath: 'polygon(0 0, 100% 0, 100% 30px, 0 20px)' }}
       >
         <div data-name="names" className="relative top-0">
           <div>Ether Shift Mode</div>
@@ -181,7 +179,7 @@ const Presenter = () => {
       <div
         data-name="slide-year"
         className="absolute top-1/2 right-[20%] -translate-x-1/2 -translate-y-1/2 text-white text-18 z-[10001]"
-        style={{ clipPath: 'polygon(0 0, 100% 0, 100% 30px, 0 30px)' }}
+        style={{ clipPath: 'polygon(0 0, 100% 0, 100% 30px, 0 20px)' }}
       >
         <div data-name="years" className="relative top-0">
           <div>2023</div>
