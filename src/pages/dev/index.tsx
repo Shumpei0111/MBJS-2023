@@ -65,6 +65,11 @@ export default function DevIndex() {
       title: 'Next Imageについて確認する',
       tag: ['image'],
     },
+    {
+      href: 'invert-text-on-scroll',
+      title: 'スクロールに応じて文字色を反転させる Invert Text on Scroll',
+      tag: ['text', 'scroll'],
+    },
   ];
 
   return (
