@@ -46,5 +46,8 @@
     "raw-loader": "^4.0.2",
     "react-syntax-highlighter": "^15.5.0"
   },
-  "packageManager": "yarn@3.6.4"
+  "volta": {
+    "node": "20.8.1",
+    "yarn": "1.22.19"
+  }
 }
