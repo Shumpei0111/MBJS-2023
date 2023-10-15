@@ -1,3 +1,16 @@
 {
-  "editor.formatOnSave": true
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true,
+    "source.organizeImports": true
+  },
+  "prettier.configPath": ".prettierrc",
+  "files.insertFinalNewline": true,
+  "stylelint.validate": ["css", "scss", "typescript", "typescriptreact"],
+  "scss.lint.unknownAtRules": "ignore",
+  "css.validate": false,
+  "scss.validate": false,
+  "stylelint.enable": true
 }
