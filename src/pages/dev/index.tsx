@@ -60,6 +60,11 @@ export default function DevIndex() {
       title: 'フルスクリーンスライダー FullScreenImageSlider',
       tag: ['text', 'image', 'gsap'],
     },
+    {
+      href: 'next-image-practice',
+      title: 'Next Imageについて確認する',
+      tag: ['image'],
+    },
   ];
 
   return (
