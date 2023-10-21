@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef } from 'react';
 import { wait } from '@/util/wait';
 import { gsap } from 'gsap';
+import { useEffect, useRef, useState } from 'react';
 
 export const useProductCard = () => {
   const targetRef = useRef<HTMLDivElement>(null);
@@ -52,7 +52,7 @@ export const useProductCard = () => {
           opacity: 0,
         });
 
-        await wait(400);
+        await wait(200);
         setIsStackShow((p) => !p);
       };
 

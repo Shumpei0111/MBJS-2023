@@ -1,8 +1,8 @@
-import Image from 'next/image';
-import classNames from 'classnames';
-import { useProductCard } from '@/hooks/useProductCard';
 import { AlwaysShow } from '@/features/home/AlwaysShow';
 import { ThumbnailHover } from '@/features/home/ThumbnailHover';
+import { useProductCard } from '@/hooks/useProductCard';
+import classNames from 'classnames';
+import Image from 'next/image';
 
 export type CommonCard = {
   pageUrl: string;
@@ -78,7 +78,12 @@ export const ProductCard: React.FC<CommonCard> = ({
         </div>
       </div>
       <div className="max-w-[500px]">
-        <AlwaysShow title={title} genre={genre} />
+        <AlwaysShow
+          title={title}
+          genre={genre}
+          url={pageUrl}
+          isStackShow={isStackShow}
+        />
         <ThumbnailHover
           description={description}
           stack={stack}

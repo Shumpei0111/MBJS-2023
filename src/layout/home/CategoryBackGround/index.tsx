@@ -3,7 +3,7 @@ export const CategoryBackGround: React.FC<{
   titleSecond?: string;
 }> = ({ titleFirst, titleSecond }) => {
   return (
-    <div className="absolute h-screen top-40 w-full overflow-x-hidden">
+    <div className="absolute h-screen top-40 w-full overflow-x-hidden -z-10">
       <svg
         className="overflow-visible"
         width="750"
