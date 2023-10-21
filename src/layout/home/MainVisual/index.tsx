@@ -1,8 +1,24 @@
+import { useIsomorphicLayoutEffect } from '@/hooks/useIsomorphicLayoutEffect';
 import classNames from 'classnames';
+import gsap from 'gsap';
 
 export const MainVisual: React.FC<{ isShowInner: boolean }> = ({
   isShowInner,
 }) => {
+  useIsomorphicLayoutEffect(() => {
+    gsap.to(document.querySelector('[data-name="my-stack"]'), {
+      duration: 1.7,
+      top: '0',
+      ease: 'power4.inOut',
+    });
+
+    gsap.to(document.querySelector('[data-name="my-stack2"]'), {
+      duration: 2,
+      top: '0',
+      ease: 'power4.inOut',
+    });
+  }, []);
+
   return (
     <section data-section="MainVisual" className="relative h-screen">
       <div className="relative container mx-auto">
@@ -31,13 +47,27 @@ export const MainVisual: React.FC<{ isShowInner: boolean }> = ({
           ])}
         >
           <hgroup>
-            <h2 className="uppercase text-43">
-              Web front-end developer
-              <br />& Doujin creator
-            </h2>
-            <p className="text-27 before:content-['{'] before:pr-1 after:content-['}'] after:pl-1 mt-10 ">
-              Illustration : Graphic Design : Manga
-            </p>
+            <div
+              style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)' }}
+            >
+              <h2
+                data-name="my-stack"
+                className="uppercase text-43 relative top-40"
+              >
+                Web front-end developer
+                <br />& Doujin creator
+              </h2>
+            </div>
+            <div
+              style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)' }}
+            >
+              <p
+                data-name="my-stack2"
+                className="text-27 before:content-['{'] before:pr-1 after:content-['}'] after:pl-1 relative top-20 mt-10"
+              >
+                Illustration : Graphic Design : Manga
+              </p>
+            </div>
           </hgroup>
           <span className="arrow down !hidden md:!block" />
         </div>
