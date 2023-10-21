@@ -8,8 +8,8 @@ export const MainVisual: React.FC<{ isShowInner: boolean }> = ({
       <div className="relative container mx-auto">
         <div
           className={classNames([
-            'container mx-auto absolute left-1/4 -translate-x-1/4  duration-[2800ms]',
-            isShowInner ? 'opacity-100 top-0' : 'opacity-0 -top-[600px]',
+            'container mx-auto absolute left-1/4 -translate-x-1/4  duration-[2800ms] ease-out',
+            isShowInner ? 'top-0' : '-top-[600px]',
           ])}
         >
           <div className="relative translate-y-[-70%] sm:translate-y-[-40%] md:translate-y-[-20%] left-0 md:left-[10%] -z-[1]">
@@ -28,7 +28,6 @@ export const MainVisual: React.FC<{ isShowInner: boolean }> = ({
         <div
           className={classNames([
             'absolute left-[16px] md:left-auto md:right-0 top-[168px] duration-[4800ms]',
-            // isShowInner ? 'opacity-100' : undefined,
           ])}
         >
           <hgroup>

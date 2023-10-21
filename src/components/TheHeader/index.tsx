@@ -1,6 +1,6 @@
 import classNames from 'classnames';
-import { ComponentProps } from 'react';
 import Link from 'next/link';
+import { ComponentProps } from 'react';
 
 type Props = {
   isShowInner?: boolean;
@@ -20,7 +20,6 @@ export const TheHeader: React.FC<Props> = ({
         className,
         'md:fixed w-full px-4 md:px-0',
         zIndex,
-        !isShowInner ? 'blur-md' : 'blur-none',
       ])}
     >
       <div className="container mx-auto md:mt-10 mt-4 flex flex-row items-start">
