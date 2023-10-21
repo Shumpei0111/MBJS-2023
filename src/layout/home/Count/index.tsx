@@ -1,6 +1,6 @@
 import { useCounter } from '@/features/home/useCounter';
 import classNames from 'classnames';
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 type Props = {
   isShowInner: boolean;
@@ -40,7 +40,7 @@ export const Count: React.FC<Props> = ({ isShowInner, handleShowInner }) => {
     <div
       data-component="count"
       className={classNames([
-        isShowInner ? 'opacity-0' : 'opacity-100',
+        isShowInner ? 'opacity-0 -z-10' : 'opacity-100 z-10',
         'w-screen mx-[calc(50%_-_50vw)] overflow-hidden duration-1000 fixed left-0 top-0',
       ])}
     >
