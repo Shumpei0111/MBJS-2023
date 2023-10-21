@@ -7,10 +7,7 @@ type Props = {
   className?: string;
 };
 
-export const DefaultLayout: React.FC<Props> = ({
-  children,
-  isShowInner = true,
-}) => {
+export const DefaultLayout: React.FC<Props> = ({ children }) => {
   const now = new Date().toISOString();
   const dateObj = new Date(now);
   const buildDate = `${dateObj.getFullYear()}/${String(
@@ -19,7 +16,7 @@ export const DefaultLayout: React.FC<Props> = ({
 
   return (
     <>
-      <TheHeader className={'duration-[2800ms]'} isShowInner={isShowInner} />
+      <TheHeader className={'duration-[2800ms]'} />
       <div className="px-4">
         <main className="min-h-[calc(100dvh_-140px_-600px)] pt-[100px] md:pt-[140px] container mx-auto">
           {children}

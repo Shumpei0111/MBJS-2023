@@ -1,19 +1,32 @@
+import { useIsomorphicLayoutEffect } from '@/hooks/useIsomorphicLayoutEffect';
 import classNames from 'classnames';
 import Link from 'next/link';
-import { ComponentProps } from 'react';
+import { ComponentProps, useState } from 'react';
 
 type Props = {
-  isShowInner?: boolean;
   isShowNavigation?: boolean;
   zIndex?: string;
 } & ComponentProps<'header'>;
 
 export const TheHeader: React.FC<Props> = ({
-  isShowInner = true,
   isShowNavigation = true,
   className,
   zIndex = 'z-10',
 }) => {
+  const [scrollY, setScrollY] = useState<number>(0);
+
+  useIsomorphicLayoutEffect(() => {
+    window.addEventListener('wheel', (e) => {
+      setScrollY(window.scrollY);
+    });
+
+    return () => {
+      window.removeEventListener('wheel', (e) => {
+        setScrollY(window.scrollY);
+      });
+    };
+  }, []);
+
   return (
     <header
       className={classNames([
@@ -25,8 +38,20 @@ export const TheHeader: React.FC<Props> = ({
       <div className="container mx-auto md:mt-10 mt-4 flex flex-row items-start">
         <Link href="/">
           <hgroup className="flex md:flex-row flex-col md:items-end items-start">
-            <h1 className={classNames(['text-115 leading-[0.75]'])}>MB.js</h1>
-            <span className=" leading-4 text-18 md:pt-0 pt-4">
+            <h1
+              className={classNames([
+                'text-115 leading-[0.75] duration-300 opacity-100',
+                scrollY > 200 && 'text-60 opacity-20',
+              ])}
+            >
+              MB.js
+            </h1>
+            <span
+              className={classNames(
+                'leading-4 text-18 md:pt-0 pt-4 duration-300',
+              )}
+              style={{ opacity: scrollY > 200 ? 0 : 100 }}
+            >
               Shumpei&apos;s Portfolio site
             </span>
           </hgroup>
