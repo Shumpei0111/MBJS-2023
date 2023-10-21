@@ -11,6 +11,12 @@ export const DefaultLayout: React.FC<Props> = ({
   children,
   isShowInner = true,
 }) => {
+  const now = new Date().toISOString();
+  const dateObj = new Date(now);
+  const buildDate = `${dateObj.getFullYear()}/${String(
+    dateObj.getMonth() + 1,
+  ).padStart(2, '0')}/${String(dateObj.getDate()).padStart(2, '0')}`;
+
   return (
     <>
       <TheHeader className={'duration-[2800ms]'} isShowInner={isShowInner} />
@@ -19,6 +25,9 @@ export const DefaultLayout: React.FC<Props> = ({
           {children}
         </main>
         <TheFooter />
+        <p className="font-blog text-10 pb-10 text-center uppercase">
+          last update: {buildDate}
+        </p>
       </div>
     </>
   );
