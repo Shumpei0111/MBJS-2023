@@ -1,5 +1,5 @@
-import classNames from 'classnames';
 import { TheHeader } from '@/components/TheHeader';
+import classNames from 'classnames';
 
 type Props = {
   children: React.ReactNode;
@@ -17,7 +17,6 @@ export const NoFooterLayout: React.FC<Props> = ({
           'duration-[2800ms] -ml-4',
           isShowInner ? 'opacity-100' : 'opacity-0',
         ])}
-        isShowInner={isShowInner}
         isShowNavigation={false}
       />
       <main className="min-h-screen pt-[140px] container mx-auto relative">
