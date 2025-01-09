@@ -27,7 +27,7 @@ export const SeoMeta: React.FC<Props> = ({
       <meta property="og:site_name" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content="website" />
-      <meta property="og:image" content={`${baseUrl}ogp.webp`} />
+      <meta property="og:image" content={`${baseUrl}top-image.jpg`} />
       <link rel="canonical" href={url} />
     </Head>
   );
