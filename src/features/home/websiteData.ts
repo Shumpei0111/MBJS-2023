@@ -35,17 +35,17 @@ export const websiteData: CommonCard[] = [
   {
     pageUrl: 'https://temp.co.jp/',
     image: {
-      url: '/images/project/temp-corp.webp',
+      url: '/images/project/temp.webp',
       alt: '株式会社TEMPのスクリーンショット',
     },
     coverImage: {
-      url: '/images/project/cover-temp-corp.webp',
+      url: '/images/project/cover-temp.webp',
       alt: '株式会社TEMPのスクリーンショット',
     },
     title: '株式会社TEMP',
     genre: '企業サイト',
     description:
-      'Notion公式アンバサダー、Tsuburayaさんが経営する株式会社TEMPの公式サイト。実装を担当。',
+      'Notion公式アンバサダー、Tsuburaya様が経営する株式会社TEMPの公式サイト。実装を担当。',
     stack: [
       {
         'Front-End': 'Vue(Nuxt.js) / tailwindcss',
@@ -72,7 +72,7 @@ export const websiteData: CommonCard[] = [
     title: 'Notion大学',
     genre: 'サービスサイト',
     description:
-      'Notion公式アンバサダー、Tsuburayaさんが運営するオンラインコミュニティ「Notion大学」のLP。実装を担当。',
+      'Notion公式アンバサダー、Tsuburaya様が運営するオンラインコミュニティ「Notion大学」のLP。実装を担当。',
     stack: [
       {
         'Front-End': 'Vue(Nuxt.js) / tailwindcss',
@@ -87,63 +87,118 @@ export const websiteData: CommonCard[] = [
     repository: '',
   },
   {
-    pageUrl: 'https://demo-exploring-abandoned-schools.netlify.app/',
+    pageUrl: 'https://platinum-interaction.com/',
     image: {
-      url: '/images/project/haiko.webp',
-      alt: '廃校探索のスクリーンショット',
+      url: '/images/project/platinum-interaction.webp',
+      alt: '株式会社PLATINUM INTERACTIONのスクリーンショット',
     },
     coverImage: {
-      url: '/images/project/cover-haiko.webp',
-      alt: '廃校探索のスクリーンショット',
+      url: '/images/project/cover-platinum-interaction.webp',
+      alt: '株式会社PLATINUM INTERACTIONのスクリーンショット',
     },
-    title: '廃校探索',
-    genre: 'Webサイト',
+    title: '株式会社PLATINUM INTERACTION',
+    genre: '企業サイト',
     description:
-      'Twitter上の企画：星駆web制作企画に参加。「お化け屋敷」と簡単な設定をもとに、約1ヶ月で調査、コンセプト作成、デザイン、実装、ライティングまで独自で行う。',
+      '株式会社PLATINUM INTERACTION様の公式サイト。要件定義やデザイン・実装を担当。',
     stack: [
       {
-        'Front-End': 'React',
+        'Front-End': 'WordPress',
       },
       {
-        Infra: 'Firebase Hosting',
+        Responsible: '要件定義 / デザイン / ライティング / 実装',
       },
       {
-        Period: '1 month',
-      },
-      {
-        Responsible: '企画 / 調査 / デザイン / ライティング / 実装',
+        client: '株式会社PLATINUM INTERACTION',
       },
     ],
-    repository: '',
   },
   {
-    pageUrl: 'https://present-resort-point.netlify.app/',
+    pageUrl: 'https://mutube.jp/',
     image: {
-      url: '/images/project/resort.webp',
-      alt: 'PRESENT RESORT POINTのスクリーンショット',
+      url: '/images/project/mutube.webp',
+      alt: 'MUTUBEのスクリーンショット',
     },
     coverImage: {
-      url: '/images/project/cover-resort.webp',
-      alt: 'PRESENT RESORT POINTのスクリーンショット',
+      url: '/images/project/cover-mutube.webp',
+      alt: 'MUTUBEのスクリーンショット',
     },
-    title: 'PRESENT RESORT POINT',
-    genre: 'Webサイト',
+    title: 'MUTUBE',
+    genre: 'メディアサイト',
     description:
-      '1週間でWebサービスを作るイベント#web1weekに参加。「コロナ禍で旅行に出かけられないので、世界のリゾート地にあるライブカメラでリゾート気分を味わう」をコンセプトに制作。',
+      '能登半島地震をきっかけに立ち上がった災害の未来を変えるメディアサイトの立ち上げ。実装を担当。',
     stack: [
       {
-        'Front-End': 'React',
+        'Front-End': 'Next.js(app router) / microCMS',
+      },
+      {
+        Responsible: '実装',
       },
       {
         Infra: 'Netlify',
       },
       {
-        Period: '1 week',
-      },
-      {
-        Responsible: '企画 / 調査 / デザイン / 実装',
+        client: '株式会社Mutubi',
       },
     ],
-    repository: '',
   },
+  // {
+  //   pageUrl: 'https://demo-exploring-abandoned-schools.netlify.app/',
+  //   image: {
+  //     url: '/images/project/haiko.webp',
+  //     alt: '廃校探索のスクリーンショット',
+  //   },
+  //   coverImage: {
+  //     url: '/images/project/cover-haiko.webp',
+  //     alt: '廃校探索のスクリーンショット',
+  //   },
+  //   title: '廃校探索',
+  //   genre: 'Webサイト',
+  //   description:
+  //     'Twitter上の企画：星駆web制作企画に参加。「お化け屋敷」と簡単な設定をもとに、約1ヶ月で調査、コンセプト作成、デザイン、実装、ライティングまで独自で行う。',
+  //   stack: [
+  //     {
+  //       'Front-End': 'React',
+  //     },
+  //     {
+  //       Infra: 'Firebase Hosting',
+  //     },
+  //     {
+  //       Period: '1 month',
+  //     },
+  //     {
+  //       Responsible: '企画 / 調査 / デザイン / ライティング / 実装',
+  //     },
+  //   ],
+  //   repository: '',
+  // },
+  // {
+  //   pageUrl: 'https://present-resort-point.netlify.app/',
+  //   image: {
+  //     url: '/images/project/resort.webp',
+  //     alt: 'PRESENT RESORT POINTのスクリーンショット',
+  //   },
+  //   coverImage: {
+  //     url: '/images/project/cover-resort.webp',
+  //     alt: 'PRESENT RESORT POINTのスクリーンショット',
+  //   },
+  //   title: 'PRESENT RESORT POINT',
+  //   genre: 'Webサイト',
+  //   description:
+  //     '1週間でWebサービスを作るイベント#web1weekに参加。「コロナ禍で旅行に出かけられないので、世界のリゾート地にあるライブカメラでリゾート気分を味わう」をコンセプトに制作。',
+  //   stack: [
+  //     {
+  //       'Front-End': 'React',
+  //     },
+  //     {
+  //       Infra: 'Netlify',
+  //     },
+  //     {
+  //       Period: '1 week',
+  //     },
+  //     {
+  //       Responsible: '企画 / 調査 / デザイン / 実装',
+  //     },
+  //   ],
+  //   repository: '',
+  // },
 ];
