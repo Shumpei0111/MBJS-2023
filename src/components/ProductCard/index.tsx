@@ -19,6 +19,10 @@ export type CommonCard = {
   description: string;
   stack: Record<string, string | string[]>[];
   repository?: string;
+  blog?: {
+    title: string;
+    url: string;
+  };
 };
 
 export const ProductCard: React.FC<CommonCard> = ({

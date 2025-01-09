@@ -1,16 +1,28 @@
 import { type CommonCard } from '@/components/ProductCard';
 
-export const otherWorkData: CommonCard[] = [
+export const otherWorkData: Omit<CommonCard, 'image' | 'coverImage'>[] = [
+  {
+    pageUrl: 'https://github.com/Shumpei0111/todo-cli',
+    title: 'todo-cli',
+    genre: 'CLIツール',
+    description:
+      'ターミナル上で動作するTODOリストツール。タスクの追加、削除、完了、未完了、表示ができます。',
+    stack: [
+      {
+        'Front-End': 'Node.js',
+      },
+      {
+        Period: '0.5day',
+      },
+    ],
+    blog: {
+      title: 'CLI で TODO を管理する(Zenn)',
+      url: 'https://zenn.dev/seventhseven07/articles/ddac898532bacc',
+    },
+    repository: 'https://github.com/Shumpei0111/todo-cli',
+  },
   {
     pageUrl: 'https://github.com/Shumpei0111/simple_word_count',
-    image: {
-      url: '/images/project/counter.webp',
-      alt: 'シンプル文字数カウンターのスクリーンショット',
-    },
-    coverImage: {
-      url: '/images/project/cover-counter.webp',
-      alt: 'シンプル文字数カウンターのスクリーンショット',
-    },
     title: 'シンプル文字数カウンター',
     genre: 'Chrome拡張',
     description:
@@ -23,28 +35,54 @@ export const otherWorkData: CommonCard[] = [
         Period: '3days',
       },
     ],
-    repository: '',
   },
   {
-    pageUrl:
-      'https://speakerdeck.com/shumpei0111/fu-shu-ren-deno-da-gui-mo-saitoyi-zhi-notekunituku',
-    image: {
-      url: '/images/project/slide-fukusunin-big-site-move-tech.webp',
-      alt: '複数人での大規模サイト移植のテクニックのスクリーンショット',
-    },
-    coverImage: {
-      url: '/images/project/cover-slide-fukusunin-big-site-move-tech.webp',
-      alt: '複数人での大規模サイト移植のテクニックのスクリーンショット',
-    },
-    title: '複数人での大規模サイト移植のテクニック',
+    pageUrl: 'https://speakerdeck.com/shumpei0111/li-wai-chu-li-nituitekao-eru',
+    title: '例外処理について考える',
     genre: '登壇',
-    description:
-      '2023年9月に開催した「ジャムスタックチョットデキル!!」での登壇。',
+    description: '2024.12.19 フロントエンドチョットデキル ミニ #01で登壇',
     stack: [
       {
         platform: 'Speaker Deck',
       },
     ],
-    repository: '',
+  },
+  {
+    pageUrl:
+      'https://speakerdeck.com/shumpei0111/reactdefan-yong-de-nainputkonponentowokao-eru',
+    title: 'Reactで汎用的なinputコンポーネントを考える',
+    genre: '登壇',
+    description: '2024.11.21 エンジニアコミュニティ内での登壇',
+    stack: [
+      {
+        platform: 'Speaker Deck',
+      },
+    ],
+  },
+  {
+    pageUrl:
+      'https://speakerdeck.com/shumpei0111/fu-shu-ren-deno-da-gui-mo-saitoyi-zhi-notekunituku',
+    title: '複数人での大規模サイト移植のテクニック',
+    genre: '登壇',
+    description:
+      '2023.9.9 2023年9月に開催した「ジャムスタックチョットデキル!!」での登壇。',
+    stack: [
+      {
+        platform: 'Speaker Deck',
+      },
+    ],
+  },
+  {
+    pageUrl:
+      'https://speakerdeck.com/shumpei0111/ge-ren-kai-fa-zhe-ha-jamstackdeburoguwoshu-kou-wordpressmoiikedojamstackmone',
+    title:
+      '個人開発者は Jamstackでブログを書こう！〜WordPressもいいけどJamstackもね〜',
+    genre: '登壇',
+    description: 'LTイベント「ジャムスタックチョットデキル」にて登壇。',
+    stack: [
+      {
+        platform: 'Speaker Deck',
+      },
+    ],
   },
 ];
