@@ -4,9 +4,22 @@
   </a>
 </div>
 
-<hgroup align="center">
-<h2>
+<h2 align="center">
   MB.js
+<p style="font-size: 14px;font-weight: 400">Shumpei's Portfolio site</p>
 </h2>
-<span>Shumpei's Portfolio site</span>
-</hgroup>
+
+自身のポートフォリオサイトです。
+
+### 技術スタック
+
+| Category  | Name                  |
+| --------- | --------------------- |
+| Front-End | Next.js(pages router) |
+| Style     | tailwindCSS           |
+| Contents  | Markdown              |
+| Infra     | Vercel                |
+
+### Social
+
+[X @seventhseven](https://x.com/seventhseven)
